@@ -62,7 +62,45 @@
   - Desktop
 
 ### Database Models and Schema
+
+  #### Database Models
   
+   - My database consists of four collections.
+      - Users
+      - Posts
+      - Categories
+      - Comments.
+    
+   - Users
+     - The Users collection contains information about the user.
+     - It also contains a one to many relationship with the Posts models for the users liked posts.
+
+    - Posts 
+     - The Posts model contains the information for each post.
+     - It also contains a relationship with usermodel for the Post author field.
+     - It then contains 2 list fields.
+       1. One for the users who have liked the post.
+       2. A list of the id for each comment on the post.
+    - It also contains a relationship with the category model for each post.
+
+    - Categories
+      - The category model contains a category name which and id whivh is then referenced in the posts model.
+
+    - Comments.
+      - The comments Model contains each comments content and date.
+      - It then contains a reference to the users id who wrote the post.
+      - It then also contains a reference to the id for the post it belongs too.
+
+
+
+#### Database Schema
+
+  - My database schema is shown in the following diagram.
+
+    - ![Image of database schema](readme-images/database/database-schema.png)
+
+
+#### MogoDb
 
 ## Design
 
@@ -124,6 +162,10 @@
 
   - I used different icons from Line awesome throughout the site for social media links and for some backlinks to improve user experience.
 
+- [Quick Database Diagrams](https://www.quickdatabasediagrams.com/)
+
+  - I used quick database diagrams to make a digram of my database schema.
+
 - [Git](https://git-scm.com/)
 
   - Git was used as a version control in the terminal.
@@ -153,6 +195,7 @@
   - Cypress was used to writing and execute automated tests for the page.
 
 - [Markdown toc](http://ecotrust-canada.github.io/markdown-toc/)
+
   - Markdown toc was used to create my table of contents.
 
 ## Testing
@@ -170,24 +213,24 @@
   1. I first signed into Github and located the Code Institute Gitpod template.
 
      - <div float="left">
-          <img src="assets/images/readme/deployment/code-institute-template.png" alt="Image of Code Institute Template" width="840px" height="420px" />
+          <img src="readme-images/git/code-institute-template.png" alt="Image of Code Institute Template" width="840px" height="420px" />
         </div>
 
   2. I then clicked the use this template button.
 
      - <div float="left">
-           <img src="assets/images/readme/deployment/use-this-template.png" alt="Image of use template button" width="400px" height="200px" />
+           <img src="readme-images/git/use-this-template.png" alt="Image of use template button" width="400px" height="200px" />
          </div>
 
   3. I then named the repository and created it.
 
      - <div float="left">
-           <img src="assets/images/readme/deployment/new-repository.png" alt="Image ofnew repository" width="800px" height="400px" />
+           <img src="readme-images/git/new-repository.png" alt="Image ofnew repository" width="800px" height="400px" />
          </div>
 
   4. Once the repository was created I could then open it on Gitpod.
 
-  5. I used my terminal to create my files and folders. .
+  5. I used my terminal to create my files and folders. 
 
 
 
@@ -197,15 +240,15 @@
 
   2. Once I completed a section I used git add command to add the changes I had made to the staging area.
 
-     - ![Image of add readme file](assets/images/readme/deployment/add-readme.png)
+     - ![Image of add readme file](readme-images/git/add-readme.png)
 
   3. Once the file was staged I the used the git commit command to commit the changes.
 
-     - ![Image of commit readme file](assets/images/readme/deployment/git-readme-commit.png).
+     - ![Image of commit readme file](readme-images/git/git-readme-commit.png).
 
   4. Then the changes were pushed to Github using git push command.
 
-  - ![Image of push readme](assets/images/readme/deployment/git-readme-push.png)
+     - ![Image of push readme](readme-images/git/git-readme-push.png)
 
   5. The above steps were used for each stage of development throughout the project.
 
