@@ -1,45 +1,228 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Hello World!
 
-Welcome USER_NAME,
+## Milestone Project 3
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+- This project aims to build a full stack web application using the  python micro framework Flask, Mongdb database, HTML, Css3 and javascript.
+- I have decided to build a social media blogging platform aimed at new developers to share notes on code they have learned with other each other.
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Live project
 
-`python3 -m http.server`
+- [View the live project here.]()
 
-A blue button should appear to click: *Make Public*,
+## Screenshots
 
-Another blue button should appear to click: *Open Browser*.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Table of Contents.
 
-A blue button should appear to click: *Make Public*,
+## User experience
 
-Another blue button should appear to click: *Open Browser*.
+### User Stories
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- New Visitor
 
-## Updates Since The Instructional Video
+  - As a new user, I would like to know what the website is about upon opening the site.
+  - As a new user,I would like to get information about the website.
+  - As a new user, I would like to see some posts on the site.
+  - As a new user, I would like to easily register as a new user.
+  - As a new user, I would like to add a bio and an image to my user account..
+  - As a new user, I would like to add a new post to the blog.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- Repeat users
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+  - As a repeat user, I would like to easily login upon opening the site.
+  - As a repeat user, I would like to be able to like posts.
+  - As a repeat user, I would like to be able to comment on posts.
+  - As a repeat user, I would like to edit and delete my posts.
+  - As a repeat user, I would like to be able edit and delete my account.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+-  All users.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+  - As a user, I would like to get feedback when I have completed an action on the site.
+  - As a user, I would like to be able to contact the website owners if there is an issue.
+  - As a user, I would like see the websites social media links.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- Website owner
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+  - As the owner, I want the user to be able to find information easily.
+  - As the owner, I want the user to be able to sign up or login easily.
+  - As the owner, I only want users who have signed up and loged in to see the full post page.
+  - As a site owner, I only want the user to be able to delete their own posts, or comments.
+  - As a site owner, I want to be able to see how many user there are and how many posts.
+  - As a site owner, I want the ability to delete any post regardless to who has written them, eg they are offensive etc.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### WireFrames
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- I've created WireFrames using Balsamiq and have included the links to access them in pdf form.
 
---------
+  - Phone
+    
+  - Tablet
 
-Happy coding!
+  - Desktop
+
+### Database Models and Schema
+  
+
+## Design
+
+#### Colour Scheme
+
+
+
+#### Typography
+
+
+
+#### Imagery
+
+
+#### Icons
+
+## Features
+
+
+### Custom Error Pages
+
+
+### Features left to Implement.
+
+
+## Technologies used.
+
+### Languages Used.
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+
+  - HTML5 was used to create the content and base of each page.
+
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+
+  - CSS3 was used to then style the page and make it responsive through media queries, and interactive through using CSS transitions.
+
+- [javaScript](https://en.wikipedia.org/wiki/JavaScript)
+  - javaScript was used throughout the website to make the site interactive.
+
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+  - Python was used to build the backend functionality of the web app.
+
+### Flask and Flask Libraries used
+
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+
+  - Flask micro framework was used to build the web app using python code.
+
+
+### Frameworks Libraries and Programs.
+
+
+- [Google Fonts](https://fonts.google.com/)
+
+  - I imported the Mulish font from google fonts and used it consistently across the site.
+
+- [Line awesome](https://icons8.com/line-awesome)
+
+  - I used different icons from Line awesome throughout the site for social media links and for some backlinks to improve user experience.
+
+- [Git](https://git-scm.com/)
+
+  - Git was used as a version control in the terminal.
+
+- [Github](https://github.com/)
+
+  - Github was used to create and store the project repository.
+
+- [Gitpod](https://gitpod.io/)
+
+  - Gitpod was used to create my files and code the project.
+
+- [Balsamiq](https://balsamiq.com/)
+
+  - Balsamiq was used to create Wireframes for the project during the initial planning stage.
+
+- [Am I responsive](http://ami.responsivedesign.is/)
+
+  - Am I responsive was used to taking screenshots of the page at different screen sizes.
+
+- [jQuery](https://jquery.com/)
+
+  - jQuery was used for the Rest Countries Api call and for the Lightslider.
+
+- [Cypress](https://www.cypress.io/)
+
+  - Cypress was used to writing and execute automated tests for the page.
+
+- [Markdown toc](http://ecotrust-canada.github.io/markdown-toc/)
+  - Markdown toc was used to create my table of contents.
+
+## Testing
+
+- #### Testing.
+  - The testing section for this site is located at the following link.
+    - [Testing file](testing.md)
+
+## Deployment
+
+### Github, Gitpod, Git and Github pages
+
+- #### To start the project I used Github and Gitpod.
+
+  1. I first signed into Github and located the Code Institute Gitpod template.
+
+     - <div float="left">
+          <img src="assets/images/readme/deployment/code-institute-template.png" alt="Image of Code Institute Template" width="840px" height="420px" />
+        </div>
+
+  2. I then clicked the use this template button.
+
+     - <div float="left">
+           <img src="assets/images/readme/deployment/use-this-template.png" alt="Image of use template button" width="400px" height="200px" />
+         </div>
+
+  3. I then named the repository and created it.
+
+     - <div float="left">
+           <img src="assets/images/readme/deployment/new-repository.png" alt="Image ofnew repository" width="800px" height="400px" />
+         </div>
+
+  4. Once the repository was created I could then open it on Gitpod.
+
+  5. I used my terminal to create my files and folders. .
+
+
+
+- #### Git
+
+  1. Throughout the project I used git to save and store my progress.
+
+  2. Once I completed a section I used git add command to add the changes I had made to the staging area.
+
+     - ![Image of add readme file](assets/images/readme/deployment/add-readme.png)
+
+  3. Once the file was staged I the used the git commit command to commit the changes.
+
+     - ![Image of commit readme file](assets/images/readme/deployment/git-readme-commit.png).
+
+  4. Then the changes were pushed to Github using git push command.
+
+  - ![Image of push readme](assets/images/readme/deployment/git-readme-push.png)
+
+  5. The above steps were used for each stage of development throughout the project.
+
+### Heroku
+
+
+## Credits
+
+
+### Content
+
+- All Text for the website was written by myself.
+
+### Media
+
+### Acknowledgements
+
+- Code Institute for getting me to this point
+
+- My Mentor for his help with this project.
