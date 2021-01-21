@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 *{
     padding:0;
     margin:0;
      font-size: 10px;
-    font-family:"Montserrat", sans-serif;
-    background:rgb(234, 238, 238);
+}
+body,nav{
+       font-family:"Quicksand", sans-serif;
+    background:rgb(245, 247, 247);
 }
 /* Navigation */
 nav a{
@@ -21,7 +24,6 @@ nav a{
   position: fixed;
   top: 2%;
   right: 4%;
-  z-index: 500;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,4 +35,82 @@ nav a{
   height: 0.2rem;
   background-color: black;
   margin: 0.2rem 0;
+}
+/* Home page */
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 8vh);
+     justify-content: center;
+  align-content: center;
+}
+.title-container {
+    grid-column: 2 / 10;
+    grid-row: 1/ 8;
+}
+.title {
+    font-size: 11rem;
+    font-weight: 500;
+}
+.title-text-container{
+     grid-column: 5/ 8;
+    grid-row: 7/12;
+    background: black;
+    height: 28rem;
+    width: 28rem;
+    border-radius: 50%;
+    position: relative;
+}
+.title-text{
+        color: rgb(245, 247, 247);
+    font-size: 1.2rem;
+    background: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+}
+.signup-container{
+     grid-column: 9/ 12;
+    grid-row: 4/9;
+    background: red;
+    height: 18rem;
+    width: 18rem;
+    border-radius: 50%;
+    position: relative;
+   transition: .5s ease-in;
+}
+.signup-link{
+        color: rgb(245, 247, 247);
+    font-size: 1.2rem; 
+    background: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+     transform: translate3d(-50%,-50%,0);
+}
+.signup-container:hover{
+    transform: scale(1.25);
+}
+.login-container{
+     grid-column: 8/ 11;
+    grid-row: 7/13;
+    background: red;
+    height: 22rem;
+    width: 22rem;
+    border-radius: 50%;
+    position: relative;
+   transition: .5s ease-in;
+}
+.login-link{
+        color: rgb(245, 247, 247);
+    font-size: 1.2rem; 
+    background: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+     transform: translate3d(-50%,-50%,0);
+}
+.login-container:hover{
+    transform: scale(1.25);
 }
