@@ -66,31 +66,31 @@
 
   #### Database Models
   
-   - My database consists of four collections.
-      - Users
-      - Posts
-      - Categories
-      - Comments.
-    
-   - Users
-     - The Users collection contains information about the user.
-     - It also contains a one to many relationship with the Posts models for the users liked posts.
+  - My database consists of four collections.
+    - Users
+    - Posts
+    - Categories
+    - Comments.
 
-    - Posts 
-     - The Posts model contains the information for each post.
-     - It also contains a relationship with usermodel for the Post author field.
-     - It then contains 2 list fields.
+  - Users
+    - The Users collection contains information about the user.
+    - It also contains a one to many relationship with the Posts models for the users liked posts.
+
+  - Posts 
+    - The Posts model contains the information for each post.
+    - It also contains a relationship with usermodel for the Post author field.
+    - It then contains 2 list fields.
        1. One for the users who have liked the post.
        2. A list of the id for each comment on the post.
     - It also contains a relationship with the category model for each post.
 
-    - Categories
-      - The category model contains a category name which and id whivh is then referenced in the posts model.
+  - Categories
+    - The category model contains a category name which and id whivh is then referenced in the posts model.
 
-    - Comments.
-      - The comments Model contains each comments content and date.
-      - It then contains a reference to the users id who wrote the post.
-      - It then also contains a reference to the id for the post it belongs too.
+  - Comments.
+    - The comments Model contains each comments content and date.
+    - It then contains a reference to the users id who wrote the post.
+    - It then also contains a reference to the id for the post it belongs too.
 
 
 
