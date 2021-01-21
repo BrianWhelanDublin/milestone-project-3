@@ -56,10 +56,11 @@
 - I've created WireFrames using Balsamiq and have included the links to access them in pdf form.
 
   - Phone
-    
+    - [Wireframes for phones.](readme-images/wireframes/ms3-phone-wf.pdf)
   - Tablet
-
+    - [Wireframes for tablets.](readme-images/wireframes/ms3-tablet-wf.pdf)
   - Desktop
+    - [Wireframes for desktops.](readme-images/wireframes/ms3-desktop-wf.pdf)
 
 ### Database Models and Schema
 
