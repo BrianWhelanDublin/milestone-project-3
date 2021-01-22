@@ -1,21 +1,32 @@
- {% extends "base/base.html" %}
- {% block content %}
+{% extends "base/base.html" %}
+{% block content %}
+<div class="container">
 <div class="wrapper">
     <div class="title-container">
         <h1 class="title">
-             &lth1&gt <br>      Hello World! <br> &lt/h1&gt
+            <hr>
+              &lth1&gt   
+           HELLO WORLD
+              &lt/h1&gt 
+             <hr>
         </h1>
     </div>
     <div class="title-text-container">
-        <p class="title-text" >&lth1&gt Hello World! &lt/h1&gt is a social forum for new developers to share ideas and notes. Share code that you have learned or find hints and tips others have posted.
+        <hr>
+        <p class="title-text">&lth1&gt Hello World! &lt/h1&gt is a social forum for new developers to share ideas and
+            notes. Share code that you have learned or find hints and tips others have posted.
         </p>
+        <hr>
     </div>
-    <div class="signup-container">
+    <!-- <div class="signup-container">
         <a href="#" class="signup-link">Sign up Today.</a>
+    </div> -->
+    <div class="signup-container">
+        <a href="#" class="signup-link">Sign up.</a>
     </div>
-      <div class="login-container">
-        <a href="#" class="login-link">Login.</a>
+     <div class="login-container">
+        <a href="#" class="login-link">Login</a>
     </div>
 </div>
- 
- {% endblock %}
+</div>
+{% endblock %}
