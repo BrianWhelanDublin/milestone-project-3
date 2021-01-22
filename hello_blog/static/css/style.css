@@ -27,23 +27,86 @@ nav a {
 }
 
 .hamburger {
-    width: 5.5rem;
-    height: 3rem;
-    position: fixed;
-    top: 2%;
-    right: 4%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: none;
+  width: 5.5rem;
+  height: 5.5rem;
+  background-color: transparent;
+  position: fixed;
+  top: 2%;
+  right: 4%;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
 }
-
+button:focus{
+    background-color: rgb(243, 242, 242);
+}
 .line {
-    width: 3rem;
-    height: 0.2rem;
-    background-color: black;
-    margin: 0.2rem 0;
+  width: 3rem;
+  height: 0.2rem;
+  background-color: black;
+  margin: 0.2rem 0;
+  transform-origin: right;
+  transition: all 0.75s;
+}
+.change .line1 {
+  transform: rotate(-40deg) translateY(-6.5px);
+  background-color: #181822;
+}
+.change .line2 {
+  opacity: 0;
+}
+.change .line3 {
+  transform: rotate(40deg) translateY(6.5px);
+  background-color: #181822;
+}
+.nav-background {
+  width: 6rem;
+  height: 6rem;
+  position: fixed;
+  top: 2.2rem;
+  right: 2.2rem;
+  z-index: 400;
+  transition: all .75s cubic-bezier(.4,0,0,1);
+}
+.change .nav-background {
+  background-color: #f02937;
+  transform: scale(150);
+}
+.navigation-list {
+  height: 100%;
+  width: fit-content;
+  position: fixed;
+  right:0;
+  top:10%;
+ display: flex;
+ flex-direction: column;
+  z-index: 400;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .75s cubic-bezier(.4,0,0,1);
+
+}
+.change .navigation-list {
+  opacity: 1;
+  visibility: visible;
+}
+.navigation-item {
+  margin: 1.5vh;
+}
+.navigation-link {
+  font-weight: 600;
+  font-size: 10vh;
+  letter-spacing: 0.4rem;
+  text-decoration: none;
+  color: #181822;
+  transition: all 0.5s ease-in-out;
+  text-transform: uppercase;
+}
+.navigation-link:hover{
+  color: #fafafb; 
 }
 
 
@@ -90,7 +153,7 @@ nav a {
     width: 20vh;
     border-radius: 50%;
     position: relative;
-    transition: .5s ease-in;
+    transition: 1s ease-in-out;
 }
 
 .signup-link {
@@ -114,7 +177,7 @@ nav a {
     width: 18vh;
     border-radius: 50%;
     position: relative;
-    transition: .5s ease-in;
+    transition: 1s ease-in-out;
 }
 
 .login-link {

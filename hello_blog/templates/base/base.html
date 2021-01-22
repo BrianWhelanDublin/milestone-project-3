@@ -19,18 +19,37 @@
             <div class="navigation">
                 <a href="#" class="home-logo">  Hello World!</a>
                 <ul class="nav-list">
-                	<a href="#" class="hamburger" aria-haspopup="true" aria-expanded="false" aria-label="open navigation">
+                	<button href="#" class="hamburger" aria-haspopup="true" aria-expanded="false" aria-label="open navigation">
 							<span class="line line1" aria-hidden="true"></span>
-							<span class="line line2" aria-hidden="true"></span>
-                    </a>
+                            <span class="line line2" aria-hidden="true"></span>
+                            <span class="line line3" aria-hidden="true"></span>
+                    </button>
                 </ul>
+                <div class="nav-background"></div>
+						<ul class="navigation-list">
+							<li class="navigation-item">
+								<a href="#home" class="navigation-link" data-cy="home-link-lp"> Login</a>
+							</li>
+							<li class="navigation-item">
+								<a href="#about" class="navigation-link" data-cy="about-link-lp">Register</a>
+							</li>
+							<li class="navigation-item">
+								<a href="#destinations" class="navigation-link" data-cy="destinations-link-lp">
+									About</a>
+                            </li>
+                            	<li class="navigation-item">
+								<a href="#destinations" class="navigation-link" data-cy="destinations-link-lp">
+								Contact</a>
+							</li>
+							
+						</ul>
             </div>
         </nav>
     </header>
     <main> {% block content %}{% endblock %}</main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 
 </html>
