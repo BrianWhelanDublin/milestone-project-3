@@ -41,8 +41,8 @@ nav {
 }
 .fade {
     opacity: 0;
-    transform: translateY(150px);
-    transition: all 1s ease-in;
+    transform: translateY(50px);
+    transition: all 1.25s ease-in;
 }
 
 .fade.is-active {
@@ -200,7 +200,7 @@ button:focus {
     width: 20vh;
     border-radius: 50%;
     position: relative;
-    transition: all 1s ease-in-out;
+    transition: all 1.25s ease-in;
 }
 
 .signup-link {
@@ -224,7 +224,7 @@ button:focus {
     width: 18vh;
     border-radius: 50%;
     position: relative;
-    transition:all 1s ease-in-out;
+    transition:all 1.25s ease-in;
 }
 
 .login-link {

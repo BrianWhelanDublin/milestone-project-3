@@ -24,8 +24,6 @@ window.onload = () => {
     });
 }
 
-
-
 let menu = document.querySelector(".hamburger");
 let navigation = document.querySelector(".navigation");
 let link = document.querySelectorAll(".navigation-item");
