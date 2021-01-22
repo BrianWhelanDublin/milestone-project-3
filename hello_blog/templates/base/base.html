@@ -14,10 +14,11 @@
 </head>
 
 <body>
+     <div class="transition  is-active"></div>
     <header>
         <nav class="z-depth-0">
             <div class="navigation">
-                <a href="#" class="home-logo">  Hello World!</a>
+                <a href="{{ url_for('main.home') }}" class="home-logo">  Hello World!</a>
                 <ul class="nav-list">
                 	<button href="#" class="hamburger" aria-haspopup="true" aria-expanded="false" aria-label="open navigation">
 							<span class="line line1" aria-hidden="true"></span>
@@ -34,7 +35,7 @@
 								<a href="#about" class="navigation-link" data-cy="about-link-lp">Register</a>
 							</li>
 							<li class="navigation-item">
-								<a href="#destinations" class="navigation-link" data-cy="destinations-link-lp">
+								<a href="{{ url_for('main.about')}}" class="navigation-link" data-cy="destinations-link-lp">
 									About</a>
                             </li>
                             	<li class="navigation-item">

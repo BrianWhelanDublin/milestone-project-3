@@ -1,3 +1,30 @@
+window.onload = () => {
+    const transitionEl = document.querySelector(".transition")
+    const anchors = document.querySelectorAll("a")
+    const fadeElements = document.querySelectorAll(".fade")
+    setTimeout(() => {
+        transitionEl.classList.remove("is-active")
+    }, 500)
+    setTimeout(() => {
+        fadeElements.forEach((fade)=>{
+           fade.classList.add("is-active")
+        })
+    }, 1000)
+
+    anchors.forEach(anchor => {
+        anchor.addEventListener("click", e => {
+            e.preventDefault();
+            let target = e.target.href;
+            // console.log(target)
+            transitionEl.classList.add("is-active")
+            setTimeout(() => {
+                window.location.href = target;
+            }, 500)
+        })
+    });
+}
+
+
 
 let menu = document.querySelector(".hamburger");
 let navigation = document.querySelector(".navigation");
