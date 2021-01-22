@@ -13,7 +13,11 @@ body,
 nav {
     background: rgb(243, 242, 242);
 }
-
+.container,
+.row,
+.col{
+    height:45vh;
+} 
 
 /* Navigation */
 
@@ -192,8 +196,23 @@ button:focus{
 .login-container:hover {
     transform: scale(1.25);
 }
+/* Page layout */
 
+.page-title-container{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+.page-title{
+  font-size: 12vh;
+}
 @media (min-width: 768px) {
+    .container,
+.row,
+.col{
+    height:90vh;
+} 
     .title {
         font-size: 8vh;
     }
