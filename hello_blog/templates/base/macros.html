@@ -14,7 +14,7 @@ Form input macros also for input fields -->
 {% macro display_input(input_name) %}
 <div class="input-field col s12">
     <div class="row">
-        {{ input_name.label() }}
+        {{ input_name.label(**kwargs) }}
         {% if input_name.errors %}
         {{ input_name(class="validate") }}
         <div class="error">

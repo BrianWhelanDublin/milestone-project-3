@@ -12,10 +12,10 @@
             <div class="form-container">
                 <form method="POST" action="" class="col s12">
                     {{ form.hidden_tag() }}
-                    {{ display_input(form.username) }}
-                    {{ display_input(form.email) }}
-                    {{ display_input(form.password) }}
-                    {{ display_input(form.confirm_password) }}
+                    {{ display_input(form.username ,for="username") }}
+                    {{ display_input(form.email, for="email") }}
+                    {{ display_input(form.password, for="password") }}
+                    {{ display_input(form.confirm_password, for="confirm_password") }}
                     {% include "base/_submit.html" %}
                 </form>
             </div>
