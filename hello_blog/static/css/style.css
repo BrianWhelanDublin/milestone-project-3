@@ -143,7 +143,7 @@ button:focus {
     opacity: 0;
     visibility: hidden;
     transition: all 0.75s cubic-bezier(0.4, 0, 0, 1);
-
+    text-align: right;
 }
 
 .change .navigation-list {
@@ -151,13 +151,10 @@ button:focus {
     visibility: visible;
 }
 
-.navigation-item {
-    margin: 1.5vh;
-}
 
 .navigation-link {
     font-weight: 600;
-    font-size: 10vh;
+    font-size: 13vw;
     letter-spacing: 0.4rem;
     text-decoration: none;
     color: #181822;
@@ -173,8 +170,8 @@ button:focus {
 /* Home page */
 
 .container {
-    max-width: 1400px;
     width: 95%;
+    max-width: unset;
 }
 
 .wrapper {
@@ -256,38 +253,28 @@ button:focus {
 /* Page layout */
 
 .page-title-container,
-.about-title-text-container {
+.about-text-container {
     position: relative;
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
 }
 
-.about-title-text {
-    font-size: 2vh;
-
+.about-text {
+    font-size: 4vw;
 }
 
 .page-title {
-    font-size: 7vh;
+    font-size: 11vw;
     font-weight: 800;
     text-transform: uppercase;
 }
 
 @media(min-width: 768px) {
 
-    .container,
-    .row,
-    .col {
-        height: 85vh;
-    }
 
     .title {
         font-size: 8vh;
-    }
-
-    .title-text {
-        font-size: 2.5vh;
     }
 
     .signup-container {
@@ -302,6 +289,25 @@ button:focus {
     .login-container {
         height: 20vh;
         width: 20vh;
+    }
+
+    .page-title {
+        font-size: 10vw;
+    }
+
+    .about-text {
+        font-size: 3vw;
+    }
+
+    .navigation-link {
+        font-size: 10vw;
+
+    }
+}
+
+@media(min-width: 992px) {
+    .navigation-item {
+        margin: 1vh;
     }
 }
 
@@ -343,4 +349,40 @@ button:focus {
     .login-link {
         font-size: 4vh;
     }
+
+    .container,
+    .row,
+    .col {
+        height: 85vh;
+    }
+
+    .page-title {
+        font-size: 7vw;
+    }
+
+    .about-text {
+        font-size: 2vw;
+    }
+
+    .navigation-link {
+        font-size: 7vw;
+
+    }
+
+}
+
+@media(min-width:1400px) {
+    .page-title {
+        font-size: 5vw;
+    }
+
+    .about-text {
+        font-size: 1.5vw;
+    }
+
+    .navigation-link {
+        font-size: 5vw;
+
+    }
+
 }
