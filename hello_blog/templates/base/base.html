@@ -13,7 +13,7 @@
     {% endif %}
 </head>
 
-<body>
+<body class="preload">
      <div class="transition  is-active"></div>
     <header>
         <nav class="z-depth-0">
@@ -28,6 +28,9 @@
                 </ul>
                 <div class="nav-background"></div>
 						<ul class="navigation-list">
+                            <li class="navigation-item">
+								<a href="{{ url_for('main.home') }}" class="navigation-link" data-cy="home-link-lp"> Home</a>
+							</li>
 							<li class="navigation-item">
 								<a href="#home" class="navigation-link" data-cy="home-link-lp"> Login</a>
 							</li>

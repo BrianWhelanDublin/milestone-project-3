@@ -1,4 +1,5 @@
 window.onload = () => {
+    document.body.classList.remove("preload")
     const transitionEl = document.querySelector(".transition")
     const anchors = document.querySelectorAll("a")
     const fadeElements = document.querySelectorAll(".fade")

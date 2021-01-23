@@ -1,9 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800 &display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
 
 * {
     padding: 0;
     margin: 0;
     font-size: 10px;
+}
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
+h1 {
+    margin: 0;
 }
 
 body {
@@ -18,8 +29,9 @@ nav {
 .container,
 .row,
 .col {
-    height: 45vh;
+    height: 40vh;
 }
+
 /* Transitions */
 .transition {
     position: fixed;
@@ -39,10 +51,11 @@ nav {
     opacity: 1;
     pointer-events: all;
 }
+
 .fade {
     opacity: 0;
     transform: translateY(50px);
-    transition: all 1.25s ease-in;
+    transition: all .75s ease-in;
 }
 
 .fade.is-active {
@@ -77,7 +90,7 @@ nav a {
 }
 
 button:focus {
-    background-color: rgb(243, 242, 242);
+    background-color: transparent;
 }
 
 .line {
@@ -178,7 +191,7 @@ button:focus {
 .title {
     margin: 0;
     font-size: 5.5vh;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .title-text-container {
@@ -200,7 +213,7 @@ button:focus {
     width: 20vh;
     border-radius: 50%;
     position: relative;
-    transition: all 1.25s ease-in;
+    transition: all .75s ease-in;
 }
 
 .signup-link {
@@ -224,7 +237,7 @@ button:focus {
     width: 18vh;
     border-radius: 50%;
     position: relative;
-    transition:all 1.25s ease-in;
+    transition: all .75s ease-in;
 }
 
 .login-link {
@@ -242,15 +255,23 @@ button:focus {
 
 /* Page layout */
 
-.page-title-container {
+.page-title-container,
+.about-title-text-container {
     position: relative;
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
 }
 
+.about-title-text {
+    font-size: 2vh;
+
+}
+
 .page-title {
-    font-size: 12vh;
+    font-size: 7vh;
+    font-weight: 800;
+    text-transform: uppercase;
 }
 
 @media(min-width: 768px) {
@@ -258,7 +279,7 @@ button:focus {
     .container,
     .row,
     .col {
-        height: 90vh;
+        height: 85vh;
     }
 
     .title {
@@ -290,7 +311,7 @@ button:focus {
     }
 
     .title-text {
-        font-size: 2.75vh;
+        font-size: 3vh;
     }
 
     .title-container {
