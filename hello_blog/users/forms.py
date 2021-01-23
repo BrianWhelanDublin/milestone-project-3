@@ -3,6 +3,7 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 
 
+# creates the form and validaters for the user to sign up.
 class SignupForm(FlaskForm):
     username = StringField("Username",
                            validators=[DataRequired(),
