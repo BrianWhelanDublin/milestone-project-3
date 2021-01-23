@@ -1,21 +1,17 @@
+{% from "base/macros.html" import page_heading %}
+
 {% extends "base/base.html" %}
+
 {% block content %}
+
 <div class="row">
-    <div class="col s12 xl6">
-        <div class="page-title-container">
-            <h1 class="page-title fade">
-                <hr>
-                About Us
-                <hr>
-            </h1>
-        </div>
-    </div>
+    {{ page_heading("About Us")}}
     <div class="col s12 xl6">
         <div class="about-text-container">
-            
-            <p class="about-text fade">Hello World is a place for new developers to share what they have learned with each other. Share notes on code, tips and tricks, software and library recomendations. Hello world is a place to connect and create new connections within the software development world.
+            <p class="about-text fade">Hello World is a place for new developers to share what they have learned with
+                each other. Share notes on code, tips and tricks, software and library recomendations. Hello world is a
+                place to connect and create new connections within the software development world.
             </p>
-    
         </div>
     </div>
 </div>
