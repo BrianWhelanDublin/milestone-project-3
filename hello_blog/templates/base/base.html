@@ -35,7 +35,7 @@
 								<a href="#home" class="navigation-link" data-cy="home-link-lp"> Login</a>
 							</li>
 							<li class="navigation-item">
-								<a href="#about" class="navigation-link" data-cy="about-link-lp">Register</a>
+								<a href="{{ url_for('users.signup') }}" class="navigation-link" data-cy="about-link-lp">Sign Up</a>
 							</li>
 							<li class="navigation-item">
 								<a href="{{ url_for('main.about')}}" class="navigation-link" data-cy="destinations-link-lp">
