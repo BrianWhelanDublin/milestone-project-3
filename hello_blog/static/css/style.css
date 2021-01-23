@@ -26,13 +26,12 @@ nav {
     background: rgb(243, 242, 242);
 }
 
-.container,
-.row,
-.col {
+.page-height {
     height: 40vh;
 }
 
-/* Transitions */
+/*------------------------------- Transitions */
+/* smooth transition between pages */
 .transition {
     position: fixed;
     top: 0;
@@ -51,7 +50,7 @@ nav {
     opacity: 1;
     pointer-events: all;
 }
-
+/* Fade elements in upon page load */
 .fade {
     opacity: 0;
     transform: translateY(50px);
@@ -63,7 +62,7 @@ nav {
     transform: translatey(0px);
 }
 
-/* Navigation */
+/*--------------------------------- Navigation */
 
 nav a {
     color: black;
@@ -167,7 +166,7 @@ button:focus {
 }
 
 
-/* Home page */
+/*----------------------------- Home page */
 
 .container {
     width: 95%;
@@ -250,7 +249,7 @@ button:focus {
     transform: scale(1.25);
 }
 
-/* Page layout */
+/* -----------------------------Page layout */
 
 .page-title-container,
 .about-text-container {
@@ -258,6 +257,20 @@ button:focus {
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
+}
+
+.form-col {
+    position: relative;
+}
+
+.form-container {
+    position: absolute;
+
+    bottom: 0;
+   
+  
+   
+    width: 90%;
 }
 
 .about-text {
@@ -269,7 +282,24 @@ button:focus {
     font-weight: 800;
     text-transform: uppercase;
 }
-
+/* ----------------------Forms */
+.error{
+    color: #f02937;
+}
+.submit{
+    background: transparent;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 100%;
+    font-size: 2rem;
+    border: none;
+    text-align: center;
+    transition: all .5s ease-in;
+}
+.submit:hover{
+    color:white;
+    background: #f02937;
+}
 @media(min-width: 768px) {
 
 
@@ -350,9 +380,7 @@ button:focus {
         font-size: 4vh;
     }
 
-    .container,
-    .row,
-    .col {
+    .page-height {
         height: 85vh;
     }
 
