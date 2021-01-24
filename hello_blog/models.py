@@ -26,6 +26,7 @@ class User(db.Document, UserMixin):
 
 
 # create the login_manager decorated function needed for flask login
+# pk = primary key
 @login_manager.user_loader
 def load_user(user_id):
     return User.objects(pk=user_id).first()
