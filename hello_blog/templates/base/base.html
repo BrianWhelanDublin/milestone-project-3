@@ -37,7 +37,7 @@
                         <a href="#" class="navigation-link">Account</a>
                     </li>
                     <li class="navigation-item">
-                        <a href="#" class="navigation-link" data-cy="about-link-lp">Logout</a>
+                        <a href="{{ url_for('users.logout') }}" class="navigation-link" data-cy="about-link-lp">Logout</a>
                     </li>
                     {% else %}
                     <li class="navigation-item">

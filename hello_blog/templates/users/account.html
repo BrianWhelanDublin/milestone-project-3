@@ -1,0 +1,18 @@
+<!-- imports the heading macro  -->
+{% from "base/macros.html" import page_heading %}
+
+{% extends "base/base.html" %}
+
+{% block content %}
+
+<div class="row page-height">
+    {{ page_heading("Account") }}
+    <div class="col page-text-col s12 xl6">
+        <div class="about-text-container">
+            <h1>{{ current_user.username }}</h1>
+           
+        </div>
+    </div>
+</div>
+
+{% endblock %}
