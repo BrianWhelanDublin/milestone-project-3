@@ -295,6 +295,7 @@ button:focus {
 
 .error {
     color: #f02937;
+    font-size: 1rem;
 }
 
 .submit {
@@ -321,6 +322,20 @@ button:focus {
 }
 .form-link-msg a:hover{
     text-decoration: underline;
+}
+.flash {
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
+}
+.flash-col{
+    width:100%;
+}
+.flash-success{
+    color: #3c6e4f;
+}
+.flash-errors{
+    color: #f02937;
 }
 
 @media(min-width: 768px) {

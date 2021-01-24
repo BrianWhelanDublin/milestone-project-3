@@ -14,43 +14,60 @@
 </head>
 
 <body class="preload">
-     <div class="transition  is-active"></div>
+    <div class="transition  is-active"></div>
     <header>
         <nav class="z-depth-0">
             <div class="navigation">
-                <a href="{{ url_for('main.home') }}" class="home-logo">  Hello World!</a>
+                <a href="{{ url_for('main.home') }}" class="home-logo"> Hello World!</a>
                 <ul class="nav-list">
-                	<button href="#" class="hamburger" aria-haspopup="true" aria-expanded="false" aria-label="open navigation">
-							<span class="line line1" aria-hidden="true"></span>
-                            <span class="line line2" aria-hidden="true"></span>
-                            <span class="line line3" aria-hidden="true"></span>
+                    <button href="#" class="hamburger" aria-haspopup="true" aria-expanded="false"
+                        aria-label="open navigation">
+                        <span class="line line1" aria-hidden="true"></span>
+                        <span class="line line2" aria-hidden="true"></span>
+                        <span class="line line3" aria-hidden="true"></span>
                     </button>
                 </ul>
                 <div class="nav-background"></div>
-						<ul class="navigation-list">
-                            <li class="navigation-item">
-								<a href="{{ url_for('main.home') }}" class="navigation-link" data-cy="home-link-lp"> Home</a>
-							</li>
-							<li class="navigation-item">
-								<a href="#home" class="navigation-link" data-cy="home-link-lp"> Login</a>
-							</li>
-							<li class="navigation-item">
-								<a href="{{ url_for('users.signup') }}" class="navigation-link" data-cy="about-link-lp">Sign Up</a>
-							</li>
-							<li class="navigation-item">
-								<a href="{{ url_for('main.about')}}" class="navigation-link" data-cy="destinations-link-lp">
-									About</a>
-                            </li>
-                            	<li class="navigation-item">
-								<a href="#destinations" class="navigation-link" data-cy="destinations-link-lp">
-								Contact</a>
-							</li>
-							
-						</ul>
+                <ul class="navigation-list">
+                    <li class="navigation-item">
+                        <a href="{{ url_for('main.home') }}" class="navigation-link" data-cy="home-link-lp"> Home</a>
+                    </li>
+                    <li class="navigation-item">
+                        <a href="#home" class="navigation-link" data-cy="home-link-lp"> Login</a>
+                    </li>
+                    <li class="navigation-item">
+                        <a href="{{ url_for('users.signup') }}" class="navigation-link" data-cy="about-link-lp">Sign
+                            Up</a>
+                    </li>
+                    <li class="navigation-item">
+                        <a href="{{ url_for('main.about')}}" class="navigation-link" data-cy="destinations-link-lp">
+                            About</a>
+                    </li>
+                    <li class="navigation-item">
+                        <a href="#destinations" class="navigation-link" data-cy="destinations-link-lp">
+                            Contact</a>
+                    </li>
+
+                </ul>
             </div>
         </nav>
     </header>
-    <main> 
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col flash-col">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="flash flash-{{ category }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
         <div class="container">
             {% block content %}{% endblock %}
         </div>
