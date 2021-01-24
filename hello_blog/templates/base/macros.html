@@ -2,7 +2,7 @@
 Form input macros also for input fields -->
 <!-- Headdin macro -->
 {% macro page_heading(heading) %}
-<div class="col page-height s12 xl6">
+<div class="page-title-col col s12 xl6">
     <div class="page-title-container">
         <h1 class="page-title fade">
             {{heading}}
@@ -12,8 +12,7 @@ Form input macros also for input fields -->
 {% endmacro %}
 <!-- Form input macro -->
 {% macro display_input(input_name) %}
-<div class="input-field col s12">
-    <div class="row">
+<div class="input-field">
         {{ input_name.label(**kwargs) }}
         {% if input_name.errors %}
         {{ input_name(class="validate") }}
@@ -25,6 +24,5 @@ Form input macros also for input fields -->
         {% else %}
         {{ input_name(class="validate") }}
         {% endif %}
-    </div>
 </div>
 {% endmacro %}

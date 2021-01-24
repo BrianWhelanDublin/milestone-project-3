@@ -5,22 +5,30 @@
 
 {% block content %}
 
-<div class="row">
+<div class="row page-height">
     {{ page_heading("Sign Up") }}
-    <div class="form-col col s12 xl6">
-        <div class="row page-height">
+    <div class="col page-text-col s12 xl6">
+       
             <div class="form-container">
-                <form method="POST" action="" class="col s12">
+                <form method="POST" action="" class="col s12 ">
+                    <!-- this hidden tag is used by Flask-Wtf for CSRF protection and is needed for each form -->
                     {{ form.hidden_tag() }}
+                    <!-- using the macro to display each form input -->
                     {{ display_input(form.username ,for="username") }}
                     {{ display_input(form.email, for="email") }}
                     {{ display_input(form.password, for="password") }}
                     {{ display_input(form.confirm_password, for="confirm_password") }}
+                    <!-- incldes the submit.html  -->
                     {% include "base/_submit.html" %}
                 </form>
+                <div>
+                   <p class="form-link-msg ">Already signed up?
+                        <a href="">Log in now.</a></p>
+                  
+                </div>
             </div>
         </div>
-    </div>
+  
 </div>
 
 {% endblock %}

@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
 
 * {
-    padding: 0;
-    margin: 0;
     font-size: 10px;
 }
 
@@ -26,10 +24,6 @@ nav {
     background: rgb(243, 242, 242);
 }
 
-.page-height {
-    height: 40vh;
-}
-
 /*------------------------------- Transitions */
 /* smooth transition between pages */
 .transition {
@@ -50,6 +44,7 @@ nav {
     opacity: 1;
     pointer-events: all;
 }
+
 /* Fade elements in upon page load */
 .fade {
     opacity: 0;
@@ -171,6 +166,8 @@ button:focus {
 .container {
     width: 95%;
     max-width: unset;
+    margin: 0;
+    padding: 0;
 }
 
 .wrapper {
@@ -250,56 +247,82 @@ button:focus {
 }
 
 /* -----------------------------Page layout */
+.page-height {
+    height: 80vh;
+    position: absolute;
+    bottom: 5vh;
+}
+
+.row {
+    width: 100%;
+}
+
+.page-title-col {
+    height: 25%;
+}
+
+.page-text-col {
+    height: 75%;
+}
 
 .page-title-container,
-.about-text-container {
+.about-text-container,
+.form-container {
     position: relative;
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
 }
 
-.form-col {
-    position: relative;
-}
-
 .form-container {
-    position: absolute;
-
-    bottom: 0;
-   
-  
-   
     width: 90%;
 }
 
 .about-text {
     font-size: 4vw;
+    padding: 0 2rem 2rem 0;
 }
 
 .page-title {
     font-size: 11vw;
     font-weight: 800;
     text-transform: uppercase;
+    text-align: center;
 }
+
 /* ----------------------Forms */
-.error{
+
+
+.error {
     color: #f02937;
 }
-.submit{
-    background: transparent;
+
+.submit {
+    background: white;
     width: 12rem;
-    height: 12rem;
-    border-radius: 100%;
+    height: 5rem;
     font-size: 2rem;
     border: none;
     text-align: center;
     transition: all .5s ease-in;
 }
-.submit:hover{
-    color:white;
+
+.submit:hover {
+    color: white;
     background: #f02937;
 }
+
+.form-link-msg,
+.form-link-msg a {
+    font-size: 1.25rem;
+}
+.form-link-msg a {
+    color:#f02937;
+}
+.form-link-msg a:hover{
+    text-decoration: underline;
+}
+
 @media(min-width: 768px) {
 
 
@@ -380,8 +403,9 @@ button:focus {
         font-size: 4vh;
     }
 
-    .page-height {
-        height: 85vh;
+    .page-title-col,
+    .page-text-col {
+        height: 100%;
     }
 
     .page-title {
