@@ -44,18 +44,19 @@ def login():
         return redirect(url_for("main.home"))
     form = LoginForm()
     if form.validate_on_submit():
-
+        
         # Finds the user in the database by their username
         user = User.objects(
             username=form.username.data).first()
 
-        # if user exists use bycrpt check
+        # if user exists use bycrpt check passsword hashes
         # function to check the passwords match
         if user and bcrypt.check_password_hash(user.password,
                                                form.password.data):
             login_user(user, remember=form.remember_user.data)
             flash("You've been logged in successfully", "success")
             return redirect(url_for("main.home"))
+
         # if no user exists or wrong details lets
         # user know and directs them back to the login page
         else:
