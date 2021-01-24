@@ -1,7 +1,8 @@
-from hello_blog import db
+from hello_blog import db, bcrypt
 from flask_mongoengine import BaseQuerySet
 
 
+# creates the User class
 class User(db.Document):
     username = db.StringField(max_length=20, unique=True, required=True)
     email = db.StringField(max_length=100, unique=True, required=True)

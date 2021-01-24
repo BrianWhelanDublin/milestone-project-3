@@ -1,10 +1,11 @@
 from flask import Flask
 from hello_blog.config import Config
 from flask_mongoengine import MongoEngine
-
+from flask_bcrypt import Bcrypt
 
 # create instances of imported extensions
 db = MongoEngine()
+bcrypt = Bcrypt()
 
 
 # cretes the app using the details from the config class in the config.py file
@@ -14,6 +15,7 @@ def create_app(config_class=Config):
 
     # init the extention instances to bind them to the app
     db.init_app(app)
+    bcrypt.init_app(app)
 
     #  imports the blueprints from each route file
     from hello_blog.main.routes import main
