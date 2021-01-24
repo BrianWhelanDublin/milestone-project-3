@@ -30,10 +30,10 @@
                 <div class="nav-background"></div>
                 <ul class="navigation-list">
                     <li class="navigation-item">
-                        <a href="{{ url_for('main.home') }}" class="navigation-link" data-cy="home-link-lp"> Home</a>
+                        <a href="{{ url_for('main.home') }}" class="navigation-link"> Home</a>
                     </li>
                     <li class="navigation-item">
-                        <a href="#home" class="navigation-link" data-cy="home-link-lp"> Login</a>
+                        <a href="{{ url_for('users.login') }}" class="navigation-link"> Login</a>
                     </li>
                     <li class="navigation-item">
                         <a href="{{ url_for('users.signup') }}" class="navigation-link" data-cy="about-link-lp">Sign
@@ -44,7 +44,7 @@
                             About</a>
                     </li>
                     <li class="navigation-item">
-                        <a href="#destinations" class="navigation-link" data-cy="destinations-link-lp">
+                        <a href="" class="navigation-link">
                             Contact</a>
                     </li>
 
