@@ -1,0 +1,40 @@
+<!-- Imports macros for the heading and the form input fields -->
+{% from "base/macros.html" import page_heading, display_input %}
+
+{% extends "base/base.html" %}
+
+{% block content %}
+
+<div class="row page-height">
+    {{ page_heading("Login") }}
+    <div class="col page-text-col s12 xl6">
+        <div class="form-container">
+            <form method="POST" action="" class="col s12 ">
+                <!-- this hidden tag is used by Flask-Wtf for CSRF protection and is needed for each form -->
+                {{ form.hidden_tag() }}
+                <!-- using the macro to display each form input -->
+                {{ display_input(form.username ,for="username") }}
+                {{ display_input(form.password, for="password") }}
+                <!-- add a switch for the remember me data -->
+                <div class="input-field col s12">
+                    <div class="switch">
+                        <label>
+                            {{ form.remember_user(type="checkbox")}}
+                            <span class="lever"></span>
+                            {{ form.remember_user.label()}}
+                        </label>
+                    </div>
+                </div>
+                <!-- incldes the submit.html  -->
+                {% include "base/_submit.html" %}
+            </form>
+            <div>
+                <p class="form-link-msg ">Not a member yet?
+                    <a href="{{ url_for('users.signup') }}">Sign up now.</a></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
