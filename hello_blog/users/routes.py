@@ -56,7 +56,8 @@ def login():
             login_user(user, remember=form.remember_user.data)
             flash("You've been logged in successfully", "success")
 
-            # gets next url if there is one
+            # gets next url if there is one if the user
+            # was directed here from a different route
             next_page = request.args.get("next")
             #  checks the url to make sure its safe
             if not is_safe_url(next_page, {"example.com"}):
