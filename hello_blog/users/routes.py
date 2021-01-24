@@ -1,10 +1,9 @@
 from flask import (Blueprint, render_template, url_for,
-                   flash, redirect, request, abort)
+                   flash, redirect)
 from hello_blog.users.forms import SignupForm, LoginForm
 from hello_blog.models import User
 from hello_blog import bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
-from is_safe_url import is_safe_url
 
 
 users = Blueprint("users", __name__)
@@ -44,11 +43,10 @@ def login():
         return redirect(url_for("main.home"))
     form = LoginForm()
     if form.validate_on_submit():
-        
         # Finds the user in the database by their username
         user = User.objects(
             username=form.username.data).first()
-
+            
         # if user exists use bycrpt check passsword hashes
         # function to check the passwords match
         if user and bcrypt.check_password_hash(user.password,
