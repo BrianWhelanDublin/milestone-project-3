@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, url_for, flash, redirect
 from hello_blog.users.forms import SignupForm, LoginForm
 from hello_blog.models import User
+from hello_blog import bcrypt
 
 
 users = Blueprint("users", __name__)
@@ -30,7 +31,22 @@ def signup():
 #  create the route to login the user.
 @users.route("/login", methods=["GET", "POST"])
 def login():
-    form = LoginForm
+    form = LoginForm()
+    if form.validate_on_submit():
+        # Finds the user in the database by their username
+        user = User.objects(
+            username=form.username.data).first()
+        #  if user exists use bycrpt check
+        # function to check the passwords match
+        if user and bcrypt.check_password_hash(user.password,
+                                               form.password.data):
+            flash("You've been logged in successfully", "success")
+            return redirect(url_for("main.home"))
+        # if no user exists or wrong details lets
+        # user know and directs them back to the login page
+        else:
+            flash("Login Unsuccessful. Please check login details", "errors")
+            return redirect(url_for("users.login"))
     return render_template("users/login.html",
                            title="Login",
                            form=form)
