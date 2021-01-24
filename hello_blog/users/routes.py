@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, url_for, flash, redirect
-from hello_blog.users.forms import SignupForm
+from hello_blog.users.forms import SignupForm, LoginForm
 from hello_blog.models import User
 
 
@@ -24,4 +24,13 @@ def signup():
         return redirect(url_for("main.home"))
     return render_template("users/signup.html",
                            title="Sign Up",
+                           form=form)
+
+
+#  create the route to login the user.
+@users.route("/login", methods=["GET", "POST"])
+def login():
+    form = LoginForm
+    return render_template("users/login.html",
+                           title="Login",
                            form=form)
