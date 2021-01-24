@@ -13,7 +13,11 @@ class User(db.Document):
         "queryset_class": BaseQuerySet
     }
 
-    # creates a function that uses flask-bcrypt to hash
-    # the users passwords for the database
+    # returns the users usename and email for the class instances
+    def __repr__(self):
+        return f"User('{self.username}','{self.email}')"
+
+    # creates a function that uses flask-bcrypt to hash-
+    # - the users passwords for the database
     def hash_password(self, password):
         self.password = bcrypt.generate_password_hash(password).decode("utf-8")
