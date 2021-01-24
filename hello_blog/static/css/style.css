@@ -323,7 +323,8 @@ button:focus {
 .form-link-msg a:hover{
     text-decoration: underline;
 }
-.flash {
+.flash,
+.info {
     font-size: 2rem;
     text-align: center;
     width: 100%;
@@ -337,6 +338,7 @@ button:focus {
 .flash-errors{
     color: #f02937;
 }
+
 
 @media(min-width: 768px) {
 
