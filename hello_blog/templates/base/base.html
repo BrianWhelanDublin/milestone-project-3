@@ -32,6 +32,14 @@
                     <li class="navigation-item">
                         <a href="{{ url_for('main.home') }}" class="navigation-link"> Home</a>
                     </li>
+                    {% if current_user.is_authenticated %}
+                      <li class="navigation-item">
+                        <a href="#" class="navigation-link">Account</a>
+                    </li>
+                    <li class="navigation-item">
+                        <a href="#" class="navigation-link" data-cy="about-link-lp">Logout</a>
+                    </li>
+                    {% else %}
                     <li class="navigation-item">
                         <a href="{{ url_for('users.login') }}" class="navigation-link"> Login</a>
                     </li>
@@ -39,6 +47,7 @@
                         <a href="{{ url_for('users.signup') }}" class="navigation-link" data-cy="about-link-lp">Sign
                             Up</a>
                     </li>
+                     {% endif %}
                     <li class="navigation-item">
                         <a href="{{ url_for('main.about')}}" class="navigation-link" data-cy="destinations-link-lp">
                             About</a>
@@ -47,7 +56,6 @@
                         <a href="" class="navigation-link">
                             Contact</a>
                     </li>
-
                 </ul>
             </div>
         </nav>
