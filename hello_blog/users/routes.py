@@ -3,7 +3,7 @@ from flask import (Blueprint, render_template, url_for,
 from hello_blog.users.forms import SignupForm, LoginForm
 from hello_blog.models import User
 from hello_blog import bcrypt
-from flask_login import login_user, current_user
+from flask_login import login_user, current_user, logout_user, login_required
 from is_safe_url import is_safe_url
 
 
@@ -55,17 +55,7 @@ def login():
                                                form.password.data):
             login_user(user, remember=form.remember_user.data)
             flash("You've been logged in successfully", "success")
-
-            # gets next url if there is one if the user
-            # was directed here from a different route
-            next_page = request.args.get("next")
-            #  checks the url to make sure its safe
-            if not is_safe_url(next_page, {"example.com"}):
-                return abort(400)
-
-            #  redirects to next url if exists or back home
-            return redirect(next_page or url_for("main.home"))
-
+            return redirect(url_for("main.home"))
         # if no user exists or wrong details lets
         # user know and directs them back to the login page
         else:
@@ -74,3 +64,17 @@ def login():
     return render_template("users/login.html",
                            title="Login",
                            form=form)
+
+
+#  create the route to logout the user.
+@users.route("/logout")
+def logout():
+    logout_user()
+    flash("You've been logged out succesfully", "success")
+    return redirect(url_for("main.home"))
+
+
+@users.route("/account")
+@login_required
+def account():
+    return render_template("users.account.html")
