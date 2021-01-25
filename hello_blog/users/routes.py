@@ -46,7 +46,7 @@ def login():
         # Finds the user in the database by their username
         user = User.objects(
             username=form.username.data).first()
-            
+
         # if user exists use bycrpt check passsword hashes
         # function to check the passwords match
         if user and bcrypt.check_password_hash(user.password,

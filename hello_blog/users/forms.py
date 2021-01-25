@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
-from wtforms.validators import DataRequired, Length, Email, EqualTo
+from wtforms.validators import (DataRequired, Length, Email,
+                                EqualTo, ValidationError)
+from hello_blog.models import User
 
 
 # creates the form and validaters for the user to sign up.
@@ -17,7 +19,21 @@ class SignupForm(FlaskForm):
                                                  EqualTo("password")])
     submit = SubmitField("Sign Up")
 
+    # create functions to check if username and email aready exist
+    #  using flask wtforms custom validators
+    # in the database and if they do it will throw a validation error
+    def validate_username(self, username):
+        user = User.objects(username=username.data).first()
+        if user is not None:
+            raise ValidationError("Username already signedup.")
 
+    def validate_email(self, email):
+        user = User.objects(email=email.data).first()
+        if user is not None:
+            raise ValidationError("Email already signedup.")
+
+
+#  create form for login route
 class LoginForm(FlaskForm):
     username = StringField("Username", validators=[DataRequired()])
     password = PasswordField("Password", validators=[DataRequired()])
