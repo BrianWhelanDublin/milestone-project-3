@@ -1,5 +1,5 @@
 from flask import (Blueprint, render_template, url_for,
-                   flash, redirect)
+                   flash, redirect, request)
 from hello_blog.users.forms import SignupForm, LoginForm, UpdateAccount
 from hello_blog.models import User
 from hello_blog import bcrypt
@@ -86,8 +86,22 @@ def account(username):
 @login_required
 def update_account():
     form = UpdateAccount()
+    # checks the form and changes the data in the database
     if form.validate_on_submit():
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        if form.bio.data:
+            current_user.bio = form.bio.data
+        current_user.save()
         return redirect(url_for("users.account",
                                 username=current_user.username))
+    
+    #  fills the form with the current data from the database
+    elif request.method == "GET":
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+        if current_user.bio:
+            form.bio.data = current_user.bio
     return render_template("users/update_account.html",
+                           title="account",
                            form=form)

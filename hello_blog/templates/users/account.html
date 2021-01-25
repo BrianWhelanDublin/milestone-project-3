@@ -18,7 +18,7 @@
             <p class="profile-text">Bio: {{ user.bio }}</p>
             {% endif %}
             {% if current_user.username == user.username %}
-            <a class="profile-link" href="#">Update Account</a>
+            <a class="profile-link" href="{{ url_for('users.update_account') }}">Update Account</a>
             <a class="profile-link" href="#">Delete Account</a>
             {% endif %}
         </div>
