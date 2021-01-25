@@ -79,3 +79,6 @@ def account(username):
     user = User.objects(username=username).first_or_404()
     return render_template("users/account.html",
                            user=user)
+
+
+
