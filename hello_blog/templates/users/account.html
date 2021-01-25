@@ -8,10 +8,10 @@
     {{ page_heading("Account") }}
     <div class="col page-text-col s12 xl6">
         <div class="profile-container">
-            <img class="user-image" src="https://res.cloudinary.com/dmgevdb7w/image\
-/upload/w_200,h_200,c_fill,g_face/v1610563923/xymcofmhj3le6l9uh8qa.jpg" alt="users image">
+            <img class="user-image" src="{{ user.user_image }}" alt="users image">
             <h2 class="profile-name">{{ user.username }}</h2>
             {% if current_user.username == user.username %}
+            <p class="profile-text">Member since: {{ user.date_joined.strftime("%d-%m-%Y") }}</p>
             <p class="profile-text">Email: {{ user.email }}</p>
             {% endif %}
             {% if user.bio %}
