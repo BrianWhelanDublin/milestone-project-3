@@ -34,7 +34,7 @@
                     </li>
                     {% if current_user.is_authenticated %}
                       <li class="navigation-item">
-                        <a href="#" class="navigation-link">Account</a>
+                        <a href="{{ url_for('users.account', username=current_user.username) }}" class="navigation-link">Account</a>
                     </li>
                     <li class="navigation-item">
                         <a href="{{ url_for('users.logout') }}" class="navigation-link" data-cy="about-link-lp">Logout</a>

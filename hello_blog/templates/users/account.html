@@ -9,8 +9,22 @@
     {{ page_heading("Account") }}
     <div class="col page-text-col s12 xl6">
         <div class="about-text-container">
-            <h1>{{ current_user.username }}</h1>
-           
+            <img src="https://res.cloudinary.com/dmgevdb7w/image\
+/upload/v1610563923/xymcofmhj3le6l9uh8qa.jpg" alt="users image">
+            <h2>{{ user.username }}</h2>
+            {% if current_user.username == user.username %}
+            <p>Email: {{ user.email }}</p>
+            {% endif %}
+            {% if user.bio %}
+            <p>Bio: {{ user.bio }}</p>
+            {% endif %}
+            {% if current_user.username == user.username %}
+            <a href="#">Update Account</a>
+            <a href="#">Delete Account</a>
+            {% endif %}
+
+
+
         </div>
     </div>
 </div>

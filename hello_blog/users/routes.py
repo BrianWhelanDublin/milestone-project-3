@@ -28,7 +28,7 @@ def signup():
         user.hash_password(form.password.data)
         user.save()
         flash("User registered", "success")
-        return redirect(url_for("main.home"))
+        return redirect(url_for("users.login"))
     return render_template("users/signup.html",
                            title="Sign Up",
                            form=form)
@@ -73,7 +73,9 @@ def logout():
     return redirect(url_for("main.home"))
 
 
-@users.route("/account")
+@users.route("/account/<username>")
 @login_required
-def account():
-    return render_template("users.account.html")
+def account(username):
+    user = User.objects(username=username).first_or_404()
+    return render_template("users/account.html",
+                           user=user)

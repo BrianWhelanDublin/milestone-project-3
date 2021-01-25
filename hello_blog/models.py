@@ -9,6 +9,7 @@ class User(db.Document, UserMixin):
     username = db.StringField(max_length=20, unique=True, required=True)
     email = db.StringField(max_length=100, unique=True, required=True)
     password = db.StringField(max_length=100)
+    bio = db.StringField(max_length=250)
 
     meta = {
         "collection": "users",
