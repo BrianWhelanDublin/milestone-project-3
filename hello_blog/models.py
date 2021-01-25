@@ -2,6 +2,7 @@ from hello_blog import db, bcrypt, login_manager
 from flask_mongoengine import BaseQuerySet
 # Usermixin adds the basic functions needed to the userclass for flask login
 from flask_login import UserMixin
+from datetime import datetime
 
 
 # creates the User class
@@ -10,6 +11,11 @@ class User(db.Document, UserMixin):
     email = db.StringField(max_length=100, unique=True, required=True)
     password = db.StringField(max_length=100)
     bio = db.StringField(max_length=250)
+    #  default image from cloudinary image database
+    user_image = db.StringField(
+        default="https://res.cloudinary.com/dmgevdb7w/image\
+/upload/w_200,h_200,c_fill,g_face/v1610563923/xymcofmhj3le6l9uh8qa.jpg")
+    date_joined = db.DateTimeField(default=datetime.utcnow)
 
     meta = {
         "collection": "users",
