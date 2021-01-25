@@ -4,6 +4,7 @@ from hello_blog.users.forms import SignupForm, LoginForm, UpdateAccount
 from hello_blog.models import User
 from hello_blog import bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
+from hello_blog.users.utils import save_user_image
 
 
 users = Blueprint("users", __name__)
@@ -90,12 +91,17 @@ def update_account():
     if form.validate_on_submit():
         current_user.username = form.username.data
         current_user.email = form.email.data
+        # if the user adds an image it calls the save user image
+        # function from utils to upload image to cloudinary
+        if form.user_image.data:
+            image_url = save_user_image(form.user_image.data)
+            current_user.user_image = image_url
         if form.bio.data:
             current_user.bio = form.bio.data
         current_user.save()
         return redirect(url_for("users.account",
                                 username=current_user.username))
-    
+
     #  fills the form with the current data from the database
     elif request.method == "GET":
         form.username.data = current_user.username

@@ -9,7 +9,7 @@
     {{ page_heading("Update Account") }}
     <div class="col page-text-col s12 xl6">
         <div class="form-container">
-            <form method="POST" action="" class="col s12 ">
+            <form method="POST" action="" class="col s12" enctype="multipart/form-data">
                 <!-- this hidden tag is used by Flask-Wtf for CSRF protection and is needed for each form -->
                 {{ form.hidden_tag() }}
                 <!-- using the macro to display each form input -->
