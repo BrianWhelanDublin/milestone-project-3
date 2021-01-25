@@ -32,7 +32,7 @@
     </div>
     <div class="modal-footer">
       <a href="{{ url_for('users.account', username=current_user.username) }}" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-      <a href="#" class="modal-close waves-effect waves-green btn-flat">Delete</a>
+      <a href="{{ url_for('users.delete_account') }}" class="modal-close waves-effect waves-green btn-flat">Delete</a>
     </div>
   </div>
 

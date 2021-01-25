@@ -111,3 +111,14 @@ def update_account():
     return render_template("users/update_account.html",
                            title="account",
                            form=form)
+
+
+# create route to delete user
+@users.route("/delete/account")
+@login_required
+def delete_account():
+    # find user in database and delete their details
+    user = User.objects(username=current_user.username).first()
+    user.delete()
+    flash("Account deleted successfully", "success")
+    return redirect(url_for("main.home"))
