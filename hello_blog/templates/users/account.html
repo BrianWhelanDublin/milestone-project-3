@@ -1,5 +1,5 @@
 <!-- imports the heading macro  -->
-{% from "base/macros.html" import page_heading %}
+{% from "base/macros.html" import page_heading, modal %}
 
 {% extends "base/base.html" %}
 
@@ -19,10 +19,21 @@
             {% endif %}
             {% if current_user.username == user.username %}
             <a class="profile-link" href="{{ url_for('users.update_account') }}">Update Account</a>
-            <a class="profile-link" href="#">Delete Account</a>
+            <a class="profile-link waves-effect modal-trigger" href="#deletAccountModal">Delete Account</a>
             {% endif %}
         </div>
     </div>
 </div>
+  <!-- Modal to double check they want to delete -->
+  <div id="deletAccountModal" class="modal">
+    <div class="modal-content">
+      <h4>Delete Account</h4>
+      <p>Are you sure you want to delete your account</p>
+    </div>
+    <div class="modal-footer">
+      <a href="{{ url_for('users.account', username=current_user.username) }}" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+      <a href="#" class="modal-close waves-effect waves-green btn-flat">Delete</a>
+    </div>
+  </div>
 
 {% endblock %}

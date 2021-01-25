@@ -1,7 +1,8 @@
 <!-- Macors for page headings, About, Login and register
 Form input macros also for input fields -->
+
 <!-- Headdin macro -->
-{% macro page_heading(heading) %}
+{% macro page_heading(heading) -%}
 <div class="page-title-col col s12 xl6">
     <div class="page-title-container">
         <h1 class="page-title fade">
@@ -9,9 +10,10 @@ Form input macros also for input fields -->
         </h1>
     </div>
 </div>
-{% endmacro %}
+{%- endmacro %}
+
 <!-- Form input macro -->
-{% macro display_input(input_name) %}
+{% macro display_input(input_name) -%}
 <div class="input-field">
         {{ input_name.label(**kwargs) }}
         {% if input_name.errors %}
@@ -25,9 +27,10 @@ Form input macros also for input fields -->
         {{ input_name(class="validate") }}
         {% endif %}
 </div>
-{% endmacro %}
+{%- endmacro %}
+
 <!-- textarea field macro -->
-{% macro textarea_input(input_name) %}
+{% macro textarea_input(input_name) -%}
 <div class="input-field">
         {{ input_name.label(**kwargs) }}
         {% if input_name.errors %}
@@ -41,4 +44,17 @@ Form input macros also for input fields -->
         {{ input_name(class="materialize-textarea") }}
         {% endif %}
 </div>
-{% endmacro %}
+{%- endmacro %}
+
+{% macro modal(id="", modal_for="", user="",cancel_url="", delete_url="" ) -%}
+<div id="{{ id }}" class="modal">
+    <div class="modal-content">
+      <h4>Delete {{ modal_for }}</h4>
+      <p>Are you sure you want to delete your account</p>
+    </div>
+    <div class="modal-footer">
+      <a href="{{ url_for('{{cancel_url}}', username='{{user}}') }}" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+      <a href="{{ delete_url }}" class="modal-close waves-effect waves-green btn-flat">Delete</a>
+    </div>
+  </div>
+  {%- endmacro %}
