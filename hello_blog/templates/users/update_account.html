@@ -15,26 +15,29 @@
                 <!-- using the macro to display each form input -->
                 {{ display_input(form.username ,for="username") }}
                 {{ display_input(form.email, for="email") }}
-                <!-- textarea for bio -->
                 {{ textarea_input(form.bio, for="bio") }}
-                <!-- add image field for user image -->
-                <div class="file-field input-field col s12">
+                <!-- file image upload for user image -->
+                     <div class="file-field input-field">
                     <div class="btn">
                         <span>{{ form.user_image.label() }}</span>
-                     {{ form.user_image(type="file") }}
+                        {{ form.user_image(type="file") }}
                     </div>
                     <div class="file-path-wrapper" type="text">
-                           <input class="file-path validate" type="text">
+                        <input class="file-path validate" type="text">
                     </div>
-                        {% if form.user_image.errors %}
-                        {% for error in form.user_image.errors %}
-                        <span class="error">{{ error }}</span><br>
-                        {% endfor %}
-                        {% endif %}
+
+                    {% if form.user_image.errors %}
+                    {% for error in form.user_image.errors %}
+                    <span class="error">{{ error }}</span><br>
+                    {% endfor %}
+                    {% endif %}
                 </div>
+
+           
                 <!-- incldes the submit.html  -->
                 {% include "base/_submit.html" %}
             </form>
+       
         </div>
     </div>
 
