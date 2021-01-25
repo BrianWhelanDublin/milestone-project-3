@@ -8,19 +8,19 @@
 <div class="row page-height">
     {{ page_heading("Account") }}
     <div class="col page-text-col s12 xl6">
-        <div class="about-text-container">
-            <img src="https://res.cloudinary.com/dmgevdb7w/image\
-/upload/v1610563923/xymcofmhj3le6l9uh8qa.jpg" alt="users image">
-            <h2>{{ user.username }}</h2>
+        <div class="profile-container">
+            <img class="user-image" src="https://res.cloudinary.com/dmgevdb7w/image\
+/upload/w_200,h_200,c_fill,g_face/v1610563923/xymcofmhj3le6l9uh8qa.jpg" alt="users image">
+            <h2 class="profile-name">{{ user.username }}</h2>
             {% if current_user.username == user.username %}
-            <p>Email: {{ user.email }}</p>
+            <p class="profile-text">Email: {{ user.email }}</p>
             {% endif %}
             {% if user.bio %}
-            <p>Bio: {{ user.bio }}</p>
+            <p class="profile-text">Bio: {{ user.bio }}</p>
             {% endif %}
             {% if current_user.username == user.username %}
-            <a href="#">Update Account</a>
-            <a href="#">Delete Account</a>
+            <a class="profile-link" href="#">Update Account</a>
+            <a class="profile-link" href="#">Delete Account</a>
             {% endif %}
 
 

@@ -267,7 +267,8 @@ button:focus {
 
 .page-title-container,
 .about-text-container,
-.form-container {
+.form-container,
+.profile-container {
     position: relative;
     top: 50%;
     left: 50%;
@@ -308,7 +309,8 @@ button:focus {
     transition: all .5s ease-in;
 }
 
-.submit:hover {
+.submit:hover,
+.profile-link:hover {
     color: white;
     background: #f02937;
 }
@@ -338,7 +340,27 @@ button:focus {
 .flash-errors{
     color: #f02937;
 }
-
+/* ---------- Profile */
+.user-image{
+    max-width:15rem;
+}
+.profile-container{
+ width: fit-content;
+    display:flex;
+    flex-direction: column;
+   align-items: center;
+}
+.profile-text{
+    font-size: 3vh;
+}
+.profile-link{
+    font-size: 2vh;
+    background: white;
+    color: black;
+    margin-top: 2rem;
+    text-align: center;
+    width:15rem;
+}
 
 @media(min-width: 768px) {
 
