@@ -1,0 +1,43 @@
+<!-- Imports macros for the heading and the form input fields -->
+{% from "base/macros.html" import page_heading, display_input, textarea_input %}
+
+{% extends "base/base.html" %}
+
+{% block content %}
+
+<div class="row page-height">
+    {{ page_heading("Update Account") }}
+    <div class="col page-text-col s12 xl6">
+        <div class="form-container">
+            <form method="POST" action="" class="col s12 ">
+                <!-- this hidden tag is used by Flask-Wtf for CSRF protection and is needed for each form -->
+                {{ form.hidden_tag() }}
+                <!-- using the macro to display each form input -->
+                {{ display_input(form.username ,for="username") }}
+                {{ display_input(form.email, for="email") }}
+                <!-- textarea for bio -->
+                {{ textarea_input(form.bio, for="bio") }}
+                <!-- add image field for user image -->
+                <div class="file-field input-field col s12">
+                    <div class="btn">
+                        <span>{{ form.user_image.label() }}</span>
+                     {{ form.user_image(type="file") }}
+                    </div>
+                    <div class="file-path-wrapper" type="text">
+                           <input class="file-path validate" type="text">
+                    </div>
+                        {% if form.user_image.errors %}
+                        {% for error in form.user_image.errors %}
+                        <span class="error">{{ error }}</span><br>
+                        {% endfor %}
+                        {% endif %}
+                </div>
+                <!-- incldes the submit.html  -->
+                {% include "base/_submit.html" %}
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

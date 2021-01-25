@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import (StringField, PasswordField,
+                     SubmitField, BooleanField, TextAreaField)
 from wtforms.validators import (DataRequired, Length, Email,
                                 EqualTo, ValidationError)
 from hello_blog.models import User
@@ -50,8 +51,10 @@ class UpdateAccount(FlaskForm):
                                        Length(min=3, max=20)])
     email = StringField("Email",
                         validators=[DataRequired(), Email()])
+    bio = TextAreaField("Bio", [Length(max=250)])
     user_image = FileField("Update Profile Image",
                            validators=[FileAllowed(["jpg", "png"])])
+    submit = SubmitField("Update")
 
     # use custom validators to insure the username and email is unique
     # only run if the user has changed the data

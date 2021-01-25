@@ -1,6 +1,6 @@
 from flask import (Blueprint, render_template, url_for,
                    flash, redirect)
-from hello_blog.users.forms import SignupForm, LoginForm
+from hello_blog.users.forms import SignupForm, LoginForm, UpdateAccount
 from hello_blog.models import User
 from hello_blog import bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
@@ -27,7 +27,7 @@ def signup():
                     email=form.email.data)
         user.hash_password(form.password.data)
         user.save()
-        flash("User registered", "success")
+        flash("User registered, Please login now", "success")
         return redirect(url_for("users.login"))
     return render_template("users/signup.html",
                            title="Sign Up",
@@ -81,4 +81,13 @@ def account(username):
                            user=user)
 
 
-
+# create the route for updating the users account
+@users.route("/update/account", methods=["GET", "POST"])
+@login_required
+def update_account():
+    form = UpdateAccount()
+    if form.validate_on_submit():
+        return redirect(url_for("users.account",
+                                username=current_user.username))
+    return render_template("users/update_account.html",
+                           form=form)
