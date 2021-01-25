@@ -45,16 +45,3 @@ Form input macros also for input fields -->
         {% endif %}
 </div>
 {%- endmacro %}
-
-{% macro modal(id="", modal_for="", user="",cancel_url="", delete_url="" ) -%}
-<div id="{{ id }}" class="modal">
-    <div class="modal-content">
-      <h4>Delete {{ modal_for }}</h4>
-      <p>Are you sure you want to delete your account</p>
-    </div>
-    <div class="modal-footer">
-      <a href="{{ url_for('{{cancel_url}}', username='{{user}}') }}" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-      <a href="{{ delete_url }}" class="modal-close waves-effect waves-green btn-flat">Delete</a>
-    </div>
-  </div>
-  {%- endmacro %}
