@@ -126,4 +126,7 @@ def delete_account(username):
         user.delete()
         flash("Account deleted successfully", "success")
         return redirect(url_for("main.home"))
+    # if the users types this route into the url it will
+    # give an error so the account can only be deleted from the modal form
+    # on the users account page.
     return abort(404)
