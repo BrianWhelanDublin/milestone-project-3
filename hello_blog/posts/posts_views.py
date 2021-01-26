@@ -12,8 +12,10 @@ posts = Blueprint("posts", __name__)
 @posts.route("/posts")
 @login_required
 def all_posts():
+    posts = Post.objects().order_by("-date_posted")
     return render_template("posts/all_posts.html",
-                           title="All Posts")
+                           title="All Posts",
+                           posts=posts)
 
 
 # create the route to add new post

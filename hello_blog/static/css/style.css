@@ -163,12 +163,12 @@ button:focus {
 
 /*----------------------------- Home page */
 
-.container {
-    width: 95%;
+/* .container {
+    width: 80%;
     max-width: unset;
     margin: 0;
     padding: 0;
-}
+} */
 
 .wrapper {
     display: grid;
@@ -252,45 +252,29 @@ button:focus {
     position: absolute;
     bottom: 5vh;
 }
-
-.row {
-    width: 100%;
+.page-row{
+    height:80vh
 }
 
-.page-title-col {
-    height: 25%;
-}
-
-.page-text-col {
-    height: 75%;
-}
-
-.page-title-container,
-.about-text-container,
-.form-container,
-.profile-container {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-}
-
-.form-container {
-    width: 90%;
-    height:fit-content;
+.page-col{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .about-text {
-    font-size: 4vw;
+    font-size: 3vw;
     padding: 0 2rem 2rem 0;
 }
 
 .page-title {
-    font-size: 11vw;
+    font-size: 10vw;
     font-weight: 800;
     text-transform: uppercase;
-    text-align: center;
 }
+
 
 /* ----------------------Forms */
 
@@ -320,47 +304,57 @@ button:focus {
 .form-link-msg a {
     font-size: 1.25rem;
 }
+
 .form-link-msg a {
-    color:#f02937;
+    color: #f02937;
 }
-.form-link-msg a:hover{
+
+.form-link-msg a:hover {
     text-decoration: underline;
 }
+
 .flash,
 .info {
     font-size: 2rem;
     text-align: center;
     width: 100%;
 }
-.flash-col{
-    width:100%;
+
+.flash-col {
+    width: 100%;
 }
-.flash-success{
+
+.flash-success {
     color: #3c6e4f;
 }
-.flash-errors{
+
+.flash-errors {
     color: #f02937;
 }
+
 /* ---------- Profile */
-.user-image{
-    max-width:15rem;
+.user-image {
+    max-width: 15rem;
 }
-.profile-container{
- width: fit-content;
-    display:flex;
+
+.profile-container {
+    width: fit-content;
+    display: flex;
     flex-direction: column;
-   align-items: center;
+    align-items: center;
 }
-.profile-text{
+
+.profile-text {
     font-size: 3vh;
 }
-.profile-link{
+
+.profile-link {
     font-size: 2vh;
     background: white;
     color: black;
     margin-top: 2rem;
     text-align: center;
-    width:15rem;
+    width: 15rem;
 }
 
 @media(min-width: 768px) {
@@ -449,11 +443,11 @@ button:focus {
     }
 
     .page-title {
-        font-size: 7vw;
+        font-size: 4vw;
     }
 
     .about-text {
-        font-size: 2vw;
+        font-size: 1.75vw;
     }
 
     .navigation-link {

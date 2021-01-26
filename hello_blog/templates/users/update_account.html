@@ -5,10 +5,9 @@
 
 {% block content %}
 
-<div class="row page-height">
+<div class="row page-row">
     {{ page_heading("Update Account") }}
-    <div class="col page-text-col s12 xl6">
-        <div class="form-container">
+    <div class="col page-col s12 xl6">
             <form method="POST" action="" class="col s12" enctype="multipart/form-data">
                 <!-- this hidden tag is used by Flask-Wtf for CSRF protection and is needed for each form -->
                 {{ form.hidden_tag() }}
@@ -41,6 +40,6 @@
         </div>
     </div>
 
-</div>
+
 
 {% endblock %}
