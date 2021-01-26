@@ -32,9 +32,9 @@ def create_app(config_class=Config):
         api_secret=Config.API_SECRET
         )
 
-    #  imports the blueprints from each route file
-    from hello_blog.main.routes import main
-    from hello_blog.users.routes import users
+    # imports the blueprints from each view file
+    from hello_blog.main.main_views import main
+    from hello_blog.users.users_views import users
 
     #  register each blueprint to connect it with the app
     app.register_blueprint(main)

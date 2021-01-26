@@ -1,11 +1,11 @@
 from hello_blog import db, bcrypt, login_manager
 from flask_mongoengine import BaseQuerySet
-# Usermixin adds the basic functions needed to the userclass for flask login
 from flask_login import UserMixin
 from datetime import datetime
 
 
 # creates the User class
+# Usermixin adds the basic functions needed to the userclass for flask login
 class User(db.Document, UserMixin):
     username = db.StringField(max_length=20, unique=True, required=True)
     email = db.StringField(max_length=100, unique=True, required=True)

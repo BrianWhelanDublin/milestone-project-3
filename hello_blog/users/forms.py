@@ -71,3 +71,6 @@ class UpdateAccount(FlaskForm):
             if user is not None:
                 raise ValidationError("Email already in use.\
                     Please try another")
+
+class DeleteAccountForm(FlaskForm):
+    submit = SubmitField("Delete")

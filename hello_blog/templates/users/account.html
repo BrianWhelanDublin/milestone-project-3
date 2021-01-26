@@ -24,16 +24,20 @@
         </div>
     </div>
 </div>
-  <!-- Modal to double check they want to delete -->
-  <div id="deletAccountModal" class="modal">
+<!-- Modal to double check they want to delete -->
+<div id="deletAccountModal" class="modal">
     <div class="modal-content">
-      <h4>Delete Account</h4>
-      <p>Are you sure you want to delete your account</p>
+        <h4>Delete Account</h4>
+        <p>Are you sure you want to delete your account</p>
     </div>
-    <div class="modal-footer">
-      <a href="{{ url_for('users.account', username=current_user.username) }}" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-      <a href="{{ url_for('users.delete_account') }}" class="modal-close waves-effect waves-green btn-flat">Delete</a>
-    </div>
-  </div>
+    <form method="POST" action="{{ url_for('users.delete_account', username=current_user.username) }}" class="col s12 ">
+          {{ form.hidden_tag() }}
+        <div class="modal-footer">
+            <a href="{{ url_for('users.account', username=current_user.username) }}"
+                class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+            {{ form.submit(class="modal-close waves-effect waves-green btn-flat") }}
+        </div>
+    </form>
+</div>
 
 {% endblock %}

@@ -1,10 +1,11 @@
 from flask import (Blueprint, render_template, url_for,
-                   flash, redirect, request)
-from hello_blog.users.forms import SignupForm, LoginForm, UpdateAccount
+                   flash, redirect, request, abort)
+from hello_blog.users.forms import (SignupForm, LoginForm,
+                                    UpdateAccount, DeleteAccountForm)
 from hello_blog.models import User
 from hello_blog import bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
-from hello_blog.users.utils import save_user_image
+from hello_blog.users.users_utils import save_user_image
 
 
 users = Blueprint("users", __name__)
@@ -77,13 +78,15 @@ def logout():
 @users.route("/account/<username>")
 @login_required
 def account(username):
+    form = DeleteAccountForm()
     user = User.objects(username=username).first_or_404()
     return render_template("users/account.html",
-                           user=user)
+                           user=user,
+                           form=form)
 
 
 # create the route for updating the users account
-@users.route("/update/account", methods=["GET", "POST"])
+@users.route("/account/update", methods=["GET", "POST"])
 @login_required
 def update_account():
     form = UpdateAccount()
@@ -114,11 +117,13 @@ def update_account():
 
 
 # create route to delete user
-@users.route("/delete/account")
+@users.route("/account/<username>/delete", methods=["GET", "POST"])
 @login_required
-def delete_account():
-    # find user in database and delete their details
-    user = User.objects(username=current_user.username).first()
-    user.delete()
-    flash("Account deleted successfully", "success")
-    return redirect(url_for("main.home"))
+def delete_account(username):
+    if request.method == "POST":
+        # find user in database and delete their details
+        user = User.objects(username=username).first()
+        user.delete()
+        flash("Account deleted successfully", "success")
+        return redirect(url_for("main.home"))
+    return abort(404)
