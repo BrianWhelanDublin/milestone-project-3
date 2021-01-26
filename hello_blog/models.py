@@ -40,7 +40,7 @@ def load_user(user_id):
 
 
 # create the category class
-class Category(db.Document):
+class Categories(db.Document):
     category_name = db.StringField(max_length=20)
 
     meta = {
@@ -55,7 +55,7 @@ class Category(db.Document):
 # create the model class for each post
 class Post(db.Document):
     title = db.StringField(max_length=50)
-    category = db.ReferenceField(Category)
+    category = db.ReferenceField(Categories)
     content = db.StringField()
     date_posted = db.DateTimeField(default=datetime.utcnow)
     author = db.ReferenceField(User)

@@ -53,8 +53,4 @@ link.forEach((item) => {
     });
 });
 
-// materialize modal
-document.addEventListener('DOMContentLoaded', () => {
-    let elems = document.querySelectorAll('.modal');
-    let instances = M.Modal.init(elems);
-});
+  M.AutoInit();

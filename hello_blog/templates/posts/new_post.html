@@ -1,0 +1,30 @@
+<!-- Imports macros for the heading and the form input fields -->
+{% from "base/macros.html" import page_heading, display_input, textarea_input %}
+
+{% extends "base/base.html" %}
+
+{% block content %}
+
+<div class="row page-height">
+    {{ page_heading("New Post") }}
+    <div class="col page-text-col s12 xl6">
+        <div class="form-container">
+            <form method="POST" action="" class="col s12 ">
+                <!-- this hidden tag is used by Flask-Wtf for CSRF protection and is needed for each form -->
+                {{ form.hidden_tag() }}
+                <!-- using the macro to display each form input -->
+                {{ display_input(form.title,for="title") }}
+                {{ textarea_input(form.content,for="content") }}
+                <div class=""> {{ form.category.label()}}</div>
+                <div class="input-field col s12">
+                    {{ form.category()}}
+                </div>
+                <!-- incldes the submit.html  -->
+                {% include "base/_submit.html" %}
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
