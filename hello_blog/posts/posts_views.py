@@ -11,4 +11,4 @@ posts = Blueprint("posts", __name__)
 @login_required
 def all_posts():
     return render_template("posts/all_posts.html",
-                           title="Recent Posts")
+                           title="All Posts")

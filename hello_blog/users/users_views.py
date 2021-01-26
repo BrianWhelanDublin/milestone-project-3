@@ -43,7 +43,7 @@ def login():
     # if the user has logged in and gets to
     # this route they will be redirected home
     if current_user.is_authenticated:
-        return redirect(url_for("main.home"))
+        return redirect(url_for("posts.all_posts"))
     form = LoginForm()
     if form.validate_on_submit():
         # Finds the user in the database by their username
@@ -56,7 +56,7 @@ def login():
                                                form.password.data):
             login_user(user, remember=form.remember_user.data)
             flash("You've been logged in successfully", "success")
-            return redirect(url_for("main.home"))
+            return redirect(url_for("posts.all_posts"))
 
         # if no user exists or wrong details lets
         # user know and directs them back to the login page

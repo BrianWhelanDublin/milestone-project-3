@@ -29,10 +29,10 @@
                 </ul>
                 <div class="nav-background"></div>
                 <ul class="navigation-list">
-                    <li class="navigation-item">
-                        <a href="{{ url_for('main.home') }}" class="navigation-link"> Home</a>
-                    </li>
                     {% if current_user.is_authenticated %}
+                     <li class="navigation-item">
+                        <a href="{{ url_for('posts.all_posts') }}" class="navigation-link" data-cy="about-link-lp">Home</a>
+                    </li>
                       <li class="navigation-item">
                         <a href="{{ url_for('users.account', username=current_user.username) }}" class="navigation-link">Account</a>
                     </li>
@@ -40,6 +40,9 @@
                         <a href="{{ url_for('users.logout') }}" class="navigation-link" data-cy="about-link-lp">Logout</a>
                     </li>
                     {% else %}
+                     <li class="navigation-item">
+                        <a href="{{ url_for('main.home') }}" class="navigation-link"> Home</a>
+                    </li>
                     <li class="navigation-item">
                         <a href="{{ url_for('users.login') }}" class="navigation-link"> Login</a>
                     </li>
