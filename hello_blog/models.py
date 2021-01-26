@@ -37,3 +37,33 @@ class User(db.Document, UserMixin):
 @login_manager.user_loader
 def load_user(user_id):
     return User.objects(pk=user_id).first()
+
+
+# create the category class
+class Category(db.Document):
+    category_name = db.StringField(max_length=20)
+
+    meta = {
+        "collection": "categories",
+        "queryset_class": BaseQuerySet
+    }
+
+    def __repr__(self):
+        return f"Category({self.category_name})"
+
+
+# create the model class for each post
+class Post(db.Document):
+    title = db.StringField(max_length=50)
+    category = db.ReferenceField(Category)
+    content = db.StringField()
+    date_posted = db.DateTimeField(default=datetime.utcnow)
+    author = db.ReferenceField(User)
+
+    neta = {
+        "collection": "posts",
+        "queryset_class": BaseQuerySet
+    }
+
+    def __repr__(self):
+        return f"Post({self.title}, {self.author}, {self.date_posted})"
