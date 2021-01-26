@@ -1,7 +1,8 @@
 from flask import (Blueprint, render_template, url_for,
                    flash, redirect, request, abort)
-from hello_blog.users.forms import (SignupForm, LoginForm,
-                                    UpdateAccount, DeleteAccountForm)
+from hello_blog.users.users_forms import (SignupForm, LoginForm,
+                                          UpdateAccount,
+                                          DeleteAccountForm)
 from hello_blog.models import User
 from hello_blog import bcrypt
 from flask_login import login_user, current_user, logout_user, login_required

@@ -35,10 +35,12 @@ def create_app(config_class=Config):
     # imports the blueprints from each view file
     from hello_blog.main.main_views import main
     from hello_blog.users.users_views import users
+    from hello_blog.posts.posts_views import posts
 
     #  register each blueprint to connect it with the app
     app.register_blueprint(main)
     app.register_blueprint(users)
+    app.register_blueprint(posts)
 
     # then return the app which will run when the create_app
     # function is called in run.py
