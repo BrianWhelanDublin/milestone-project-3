@@ -60,7 +60,7 @@ class Post(db.Document):
     date_posted = db.DateTimeField(default=datetime.utcnow)
     author = db.ReferenceField(User)
 
-    neta = {
+    meta = {
         "collection": "posts",
         "queryset_class": BaseQuerySet
     }
