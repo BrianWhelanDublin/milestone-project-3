@@ -5,6 +5,10 @@
     margin: 0;
 }
 
+.row {
+    margin: 0;
+}
+
 .preload * {
     -webkit-transition: none !important;
     -moz-transition: none !important;
@@ -24,14 +28,15 @@ body,
 nav {
     background: rgb(243, 242, 242);
 }
+
 /* Code from Webaim to hide text for screenreader as I wasnt using bootstrap more detail in readme */
 .sr-only {
-position:absolute;
-left:-10000px;
-top:auto;
-width:1px;
-height:1px;
-overflow:hidden;
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
 
 /*------------------------------- Transitions */
@@ -252,7 +257,7 @@ button:focus {
 
 /* -----------------------------Page layout */
 .page-height {
-    height: 90vh;
+    height: 80vh;
     position: absolute;
 
 }
@@ -270,11 +275,11 @@ button:focus {
 }
 
 .title-height {
-    height: 25%;
+    height: 20%;
 }
 
 .content-height {
-    height: 75%;
+    height: 80%;
 }
 
 .about-text {
@@ -358,6 +363,7 @@ button:focus {
 
 .flash-col {
     width: 100%;
+    margin: 2rem 0;
 }
 
 .flash-success {
@@ -416,17 +422,17 @@ button:focus {
 
 .post-title {
     font-weight: 600;
-    font-size: 5vh;
+    font-size: 3.5rem;
     height: 5rem;
 }
 
 .post-card-content {
-    font-size: 2.5vh;
+    font-size: 1.25rem;
     font-weight: 400;
     height: 8rem;
 }
-´
-.post-card-action {
+
+´ .post-card-action {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -435,11 +441,13 @@ button:focus {
 }
 
 .card-category-link {
-    font-size: 2vh;
+    font-size: 1.25rem;
 }
-.arrow{
-    font-size: 2.5vh;
+
+.arrow {
+    font-size: 1.5rem;
 }
+
 .post-card-category {
     height: 5rem;
 }
@@ -451,15 +459,17 @@ button:focus {
     margin-left: 2rem;
 }
 
-.post-author a ,
-.post-author p{
-    font-size: 2vh;
+.post-author a,
+.post-author p {
+    font-size: 1.25rem;
 }
-.post-card a{
-    color:black;
+
+.post-card a {
+    color: black;
     transition: all .5s ease;
 }
-.post-card a:hover{
+
+.post-card a:hover {
     text-decoration: underline;
     color: #f02937;
 }
