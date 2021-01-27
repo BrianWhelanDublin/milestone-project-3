@@ -3,7 +3,7 @@ from hello_blog.config import Config
 from flask_mongoengine import MongoEngine
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
-# import cloudinary
+
 
 # create instances of imported extensions
 db = MongoEngine()
