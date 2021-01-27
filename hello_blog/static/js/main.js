@@ -53,8 +53,10 @@ link.forEach((item) => {
     });
 });
 
-  M.AutoInit();
+// initialize materialize functions for  select form input
+M.AutoInit();
 
+// initialize the materialize form counter using jQuery
 $(document).ready(function() {
 $('textarea#bio').characterCounter();
 });

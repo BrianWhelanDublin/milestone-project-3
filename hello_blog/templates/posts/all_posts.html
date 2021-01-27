@@ -1,19 +1,40 @@
 {% extends "base/base.html" %}
 {% block content %}
-
-
-    <div class="row page-row">
-        {% for post in posts %}
-        <div class="post-container col s12 m6 l4">
-            <hr>
-            <h1 class="post-heading">{{post.title}}</h1>
-            <p>{{post.content}}</p>
-            <p>{{ post.category.category_name }}</p>
-            <p>Posted on: {{post.date_posted.strftime("%d-%m-%Y")}}</p>
-            <p>Posted by: {{post.author.username}}</p>
-            <hr>
-        </div>
-        {% endfor %}
+<div class="row post-row fade">
+    <div class="col s12 ">
+        <h1 class="title">Latest Posts</h1>
     </div>
-
+    {% for post in posts %}
+        <div class="col s12 m6 ">
+            <div class="post-card ">
+                <div class="post-content">
+                    <h2 class="post-title">
+                        {{post.title|capitalize}}
+                    </h2>
+                    <p class="post-card-content">
+                        {{ post.content[0:100] }}...
+                    </p>
+                </div>
+                <div class="row post-card-category">
+                    <div class="col s12">
+                        <a class="card-category-link" href="#">
+                            Category: {{ post.category.category_name }}
+                        </a>
+                    </div>
+                </div>
+                <div class="post-card-action row">
+                    <div class="col s4">
+                        <img class="post-author-img" src="{{ post.author.user_image }}" alt="">
+                    </div>
+                    <div class="col post-author s8">
+                        <a href="#">Posted by: {{post.author.username}}</a>
+                        <p>Posted on: {{post.date_posted.strftime("%d-%m-%Y")}}</p>
+                        <a href="">Find out more <i class="las arrow la-angle-double-right" aria-hidden="true"></i>
+                            <span class="sr-only">Link to post page</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}
