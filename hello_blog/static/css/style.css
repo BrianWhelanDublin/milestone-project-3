@@ -428,7 +428,7 @@ button:focus {
     height: 8rem;
 }
 
-´ .post-card-action {
+.post-card-action {
     position: absolute;
     bottom: 0;
     width: 100%;
