@@ -3,7 +3,7 @@ from hello_blog.config import Config
 from flask_mongoengine import MongoEngine
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
-import cloudinary
+# import cloudinary
 
 # create instances of imported extensions
 db = MongoEngine()
@@ -26,11 +26,6 @@ def create_app(config_class=Config):
     login_manager.init_app(app)
 
     # set up cloudinary configuration from the confifg file
-    cloudinary.config(
-        cloud_name=Config.CLOUD_NAME,
-        api_key=Config.API_KEY,
-        api_secret=Config.API_SECRET
-        )
 
     # imports the blueprints from each view file
     from hello_blog.main.main_views import main
