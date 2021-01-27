@@ -252,14 +252,9 @@ button:focus {
 }
 
 /* -----------------------------Page layout */
-.page-height {
-    height: 80vh;
-    position: absolute;
-
-}
 
 .page-row {
-    height: 90vh;
+    height: 70vh;
 
 }
 
