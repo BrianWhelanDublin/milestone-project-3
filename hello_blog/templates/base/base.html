@@ -30,17 +30,20 @@
                 <div class="nav-background"></div>
                 <ul class="navigation-list">
                     {% if current_user.is_authenticated %}
-                     <li class="navigation-item">
-                        <a href="{{ url_for('posts.all_posts') }}" class="navigation-link" data-cy="about-link-lp">Home</a>
-                    </li>
-                      <li class="navigation-item">
-                        <a href="{{ url_for('users.account', username=current_user.username) }}" class="navigation-link">Account</a>
+                    <li class="navigation-item">
+                        <a href="{{ url_for('posts.all_posts') }}" class="navigation-link"
+                            data-cy="about-link-lp">Home</a>
                     </li>
                     <li class="navigation-item">
-                        <a href="{{ url_for('users.logout') }}" class="navigation-link" data-cy="about-link-lp">Logout</a>
+                        <a href="{{ url_for('users.account', username=current_user.username) }}"
+                            class="navigation-link">Account</a>
+                    </li>
+                    <li class="navigation-item">
+                        <a href="{{ url_for('users.logout') }}" class="navigation-link"
+                            data-cy="about-link-lp">Logout</a>
                     </li>
                     {% else %}
-                     <li class="navigation-item">
+                    <li class="navigation-item">
                         <a href="{{ url_for('main.home') }}" class="navigation-link"> Home</a>
                     </li>
                     <li class="navigation-item">
@@ -50,7 +53,7 @@
                         <a href="{{ url_for('users.signup') }}" class="navigation-link" data-cy="about-link-lp">Sign
                             Up</a>
                     </li>
-                     {% endif %}
+                    {% endif %}
                     <li class="navigation-item">
                         <a href="{{ url_for('main.about')}}" class="navigation-link" data-cy="destinations-link-lp">
                             About</a>
@@ -68,21 +71,22 @@
             <div class="row">
                 <div class="col flash-col">
                     {% with messages = get_flashed_messages(with_categories=true) %}
-                        {% if messages %}
-                            {% for category, message in messages %}
-                                <div class="flash flash-{{ category }}">
-                                    {{ message }}
-                                </div>
-                            {% endfor %}
-                        {% endif %}
+                    {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="flash flash-{{ category }}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
                     {% endwith %}
                 </div>
             </div>
             {% block content %}{% endblock %}
         </div>
     </main>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 

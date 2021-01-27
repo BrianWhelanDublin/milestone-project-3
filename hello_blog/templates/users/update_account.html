@@ -7,38 +7,38 @@
 
 <div class="row page-row">
     {{ page_heading("Update Account") }}
-    <div class="col page-col s12 xl6">
-            <form method="POST" action="" class="col s12" enctype="multipart/form-data">
-                <!-- this hidden tag is used by Flask-Wtf for CSRF protection and is needed for each form -->
-                {{ form.hidden_tag() }}
-                <!-- using the macro to display each form input -->
-                {{ display_input(form.username ,for="username") }}
-                {{ display_input(form.email, for="email") }}
-                {{ textarea_input(form.bio, for="bio") }}
-                <!-- file image upload for user image -->
-                     <div class="file-field input-field">
-                    <div class="btn">
-                        <span>{{ form.user_image.label() }}</span>
-                        {{ form.user_image(type="file") }}
-                    </div>
-                    <div class="file-path-wrapper" type="text">
-                        <input class="file-path validate" type="text">
-                    </div>
-
-                    {% if form.user_image.errors %}
-                    {% for error in form.user_image.errors %}
-                    <span class="error">{{ error }}</span><br>
-                    {% endfor %}
-                    {% endif %}
+    <div class="col page-col content-height s12 xl6">
+        <form method="POST" action="" class="col s12" enctype="multipart/form-data">
+            <!-- this hidden tag is used by Flask-Wtf for CSRF protection and is needed for each form -->
+            {{ form.hidden_tag() }}
+            <!-- using the macro to display each form input -->
+            {{ display_input(form.username ,for="username") }}
+            {{ display_input(form.email, for="email") }}
+            {{ textarea_input(form.bio, for="bio") }}
+            <!-- file image upload for user image -->
+            <div class="file-field input-field">
+                <div class="btn image-btn">
+                    <span>{{ form.user_image.label() }}</span>
+                    {{ form.user_image(type="file") }}
+                </div>
+                <div class="file-path-wrapper" type="text">
+                    <input class="file-path validate" type="text">
                 </div>
 
-           
-                <!-- incldes the submit.html  -->
-                {% include "base/_submit.html" %}
-            </form>
-       
-        </div>
+                {% if form.user_image.errors %}
+                {% for error in form.user_image.errors %}
+                <span class="error">{{ error }}</span><br>
+                {% endfor %}
+                {% endif %}
+            </div>
+
+
+            <!-- incldes the submit.html  -->
+            {% include "base/_submit.html" %}
+        </form>
+
     </div>
+</div>
 
 
 

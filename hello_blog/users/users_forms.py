@@ -51,7 +51,8 @@ class UpdateAccount(FlaskForm):
                                        Length(min=3, max=20)])
     email = StringField("Email",
                         validators=[DataRequired(), Email()])
-    bio = TextAreaField("Bio", [Length(max=250)])
+    bio = TextAreaField("Bio", [Length(min=10, max=150)],
+                        render_kw={"data-length": "150"})
     user_image = FileField("Update Profile Image",
                            validators=[FileAllowed(["jpg", "png"])])
     submit = SubmitField("Update")

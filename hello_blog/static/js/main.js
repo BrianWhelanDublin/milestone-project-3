@@ -54,3 +54,9 @@ link.forEach((item) => {
 });
 
   M.AutoInit();
+
+$(document).ready(function() {
+$('textarea#bio').characterCounter();
+});
+
+      

@@ -248,31 +248,41 @@ button:focus {
 
 /* -----------------------------Page layout */
 .page-height {
-    height: 80vh;
+    height: 90vh;
     position: absolute;
-    bottom: 5vh;
-}
-.page-row{
-    height:80vh
+
 }
 
-.page-col{
-    height: 100%;
+.page-row {
+    height: 90vh
+}
+
+.page-col {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+.title-height {
+    height: 25%;
+}
+
+.content-height {
+    height: 75%;
+}
+
 .about-text {
-    font-size: 3vw;
-    padding: 0 2rem 2rem 0;
+    font-size: 2.5vh;
+    padding: 0 2rem 0 2rem;
+    text-align: center;
 }
 
 .page-title {
-    font-size: 10vw;
-    font-weight: 800;
+    font-size: 6vh;
+    font-weight: 700;
     text-transform: uppercase;
+    text-align: center;
 }
 
 
@@ -284,20 +294,41 @@ button:focus {
     font-size: 1rem;
 }
 
-.submit {
+.submit,
+.image-btn,
+.submit-modal {
+    color: black;
     background: white;
-    width: 12rem;
-    height: 5rem;
-    font-size: 2rem;
     border: none;
     text-align: center;
     transition: all .5s ease-in;
 }
 
+.submit,
+.image-btn {
+    width: 12rem;
+    height: 5rem;
+    font-size: 2rem;
+}
+
+.image-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .submit:hover,
-.profile-link:hover {
+.profile-link:hover,
+.image-btn:hover,
+.submit-modal:hover {
     color: white;
     background: #f02937;
+}
+
+.image-btn span label {
+
+    color: black;
 }
 
 .form-link-msg,
@@ -334,25 +365,34 @@ button:focus {
 
 /* ---------- Profile */
 .user-image {
-    max-width: 15rem;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
 }
 
 .profile-container {
-    width: fit-content;
+    height: fit-content;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+}
+
+.profile-name {
+    font-size: 3.5vh;
+    font-weight: 600;
 }
 
 .profile-text {
-    font-size: 3vh;
+    font-size: 1.75vh;
 }
 
 .profile-link {
-    font-size: 2vh;
+    font-size: 1.75vh;
     background: white;
     color: black;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     text-align: center;
     width: 15rem;
 }
@@ -398,7 +438,7 @@ button:focus {
     }
 }
 
-@media(min-width: 1200px) {
+@media(min-width: 1201px) {
     .title {
         font-size: 11vh;
     }
@@ -454,6 +494,12 @@ button:focus {
         font-size: 7vw;
 
     }
+
+    .content-height,
+    .title-height {
+        height: 100%;
+    }
+
 
 }
 
