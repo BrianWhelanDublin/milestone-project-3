@@ -5,6 +5,7 @@
     margin: 0;
 }
 
+/* Code to stop css transitions occuring while page loads */
 .preload * {
     -webkit-transition: none !important;
     -moz-transition: none !important;
@@ -23,6 +24,17 @@ body {
 body,
 nav {
     background: rgb(243, 242, 242);
+}
+
+.container {
+    min-height: 40rem;
+}
+
+.center-verticaly {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Code from Webaim to hide text for screenreader as I wasnt using bootstrap more detail in readme */
@@ -174,7 +186,7 @@ button:focus {
 
 /*----------------------------- Home page */
 
-.wrapper {
+/* .wrapper {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 7vh);
@@ -183,40 +195,47 @@ button:focus {
 .title-container {
     grid-column: 2 / 12;
     grid-row: 2 / 5;
-}
+} */
 
 .title {
     margin: 0;
-    font-size: 5.5vh;
+    font-size: 3.5rem;
     font-weight: 800;
     text-align: center;
 }
 
-.title-text-container {
+/* .title-text-container {
     grid-column: 3 / 11;
     grid-row: 5 / 7;
     position: relative;
+} */
+.title-text-row {
+    height: 40vh;
 }
 
 .title-text {
-    font-size: 2vh;
+    font-size: 1.5rem;
     font-weight: 400;
 }
 
-.signup-container {
-    grid-column: 2 / 5;
-    grid-row: 8 / 11;
-    background: black;
-    height: 20vh;
-    width: 20vh;
-    border-radius: 50%;
+.link-container {
     position: relative;
+}
+
+.signup-container {
+    background: black;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    position: absolute;
+    right: 5%;
+    top: 2%;
     transition: all .75s ease-in;
 }
 
 .signup-link {
     color: rgb(245, 247, 247);
-    font-size: 2vh;
+    font-size: 1.25rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -231,10 +250,12 @@ button:focus {
     grid-column: 8 / 11;
     grid-row: 10 / 12;
     background: #f02937;
-    height: 18vh;
-    width: 18vh;
+    height: 8rem;
+    width: 8rem;
     border-radius: 50%;
-    position: relative;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
     transition: all .75s ease-in;
 }
 
@@ -258,13 +279,6 @@ button:focus {
 
 }
 
-.page-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 .title-height {
     height: 20%;
 }
@@ -280,7 +294,7 @@ button:focus {
 }
 
 .page-title {
-    font-size: 6vh;
+    font-size: 5.5vh;
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
@@ -308,8 +322,8 @@ button:focus {
 .submit,
 .image-btn {
     width: 12rem;
-    height: 5rem;
-    font-size: 2rem;
+    height: 3rem;
+    font-size: 1.5rem;
 }
 
 .image-btn {
@@ -347,14 +361,14 @@ button:focus {
 
 .flash,
 .info {
-    font-size: 2rem;
+    font-size: 1.75rem;
     text-align: center;
     width: 100%;
 }
 
 .flash-col {
     width: 100%;
-    margin: 2rem 0;
+    margin: 1rem 0;
 }
 
 .flash-success {
@@ -367,8 +381,8 @@ button:focus {
 
 /* ---------- Profile */
 .user-image {
-    width: 8rem;
-    height: 8rem;
+    width: 7rem;
+    height: 7rem;
     border-radius: 50%;
 }
 
@@ -387,14 +401,15 @@ button:focus {
 }
 
 .profile-text {
-    font-size: 1.75vh;
+    margin-top: 1vh;
+    font-size: 2vh;
 }
 
 .profile-link {
     font-size: 1.75vh;
     background: white;
     color: black;
-    margin-top: 1.5rem;
+    margin-top: 1.5vh;
     text-align: center;
     width: 15rem;
 }
@@ -467,7 +482,7 @@ button:focus {
 
 
 @media(min-width: 768px) {
-
+    /* 
 
     .title {
         font-size: 8vh;
@@ -485,7 +500,7 @@ button:focus {
     .login-container {
         height: 20vh;
         width: 20vh;
-    }
+    } */
 
     .page-title {
         font-size: 10vw;
@@ -508,7 +523,7 @@ button:focus {
 }
 
 @media(min-width: 1201px) {
-    .title {
+    /* .title {
         font-size: 11vh;
     }
 
@@ -544,7 +559,7 @@ button:focus {
 
     .login-link {
         font-size: 4vh;
-    }
+    } */
 
     .page-title-col,
     .page-text-col {

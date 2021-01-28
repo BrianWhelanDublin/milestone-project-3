@@ -1,24 +1,26 @@
 {% extends "base/base.html" %}
 {% block content %}
 <div class="row">
-    <div class="wrapper">
-        <div class="title-container fade">
-            <h1 class="title ">
-                <hr>
-                <!-- &lth1&gt -->
-                HELLO WORLD
-                <!-- &lt/h1&gt -->
-                <hr>
-            </h1>
-        </div>
-        <div class="title-text-container fade">
+    <div class="title-container col s12 fade">
+        <h1 class="title ">
             <hr>
-            <p class="title-text ">&lth1&gt Hello World! &lt/h1&gt is a social forum for new developers to share ideas
-                and
-                notes. Share code that you have learned or find hints and tips others have posted.
-            </p>
+            <!-- &lth1&gt -->
+            HELLO WORLD
+            <!-- &lt/h1&gt -->
             <hr>
-        </div>
+        </h1>
+    </div>
+</div>
+  <div class="row title-text-row ">
+        <div class=" content-height col s12 m6 center-verticaly fade">
+        <hr>
+        <p class="title-text ">&lth1&gt Hello World! &lt/h1&gt is a social forum for new developers to share ideas
+            and
+            notes. Share code that you have learned or find hints and tips others have posted.
+        </p>
+        <hr>
+    </div>
+    <div class="col content-height link-container  s12 m6  ">
         <div class="signup-container fade">
             <a href="{{ url_for('users.signup') }}" class="signup-link ">Sign up.</a>
         </div>
@@ -26,5 +28,8 @@
             <a href="{{ url_for('users.login') }}" class="login-link ">Login</a>
         </div>
     </div>
-</div>
+  </div>
+
+
+
 {% endblock %}

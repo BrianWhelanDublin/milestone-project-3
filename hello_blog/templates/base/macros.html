@@ -3,7 +3,7 @@ Form input macros also for input fields -->
 
 <!-- Heading macro -->
 {% macro page_heading(heading) -%}
-<div class="page-col title-height col s12 xl6">
+<div class="center-verticaly title-height col s12 xl6">
     <h1 class="page-title">
         {{heading}}
     </h1>
@@ -14,16 +14,16 @@ Form input macros also for input fields -->
 {% macro display_input(input_name) -%}
 <div class="input-field">
     {{ input_name.label(**kwargs) }}
-        {% if input_name.errors %}
-            {{ input_name(class="validate") }}
-            <div class="error">
-                {% for error in input_name.errors %}
-                <span>{{ error }}</span>
-                {% endfor %}
-            </div>
-        {% else %}
-            {{ input_name(class="validate") }}
-        {% endif %}
+    {% if input_name.errors %}
+    {{ input_name(class="validate") }}
+    <div class="error">
+        {% for error in input_name.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+    </div>
+    {% else %}
+    {{ input_name(class="validate") }}
+    {% endif %}
 </div>
 {%- endmacro %}
 
@@ -31,15 +31,15 @@ Form input macros also for input fields -->
 {% macro textarea_input(input_name) -%}
 <div class="input-field">
     {{ input_name.label(**kwargs) }}
-        {% if input_name.errors %}
-            {{ input_name(class="materialize-textarea") }}
-            <div class="error">
-                {% for error in input_name.errors %}
-                <span>{{ error }}</span>
-                {% endfor %}
-            </div>
-        {% else %}
-            {{ input_name(class="materialize-textarea") }}
-        {% endif %}
+    {% if input_name.errors %}
+    {{ input_name(class="materialize-textarea") }}
+    <div class="error">
+        {% for error in input_name.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+    </div>
+    {% else %}
+    {{ input_name(class="materialize-textarea") }}
+    {% endif %}
 </div>
 {%- endmacro %}
