@@ -8,7 +8,7 @@
 
 ## Live project
 
-- [View the live project here.]()
+- [View the live project here.](https://hello-world-ms3.herokuapp.com/)
 
 ## Screenshots
 
