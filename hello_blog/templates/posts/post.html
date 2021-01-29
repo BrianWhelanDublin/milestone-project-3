@@ -18,12 +18,27 @@
         {% if current_user.id == post.author.id %}
         <div class="row post-edit-btns s12">
             <a href="{{ url_for('posts.update_post', post_id=post.id) }}" class="post-btn btn">Update Post</a>
-            <a href="#" class="post-btn btn">Delete Post</a>
+            <a href="#deletePostModal" class="post-btn waves-effect modal-trigger btn">Delete Post</a>
         </div>
         {% endif %}
         <p class="post-content">{{ post.content }}</p>
     </div>
 
+</div>
+<!-- Modal to double check they want to delete -->
+<div id="deletePostModal" class="modal">
+    <div class="modal-content">
+        <h4>Delete Account</h4>
+        <p>Are you sure you want to delete your account</p>
+    </div>
+    <form method="POST" action="{{ url_for('posts.delete_post', post_id=post.id) }}" class="col s12 ">
+          {{ form.hidden_tag() }}
+        <div class="modal-footer">
+            <a href="{{ url_for('posts.post', post_id=post.id) }}"
+                class="modal-close waves-effect waves-green btn submit-modal">Cancel</a>
+            {{ form.submit(class="modal-close waves-effect waves-green btn submit-modal") }}
+        </div>
+    </form>
 </div>
 
 {% endblock %}

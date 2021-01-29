@@ -2,7 +2,7 @@ from flask import (Blueprint, render_template, redirect,
                    url_for, flash, abort, request)
 from flask_login import login_required, current_user
 from hello_blog.models import Categories, Post
-from hello_blog.posts.posts_forms import PostForm
+from hello_blog.posts.posts_forms import PostForm, DeletePostForm
 
 
 posts = Blueprint("posts", __name__)
@@ -49,10 +49,12 @@ def add_post():
 @posts.route("/post/<post_id>", methods=["POST", "GET"])
 @login_required
 def post(post_id):
+    form = DeletePostForm()
     post = Post.objects().get_or_404(id=post_id)
     return render_template("posts/post.html",
                            title=post.title,
-                           post=post)
+                           post=post,
+                           form=form)
 
 
 # create the update post route
@@ -87,3 +89,15 @@ def update_post(post_id):
     return render_template("posts/update_post.html",
                            title="Update Post",
                            form=form)
+
+
+#  create the delete post route similar to the delete user route.
+@posts.route("/post/<post_id>/delete", methods=["GET", "POST"])
+@login_required
+def delete_post(post_id):
+    if request.method == "POST":
+        post = Post.objects.get_or_404(id=post_id)
+        post.delete()
+        flash("Post deleted successfully", "success")
+        return redirect(url_for("main.home"))
+    return abort(404)
