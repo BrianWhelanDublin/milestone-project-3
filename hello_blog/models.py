@@ -59,6 +59,7 @@ class Post(db.Document):
     content = db.StringField()
     date_posted = db.DateTimeField(default=datetime.utcnow)
     author = db.ReferenceField(User)
+    comments = db.ListField(db.ReferenceField("Comment"))
 
     meta = {
         "collection": "posts",
@@ -67,3 +68,14 @@ class Post(db.Document):
 
     def __repr__(self):
         return f"Post({self.title}, {self.author}, {self.date_posted})"
+
+
+#  create the class for comments.
+class Comments(db.Document):
+    comment = db.StrinField(max_length=200, required=True)
+    comment_author = db.ReferenceField(User)
+    post = db.ReferenceField(Post)
+
+    metha = {
+        "collection": "categories"
+    }
