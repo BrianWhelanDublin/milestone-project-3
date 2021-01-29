@@ -186,17 +186,6 @@ button:focus {
 
 /*----------------------------- Home page */
 
-/* .wrapper {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 7vh);
-}
-
-.title-container {
-    grid-column: 2 / 12;
-    grid-row: 2 / 5;
-} */
-
 .title {
     margin: 0;
     font-size: 3.5rem;
@@ -204,16 +193,16 @@ button:focus {
     text-align: center;
 }
 
-/* .title-text-container {
-    grid-column: 3 / 11;
-    grid-row: 5 / 7;
-    position: relative;
-} */
 .title-text-row {
-    height: 40vh;
+    height: 55vh;
+}
+
+.home-col {
+    height: 50%;
 }
 
 .title-text {
+    margin-top: 5%;
     font-size: 1.5rem;
     font-weight: 400;
 }
@@ -247,8 +236,6 @@ button:focus {
 }
 
 .login-container {
-    grid-column: 8 / 11;
-    grid-row: 10 / 12;
     background: #f02937;
     height: 8rem;
     width: 8rem;
@@ -482,25 +469,45 @@ button:focus {
 
 
 @media(min-width: 768px) {
-    /* 
-
     .title {
-        font-size: 8vh;
+        margin-top: 7.5%;
+        font-size: 5rem;
+    }
+
+    .title-text-row {
+        height: 32rem;
+    }
+
+    .home-col {
+        height: 100%;
+    }
+
+    .title-text {
+        font-size: 1.75rem;
     }
 
     .signup-container {
-        height: 22vh;
-        width: 22vh;
+        height: 14rem;
+        width: 14rem;
+        top: 10%;
     }
 
     .signup-link {
-        font-size: 3vh;
+        font-size: 1.5rem;
     }
 
+
     .login-container {
-        height: 20vh;
-        width: 20vh;
-    } */
+        height: 10rem;
+        width: 10rem;
+        bottom: 10%;
+    }
+
+    .login-link {
+        font-size: 1.75rem;
+    }
+
+
 
     .page-title {
         font-size: 10vw;
@@ -523,43 +530,45 @@ button:focus {
 }
 
 @media(min-width: 1201px) {
-    /* .title {
-        font-size: 11vh;
+     .title {
+        font-size: 6rem;
     }
 
     .title-text {
-        font-size: 3vh;
-    }
-
-    .title-container {
-        grid-column: 2 / 9;
-    }
-
-    .title-text-container {
-        grid-column: 2 / 7;
-        grid-row: 8 / 11;
+        font-size: 2rem;
     }
 
     .signup-container {
-        grid-column: 10 / 12;
-        grid-row: 3 / 6;
-        height: 34vh;
-        width: 34vh;
+        height: 16rem;
+        width: 16rem;
     }
 
     .signup-link {
-        font-size: 4vh;
+        font-size: 1.75rem;
     }
 
+
     .login-container {
-        grid-row: 8 / 11;
-        height: 30vh;
-        width: 30vh;
+        height: 13rem;
+        width: 13rem;
     }
 
     .login-link {
-        font-size: 4vh;
-    } */
+        font-size: 2rem;
+    }
+
+    .page-title {
+        font-size: 10vw;
+    }
+
+    .about-text {
+        font-size: 3vw;
+    }
+
+    .navigation-link {
+        font-size: 10vw;
+
+    }
 
     .page-title-col,
     .page-text-col {
@@ -583,11 +592,12 @@ button:focus {
     .title-height {
         height: 100%;
     }
-
-
 }
 
 @media(min-width:1400px) {
+      .title {
+        font-size: 6.5rem;
+    }
     .page-title {
         font-size: 5vw;
     }
