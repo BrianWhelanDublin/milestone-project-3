@@ -323,7 +323,8 @@ button:focus {
 .submit:hover,
 .profile-link:hover,
 .image-btn:hover,
-.submit-modal:hover {
+.submit-modal:hover,
+.post-btn:hover {
     color: white;
     background: #f02937;
 }
@@ -486,7 +487,7 @@ button:focus {
 
 .post-category {
     font-size: 2rem;
-    margin: 1rem 0;
+    margin: 2rem;
 }
 
 .post-image {
@@ -494,6 +495,9 @@ button:focus {
     width: 4rem;
     border-radius: 50%;
     margin: 2rem;
+}
+.post-user-row{
+    max-width: 30rem;
 }
 .post-author-col{
     margin: 2rem 0;
@@ -506,6 +510,16 @@ button:focus {
 .post-content{
     margin: 0 1rem;
     font-size: 1.25rem;
+}
+.post-edit-btns{
+width: 100%;
+text-align: center;
+}
+.post-btn{
+   background: white;
+   color: black;
+margin: 1rem 2rem;
+transition: all .5s ease;
 }
 
 @media(min-width: 768px) {

@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, redirect, url_for, flash
+from flask import (Blueprint, render_template, redirect,
+                   url_for, flash, abort, request)
 from flask_login import login_required, current_user
 from hello_blog.models import Categories, Post
 from hello_blog.posts.posts_forms import PostForm
@@ -45,10 +46,44 @@ def add_post():
 
 
 # create the route for the post page.
-@posts.route("/Post/<post_id>", methods=["POST", "GET"])
+@posts.route("/post/<post_id>", methods=["POST", "GET"])
 @login_required
 def post(post_id):
     post = Post.objects().get_or_404(id=post_id)
     return render_template("posts/post.html",
                            title=post.title,
                            post=post)
+
+
+# create the update post route
+@posts.route("/post/<post_id>/update", methods=["GET", "POST"])
+@login_required
+def update_post(post_id):
+    post = Post.objects().get_or_404(id=post_id)
+
+    # throw a 403 error if a user has managed to get to this
+    #  page and they weren't the posts author.
+    if post.author.id != current_user.id:
+        abort(403)
+    form = PostForm()
+    categories = [(
+        cat.category_name) for cat in Categories.objects]
+    form.category.choices = categories
+
+    if form.validate_on_submit():
+        category = Categories.objects(
+            category_name=form.category.data).first()
+        post.title = form.title.data
+        post.content = form.content.data
+        post.category = category.id
+        post.save()
+        flash("Your post has been updated", "success")
+        return redirect(url_for("posts.post", post_id=post.id))
+
+    elif request.method == "GET":
+        form.title.data = post.title
+        form.content.data = post.content
+
+    return render_template("posts/update_post.html",
+                           title="Update Post",
+                           form=form)

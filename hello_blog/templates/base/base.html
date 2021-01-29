@@ -38,6 +38,10 @@
                             data-cy="about-link-lp">Home</a>
                     </li>
                     <li class="navigation-item">
+                        <a href="{{ url_for('posts.add_post') }}" class="navigation-link"
+                            data-cy="about-link-lp">Add Post</a>
+                    </li>
+                    <li class="navigation-item">
                         <a href="{{ url_for('users.account', username=current_user.username) }}"
                             class="navigation-link">Account</a>
                     </li>
