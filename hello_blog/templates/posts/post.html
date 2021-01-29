@@ -1,0 +1,22 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+
+<div class="row post-row center-vertically">
+    <div class="col post-col">
+        <h1 class="post-title">{{ post.title }}</h1>
+        <a class="post-category" href="#">Category: {{ post.category.category_name }}</a>
+       <div class="row post-user-row">
+           <div class="col s4">
+                <img class="post-image" src="{{ post.author.user_image }}" alt="image of post author">
+           </div>
+      <div class="col post-author-col s8">
+            <a href="#">Posted By: {{ post.author.username }}</a>
+        <p>Posted on: {{ post.date_posted }}</p>
+      </div>
+       </div >
+        <p class="post-content">{{ post.content }}</p>
+    </div>
+</div>
+
+    {% endblock %}

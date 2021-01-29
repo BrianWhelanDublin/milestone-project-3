@@ -8,7 +8,7 @@
         <div class="col s12 m6 ">
             <div class="post-card ">
                 <div class="post-content">
-                    <h2 class="post-title">
+                    <h2 class="post-card-title">
                         {{post.title|capitalize}}
                     </h2>
                     <p class="post-card-content">
@@ -29,7 +29,7 @@
                     <div class="col post-author s8">
                         <a href="#">Posted by: {{post.author.username}}</a>
                         <p>Posted on: {{post.date_posted.strftime("%d-%m-%Y")}}</p>
-                        <a href="">Find out more <i class="las arrow la-angle-double-right" aria-hidden="true"></i>
+                        <a href="{{ url_for('posts.post', post_id=post.id) }}">Find out more <i class="las arrow la-angle-double-right" aria-hidden="true"></i>
                             <span class="sr-only">Link to post page</span></a>
                     </div>
                 </div>

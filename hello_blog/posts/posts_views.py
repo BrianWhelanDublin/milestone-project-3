@@ -42,3 +42,13 @@ def add_post():
     return render_template("posts/new_post.html",
                            titile="New Post",
                            form=form)
+
+
+# create the route for the post page.
+@posts.route("/Post/<post_id>", methods=["POST", "GET"])
+@login_required
+def post(post_id):
+    post = Post.objects().get_or_404(id=post_id)
+    return render_template("posts/post.html",
+                           title=post.title,
+                           post=post)

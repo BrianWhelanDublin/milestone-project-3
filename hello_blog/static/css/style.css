@@ -413,7 +413,7 @@ button:focus {
     height: fit-content;
 }
 
-.post-title {
+.post-card-title {
     font-weight: 600;
     font-size: 3.5rem;
     height: 5rem;
@@ -467,6 +467,46 @@ button:focus {
     color: #f02937;
 }
 
+/* ----------------- Singal Post Page */
+.post-row {
+    position: relative;
+    height: 100vh;
+}
+
+.post-col {
+    height: fit-content;
+}
+
+.post-title {
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+    margin: 4rem 0;
+}
+
+.post-category {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.post-image {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    margin: 2rem;
+}
+.post-author-col{
+    margin: 2rem 0;
+}
+.post-author-col p ,
+.post-author-col a{
+    margin: 1rem 0;
+    font-size: 1rem;
+}
+.post-content{
+    margin: 0 1rem;
+    font-size: 1.25rem;
+}
 
 @media(min-width: 768px) {
     .title {
@@ -530,7 +570,7 @@ button:focus {
 }
 
 @media(min-width: 1201px) {
-     .title {
+    .title {
         font-size: 6rem;
     }
 
@@ -595,9 +635,10 @@ button:focus {
 }
 
 @media(min-width:1400px) {
-      .title {
+    .title {
         font-size: 6.5rem;
     }
+
     .page-title {
         font-size: 5vw;
     }
