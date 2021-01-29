@@ -13,7 +13,10 @@ posts = Blueprint("posts", __name__)
 @posts.route("/posts")
 @login_required
 def all_posts():
-    posts = Post.objects().order_by("-date_posted")
+    page = request.args.get("page", 1, type=int)
+    posts = Post.objects().order_by("-date_posted").paginate(
+        page=page, per_page=4
+    )
     return render_template("posts/all_posts.html",
                            title="All Posts",
                            posts=posts)

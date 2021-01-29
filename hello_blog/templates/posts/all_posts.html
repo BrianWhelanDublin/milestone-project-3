@@ -4,37 +4,56 @@
     <div class="col s12 ">
         <h1 class="title">Latest Posts</h1>
     </div>
-    {% for post in posts %}
-        <div class="col s12 m6 ">
-            <div class="post-card ">
-                <div class="post-content">
-                    <h2 class="post-card-title">
-                        {{post.title|capitalize}}
-                    </h2>
-                    <p class="post-card-content">
-                        {{ post.content[0:100] }}...
-                    </p>
+    {% for post in posts.items %}
+    <div class="col s12 m6 ">
+        <div class="post-card ">
+            <div class="post-content">
+                <h2 class="post-card-title">
+                    {{post.title|capitalize}}
+                </h2>
+                <div class="post-card-content">
+                 <p>   {{ post.content[0:100] }}...</p>
+           
+                 <a class="more-link" href="{{ url_for('posts.post', post_id=post.id) }}">Find out more <i
+                            class="las arrow la-angle-double-right" aria-hidden="true"></i>
+                        <span class="sr-only">Link to post page</span></a>
+                          </div>
+            </div>
+            <div class="row post-card-category">
+                <div class="col s12">
+                    <a class="card-category-link" href="#">
+                        Category: {{ post.category.category_name }}
+                    </a>
                 </div>
-                <div class="row post-card-category">
-                    <div class="col s12">
-                        <a class="card-category-link" href="#">
-                            Category: {{ post.category.category_name }}
-                        </a>
-                    </div>
+            </div>
+            <div class="post-card-action row">
+                <div class="col s4">
+                    <img class="post-author-img" src="{{ post.author.user_image }}" alt="">
                 </div>
-                <div class="post-card-action row">
-                    <div class="col s4">
-                        <img class="post-author-img" src="{{ post.author.user_image }}" alt="">
-                    </div>
-                    <div class="col post-author s8">
-                        <a href="#">Posted by: {{post.author.username}}</a>
-                        <p>Posted on: {{post.date_posted.strftime("%d-%m-%Y")}}</p>
-                        <a href="{{ url_for('posts.post', post_id=post.id) }}">Find out more <i class="las arrow la-angle-double-right" aria-hidden="true"></i>
-                            <span class="sr-only">Link to post page</span></a>
-                    </div>
+                <div class="col post-author s8">
+                    <a href="#">Posted by: {{post.author.username}}</a>
+                    <p>Posted on: {{post.date_posted.strftime("%d-%m-%Y")}}</p>
                 </div>
             </div>
         </div>
+    </div>
     {% endfor %}
+    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+    {% if page_num %}
+ 
+        {% if posts.page == page_num %}
+        <a class="btn pag-btn-active" href="{{ url_for('posts.all_posts', page=page_num) }}">{{ page_num }}</a>
+        {% else %}
+        <a class=" btn pag-btn" href="{{ url_for('posts.all_posts', page=page_num) }}">{{ page_num }}</a>
+        {% endif%}
+        {% else %}
+        ...
+        {% endif %}
+   
+    {% endfor %}
+
+
+
+
 </div>
 {% endblock %}
