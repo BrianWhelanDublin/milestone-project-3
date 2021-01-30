@@ -2,7 +2,8 @@ from flask import (Blueprint, render_template, redirect,
                    url_for, flash, abort, request)
 from flask_login import login_required, current_user
 from hello_blog.models import Categories, Post, Comment
-from hello_blog.posts.posts_forms import PostForm, DeletePostForm, CommentForm
+from hello_blog.posts.posts_forms import (PostForm, DeletePostForm, CommentForm,
+                                          UpdateCommentForm, DeleteCommentForm)
 
 
 posts = Blueprint("posts", __name__)
@@ -118,3 +119,44 @@ def delete_post(post_id):
         flash("Post deleted successfully", "success")
         return redirect(url_for("main.home"))
     return abort(404)
+
+
+#  create the route to update comment
+@posts.route("/post/<post_id>/<comment_id>/update/comment",
+             methods=["POST", "GET"])
+@login_required
+def update_comment(post_id, comment_id):
+    delete_form = DeletePostForm()
+    comment_form = UpdateCommentForm()
+    post = Post.objects().get_or_404(id=post_id)
+    comments = Comment.objects(post=post)
+    comment = Comment.objects.get_or_404(id=comment_id)
+
+    if request.method == "GET":
+        comment_form.comment.data = comment.comment
+        print(request.endpoint)
+
+    if comment_form.validate_on_submit():
+        comment.comment = comment_form.comment.data
+        comment.save()
+        flash("Comment has been updated", "success")
+        return redirect(url_for("posts.post", post_id=post_id))
+
+    return render_template("posts/post.html",
+                           title="Update Comment",
+                           post=post,
+                           delete_form=delete_form,
+                           comments=comments,
+                           comment_form=comment_form)
+
+
+@posts.route("/post/<post_id>/<comment_id>/delete", methods=["GET", "POST"])
+@login_required
+def delete_comment(post_id, comment_id):
+    comment = Comment.objects.get_or_404(id=comment_id)
+    if comment.comment_author.id != current_user.id:
+        abort(404)
+    else:
+        comment.delete()
+        flash("Comment deleted successfully", "success")
+        return redirect(url_for("posts.post", post_id=post_id))

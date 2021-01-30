@@ -29,6 +29,10 @@
     <!-- Comments section -->
     {% if comments %}
     <div class="col s12 comment-section">
+        {% if title == "Update Comment" %}
+        <h2>Update comment</h2>
+        {% endif %}
+        {% if title != "Update Comment" %}
         <h2>Comments</h2>
         {% for comment in comments %}
         <div class="comment col ">
@@ -36,13 +40,16 @@
             <p>{{ comment.comment }}</p>
             <small>Comment By:{{ comment.comment_author.username }}</small>
             <hr>
-            {% if current_user.id == comment.comment_author.id %}
-            <a class="comment-btn btn" href="">Update</a>
-            <a class="comment-btn btn" href="#">Delete</a>
+            {% if current_user.id == comment.comment_author.id   %}
+            <a class="post-btn waves-effect modal-trigger btn"
+                href="{{ url_for('posts.update_comment', post_id=post.id, comment_id=id) }}">Update</a>
+            <a class="comment-btn waves-effect modal-trigger btn" href="{{ url_for('posts.delete_comment', post_id=post.id, comment_id=comment.id) }}">Delete</a>
             {% endif %}
         </div>
         {% endfor %}
         {% endif %}
+        {% endif %}
+
 
         <!-- add comment -->
         <form method="POST" action="" class="col comment-form ">
@@ -57,11 +64,11 @@
     </div>
 </div>
 
-<!-- Modal to double check they want to delete -->
+<!-- Modal to double check they want to delete post -->
 <div id="deletePostModal" class="modal">
     <div class="modal-content">
-        <h4>Delete Account</h4>
-        <p>Are you sure you want to delete your account</p>
+        <h4>Delete Post</h4>
+        <p>Are you sure you want to delete your post.</p>
     </div>
     <form method="POST" action="{{ url_for('posts.delete_post', post_id=post.id) }}" class="col s12 ">
         {{ delete_form.hidden_tag() }}
@@ -72,5 +79,8 @@
         </div>
     </form>
 </div>
+
+
+
 
 {% endblock %}
