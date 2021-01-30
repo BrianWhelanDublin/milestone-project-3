@@ -500,10 +500,12 @@ button:focus {
 .post-row {
     position: relative;
     height: 100vh;
+    max-width: 1200px;
 }
 
 .post-col {
     height: fit-content;
+    width: 100%;
 }
 
 .post-title {
@@ -558,6 +560,16 @@ button:focus {
 }
 
 /* ---------------------Comments Section */
+.likes-col{
+    margin:2rem 0;
+}
+.liked {
+    pointer-events: none;
+}
+.liked-text{
+    font-size: 1rem;
+}
+
 .comment-section {
     margin-top: 5rem;
     display: flex;
@@ -584,10 +596,11 @@ button:focus {
     margin-top: 2rem;
     width: 22rem
 }
-.comment-btn{
-     height: 2rem;
-     width:5rem;
-     font-size:.7rem;
+
+.comment-btn {
+    height: 2rem;
+    width: 5rem;
+    font-size: .7rem;
 }
 
 

@@ -2,8 +2,9 @@ from flask import (Blueprint, render_template, redirect,
                    url_for, flash, abort, request)
 from flask_login import login_required, current_user
 from hello_blog.models import Categories, Post, Comment
-from hello_blog.posts.posts_forms import (PostForm, DeletePostForm, CommentForm,
-                                          UpdateCommentForm, DeleteCommentForm)
+from hello_blog.posts.posts_forms import (PostForm, DeletePostForm,
+                                          CommentForm,
+                                          UpdateCommentForm)
 
 
 posts = Blueprint("posts", __name__)
@@ -57,7 +58,14 @@ def post(post_id):
     comment_form = CommentForm()
     post = Post.objects().get_or_404(id=post_id)
     comments = Comment.objects(post=post)
-    if request.method == "POST":
+
+    likes = len(post.user_likes)
+    is_liked = False
+    comments = Comment.objects(post=post)
+    if current_user.is_authenticated and post in current_user.liked_posts:
+        is_liked = True
+
+    if comment_form.validate_on_submit():
         comment = Comment(
             comment=comment_form.comment.data,
             comment_author=current_user.id,
@@ -65,14 +73,18 @@ def post(post_id):
         )
         comment.save()
         flash("Comment added", "success")
-        return redirect(url_for("posts.post", post_id=post.id))
+        return redirect(url_for("posts.post",
+                                post_id=post.id,
+                                title=post.title))
 
     return render_template("posts/post.html",
                            title=post.title,
                            post=post,
                            delete_form=delete_form,
                            comments=comments,
-                           comment_form=comment_form)
+                           comment_form=comment_form,
+                           likes=likes,
+                           is_liked=is_liked)
 
 
 # create the update post route
@@ -132,6 +144,12 @@ def update_comment(post_id, comment_id):
     comments = Comment.objects(post=post)
     comment = Comment.objects.get_or_404(id=comment_id)
 
+    likes = len(post.user_likes)
+    is_liked = False
+
+    if current_user.is_authenticated and post in current_user.liked_posts:
+        is_liked = True
+
     if request.method == "GET":
         comment_form.comment.data = comment.comment
         print(request.endpoint)
@@ -140,14 +158,17 @@ def update_comment(post_id, comment_id):
         comment.comment = comment_form.comment.data
         comment.save()
         flash("Comment has been updated", "success")
-        return redirect(url_for("posts.post", post_id=post_id))
+        return redirect(url_for("posts.post", post_id=post_id,
+                                likes=likes, is_like=is_liked))
 
     return render_template("posts/post.html",
                            title="Update Comment",
                            post=post,
                            delete_form=delete_form,
                            comments=comments,
-                           comment_form=comment_form)
+                           comment_form=comment_form,
+                           likes=likes,
+                           is_liked=is_liked)
 
 
 @posts.route("/post/<post_id>/<comment_id>/delete", methods=["GET", "POST"])
@@ -160,3 +181,16 @@ def delete_comment(post_id, comment_id):
         comment.delete()
         flash("Comment deleted successfully", "success")
         return redirect(url_for("posts.post", post_id=post_id))
+
+
+@posts.route("/liked/<post_id>")
+@login_required
+def liked_post(post_id):
+    post = Post.objects().get_or_404(id=post_id)
+    if post not in current_user.liked_posts:
+        current_user.liked_posts.append(post.id)
+        current_user.save()
+        post.user_likes.append(current_user.id)
+        post.save()
+    flash("post liked")
+    return redirect(url_for("posts.post", post_id=post.id))

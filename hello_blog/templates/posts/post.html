@@ -1,7 +1,6 @@
 {% from "base/macros.html" import display_input %}
 {% extends "base/base.html" %}
 {% block content %}
-
 <div class="row post-row center-vertically">
 
     <!-- Post Section -->
@@ -26,24 +25,37 @@
         <p class="post-content">{{ post.content }}</p>
     </div>
 
+    <!-- liked section -->
+   
+       <div class="likes-col post-col col">
+            {% if is_liked == true %}
+                <p class="liked-text"><i class="lar la-heart btn post-btn liked liked-text " aria-hidden="true"></i> {{ likes }} Likes</p>
+            {% else %}
+                    <a href="{{ url_for('posts.liked_post',post_id=post.id)}}" class=" liked-text "><i class="las liked-text la-thumbs-up btn post-btn" aria-hidden="true"></i>
+                         {{ likes}} Likes</a>
+            {% endif %}
+        </div>
+
+
     <!-- Comments section -->
     {% if comments %}
-    <div class="col s12 comment-section">
+    <div class="col post-col s12 comment-section">
         {% if title == "Update Comment" %}
         <h2>Update comment</h2>
         {% endif %}
         {% if title != "Update Comment" %}
         <h2>Comments</h2>
         {% for comment in comments %}
-        <div class="comment col ">
-            <hr>
+        <div class="comment post-col col ">
+
             <p>{{ comment.comment }}</p>
             <small>Comment By:{{ comment.comment_author.username }}</small>
             <hr>
             {% if current_user.id == comment.comment_author.id   %}
-            <a class="post-btn waves-effect modal-trigger btn"
-                href="{{ url_for('posts.update_comment', post_id=post.id, comment_id=id) }}">Update</a>
-            <a class="comment-btn waves-effect modal-trigger btn" href="{{ url_for('posts.delete_comment', post_id=post.id, comment_id=comment.id) }}">Delete</a>
+            <a class="post-btn btn"
+                href="{{ url_for('posts.update_comment', post_id=post.id, comment_id=comment.id) }}">Update</a>
+            <a class="post-btn btn"
+                href="{{ url_for('posts.delete_comment', post_id=post.id, comment_id=comment.id) }}">Delete</a>
             {% endif %}
         </div>
         {% endfor %}
@@ -52,7 +64,7 @@
 
 
         <!-- add comment -->
-        <form method="POST" action="" class="col comment-form ">
+        <form method="POST" action="" class="col post-col comment-form ">
             {{ comment_form.hidden_tag() }}
             {{ display_input(comment_form.comment ,for="comment") }}
             <div class="input-field col ">

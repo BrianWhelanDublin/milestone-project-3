@@ -24,8 +24,3 @@ class CommentForm(FlaskForm):
 class UpdateCommentForm(FlaskForm):
     comment = StringField("Update Comment", validators=[DataRequired()])
     submit = SubmitField("Update")
-
-
-class DeleteCommentForm(FlaskForm):
-    comment = StringField("Delete Comment", validators=[DataRequired()])
-    submit = SubmitField("Delete")

@@ -16,6 +16,7 @@ class User(db.Document, UserMixin):
         default="https://res.cloudinary.com/dmgevdb7w/image\
 /upload/w_200,h_200,c_fill,g_face/v1610563923/xymcofmhj3le6l9uh8qa.jpg")
     date_joined = db.DateTimeField(default=datetime.utcnow)
+    liked_posts = db.ListField(db.ReferenceField("Post"))
 
     meta = {
         "collection": "users",
@@ -60,6 +61,7 @@ class Post(db.Document):
     date_posted = db.DateTimeField(default=datetime.utcnow)
     author = db.ReferenceField(User)
     comments = db.ListField(db.ReferenceField("Comment"))
+    user_likes = db.ListField(db.ReferenceField(User))
 
     meta = {
         "collection": "posts",
