@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Line Awesome icons-->
 	<link rel="stylesheet"
-		href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+    <!-- Materialize Css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Style sheet -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Add changable title -->
     {% if title%}
     <title>{{ title }}</title>
     {% else %}
     <title>Hello World Blog</title>
     {% endif %}
 </head>
-
+<!-- Preload class to stop the css transition running on page load -->
 <body class="preload">
+<!-- transition on page change -->
     <div class="transition  is-active"></div>
     <header>
-        <nav class="z-depth-0">
+        <nav>
             <div class="navigation">
                 <a href="{{ url_for('main.home') }}" class="home-logo"> Hello World!</a>
                 <ul class="nav-list">
@@ -33,67 +36,72 @@
                 <div class="nav-background"></div>
                 <ul class="navigation-list">
                     {% if current_user.is_authenticated %}
-                    <li class="navigation-item">
-                        <a href="{{ url_for('posts.all_posts') }}" class="navigation-link"
-                            data-cy="about-link-lp">Home</a>
-                    </li>
-                    <li class="navigation-item">
-                        <a href="{{ url_for('posts.add_post') }}" class="navigation-link"
-                            data-cy="about-link-lp">Add Post</a>
-                    </li>
-                    <li class="navigation-item">
-                        <a href="{{ url_for('users.account', username=current_user.username) }}"
-                            class="navigation-link">Account</a>
-                    </li>
-                    <li class="navigation-item">
-                        <a href="{{ url_for('users.logout') }}" class="navigation-link"
-                            data-cy="about-link-lp">Logout</a>
-                    </li>
+                        <li class="navigation-item">
+                            <a href="{{ url_for('posts.all_posts') }}" class="navigation-link"
+                                data-cy="about-link-lp">Home</a>
+                        </li>
+                        <li class="navigation-item">
+                            <a href="{{ url_for('posts.add_post') }}" class="navigation-link"
+                                data-cy="about-link-lp">Add Post</a>
+                        </li>
+                        <li class="navigation-item">
+                            <a href="{{ url_for('users.account', username=current_user.username) }}"
+                                class="navigation-link">Account</a>
+                        </li>
+                        <li class="navigation-item">
+                            <a href="{{ url_for('users.logout') }}" class="navigation-link"
+                                data-cy="about-link-lp">Logout</a>
+                        </li>
                     {% else %}
-                    <li class="navigation-item">
-                        <a href="{{ url_for('main.home') }}" class="navigation-link"> Home</a>
-                    </li>
-                    <li class="navigation-item">
-                        <a href="{{ url_for('users.login') }}" class="navigation-link"> Login</a>
-                    </li>
-                    <li class="navigation-item">
-                        <a href="{{ url_for('users.signup') }}" class="navigation-link" data-cy="about-link-lp">Sign
-                            Up</a>
-                    </li>
+                        <li class="navigation-item">
+                            <a href="{{ url_for('main.home') }}" class="navigation-link"> Home</a>
+                        </li>
+                        <li class="navigation-item">
+                            <a href="{{ url_for('users.login') }}" class="navigation-link"> Login</a>
+                        </li>
+                        <li class="navigation-item">
+                            <a href="{{ url_for('users.signup') }}" class="navigation-link" data-cy="about-link-lp">Sign
+                                Up</a>
+                        </li>
                     {% endif %}
-                    <li class="navigation-item">
-                        <a href="{{ url_for('main.about')}}" class="navigation-link" data-cy="destinations-link-lp">
-                            About</a>
-                    </li>
-                    <li class="navigation-item">
-                        <a href="" class="navigation-link">
-                            Contact</a>
-                    </li>
+                        <li class="navigation-item">
+                            <a href="{{ url_for('main.about')}}" class="navigation-link" data-cy="destinations-link-lp">
+                                About</a>
+                        </li>
+                        <li class="navigation-item">
+                            <a href="" class="navigation-link">
+                                Contact</a>
+                        </li>
                 </ul>
             </div>
         </nav>
     </header>
     <main>
+    <!-- Add flashed messages -->
         <div class="container">
             <div class="row">
                 <div class="col flash-col">
                     {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                    {% for category, message in messages %}
-                    <div class="flash flash-{{ category }}">
-                        {{ message }}
-                    </div>
-                    {% endfor %}
-                    {% endif %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                            <div class="flash flash-{{ category }}">
+                                {{ message }}
+                            </div>
+                            {% endfor %}
+                        {% endif %}
                     {% endwith %}
                 </div>
             </div>
+            <!-- insert the content here -->
             {% block content %}{% endblock %}
         </div>
     </main>
+    <!-- Jequery script -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <!-- Materialize js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- main js file -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 
