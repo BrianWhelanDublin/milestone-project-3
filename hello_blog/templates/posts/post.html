@@ -12,7 +12,7 @@
                 <img class="post-image" src="{{ post.author.user_image }}" alt="image of post author">
             </div>
             <div class="col post-author-col s8">
-                <a href="#">Posted By: {{ post.author.username }}</a>
+                <a href="{{ url_for('users.users_posts', username=post.author.username) }}">Posted By: {{ post.author.username }}</a>
                 <p>Posted on: {{ post.date_posted }}</p>
             </div>
         </div>
@@ -23,16 +23,22 @@
         </div>
         {% endif %}
         <p class="post-content">{{ post.content }}</p>
+        
     </div>
 
     <!-- liked section -->
    
        <div class="likes-col post-col col">
             {% if is_liked == true %}
-                <p class="liked-text"><i class="lar la-heart btn post-btn liked liked-text " aria-hidden="true"></i> {{ likes }} Likes</p>
+                <p class="liked-text btn post-btn liked"> 
+                    {% if likes == 1%}
+                    {{ likes }} Like
+                    {% else%}
+                    {{ likes }} likes
+                    {% endif %}
+                    <i class="lar la-heart liked liked-text " aria-hidden="true"></i></p>
             {% else %}
-                    <a href="{{ url_for('posts.liked_post',post_id=post.id)}}" class=" liked-text "><i class="las liked-text la-thumbs-up btn post-btn" aria-hidden="true"></i>
-                         {{ likes}} Likes</a>
+                    <a href="{{ url_for('posts.liked_post', post_id=post.id) }}" class=" btn   post-btn liked-text ">Like<i class="las liked-text la-thumbs-up" aria-hidden="true"></i></a> 
             {% endif %}
         </div>
 

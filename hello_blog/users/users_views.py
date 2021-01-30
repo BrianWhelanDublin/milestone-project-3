@@ -3,7 +3,7 @@ from flask import (Blueprint, render_template, url_for,
 from hello_blog.users.users_forms import (SignupForm, LoginForm,
                                           UpdateAccount,
                                           DeleteAccountForm)
-from hello_blog.models import User
+from hello_blog.models import User, Post
 from hello_blog import bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
 from hello_blog.users.users_utils import save_user_image
@@ -131,3 +131,16 @@ def delete_account(username):
     # give an error so the account can only be deleted from the modal form
     # on the users account page.
     return abort(404)
+
+
+# create route to show all a perticulat users posts
+@users.route("/posts/<username>")
+@login_required
+def users_posts(username):
+    page = request.args.get('page', 1, type=int)
+    user = User.objects(username=username).first_or_404()
+    posts = Post.objects(author=user.id).order_by("-date_posted").paginate(
+        page=page, per_page=2)
+    return render_template("posts/all_posts.html",
+                           title=f"{user.username}'s Posts",
+                           posts=posts)

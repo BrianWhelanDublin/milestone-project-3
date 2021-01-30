@@ -20,7 +20,7 @@ def all_posts():
         page=page, per_page=4
     )
     return render_template("posts/all_posts.html",
-                           title="All Posts",
+                           title="Latest Posts",
                            posts=posts)
 
 

@@ -2,7 +2,7 @@
 {% block content %}
 <div class="row post-row fade">
     <div class="col s12 ">
-        <h1 class="title">Latest Posts</h1>
+        <h1 class="title">{{title|capitalize}}</h1>
     </div>
     {% for post in posts.items %}
     <div class="col s12 m6 ">
@@ -31,16 +31,19 @@
                     <img class="post-author-img" src="{{ post.author.user_image }}" alt="">
                 </div>
                 <div class="col post-author s8">
-                    <a href="#">Posted by: {{post.author.username}}</a>
+                    <a href="{{ url_for('users.users_posts', username=post.author.username) }}">Posted by: {{post.author.username}}</a>
                     <p>Posted on: {{post.date_posted.strftime("%d-%m-%Y")}}</p>
                 </div>
             </div>
         </div>
     </div>
+  
     {% endfor %}
+      </div>
+
     {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
     {% if page_num %}
- 
+
         {% if posts.page == page_num %}
         <a class="btn pag-btn-active" href="{{ url_for('posts.all_posts', page=page_num) }}">{{ page_num }}</a>
         {% else %}
@@ -49,11 +52,5 @@
         {% else %}
         ...
         {% endif %}
-   
     {% endfor %}
-
-
-
-
-</div>
 {% endblock %}

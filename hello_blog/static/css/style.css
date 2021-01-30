@@ -474,6 +474,10 @@ button:focus {
     text-decoration: underline;
     color: #f02937;
 }
+.pag-col{
+display: flex;
+flex-direction: row;
+}
 
 .pag-btn {
     color: black;
@@ -496,7 +500,7 @@ button:focus {
     background: #f02937;
 }
 
-/* ----------------- Singal Post Page */
+/* ----------------- Single Post Page */
 .post-row {
     position: relative;
     height: 100vh;
@@ -610,10 +614,6 @@ button:focus {
         font-size: 5rem;
     }
 
-    .title-text-row {
-        height: 32rem;
-    }
-
     .home-col {
         height: 100%;
     }
@@ -667,16 +667,16 @@ button:focus {
 
 @media(min-width: 1201px) {
     .title {
-        font-size: 6rem;
+        font-size: 4.5rem;
     }
 
     .title-text {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .signup-container {
-        height: 16rem;
-        width: 16rem;
+        height: 14rem;
+        width: 14rem;
     }
 
     .signup-link {
@@ -685,8 +685,8 @@ button:focus {
 
 
     .login-container {
-        height: 13rem;
-        width: 13rem;
+        height: 12rem;
+        width: 12rem;
     }
 
     .login-link {
