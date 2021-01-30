@@ -1,10 +1,13 @@
 {% extends "base/base.html" %}
+
 {% block content %}
+<!-- title -->
 <div class="row post-row fade">
     <div class="col s12 ">
         <h1 class="title">{{title|capitalize}}</h1>
     </div>
-    {% for post in posts.items %}
+<!-- each post card -->
+{% for post in posts.items %}
     <div class="col s12 m6 ">
         <div class="post-card ">
             <div class="post-content">
@@ -12,12 +15,11 @@
                     {{post.title|capitalize}}
                 </h2>
                 <div class="post-card-content">
-                 <p>   {{ post.content[0:50] }}...</p>
-           
-                 <a class="more-link" href="{{ url_for('posts.post', post_id=post.id) }}">Find out more <i
-                            class="las arrow la-angle-double-right" aria-hidden="true"></i>
+                 <p>{{ post.content[0:50] }}...</p>
+                  <a class="more-link" href="{{ url_for('posts.post', post_id=post.id) }}">Find out more 
+                     <i class="las arrow la-angle-double-right" aria-hidden="true"></i>
                         <span class="sr-only">Link to post page</span></a>
-                          </div>
+                 </div>
             </div>
             <div class="row post-card-category">
                 <div class="col s12">
@@ -37,20 +39,19 @@
             </div>
         </div>
     </div>
-  
     {% endfor %}
-      </div>
-
-    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+ </div>
+<!-- pagination buttons -->
+{% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
     {% if page_num %}
-
         {% if posts.page == page_num %}
-        <a class="btn pag-btn-active" href="{{ url_for('posts.all_posts', page=page_num) }}">{{ page_num }}</a>
+            <a class="btn pag-btn-active" href="{{ url_for('posts.all_posts', page=page_num) }}">{{ page_num }}</a>
         {% else %}
-        <a class=" btn pag-btn" href="{{ url_for('posts.all_posts', page=page_num) }}">{{ page_num }}</a>
+            <a class=" btn pag-btn" href="{{ url_for('posts.all_posts', page=page_num) }}">{{ page_num }}</a>
         {% endif%}
-        {% else %}
+    {% else %}
         ...
-        {% endif %}
-    {% endfor %}
+    {% endif %}
+{% endfor %}
+
 {% endblock %}
