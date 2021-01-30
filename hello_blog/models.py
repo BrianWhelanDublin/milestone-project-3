@@ -72,7 +72,7 @@ class Post(db.Document):
 
 #  create the class for comments.
 class Comment(db.Document):
-    comment = db.StrinField(max_length=200, required=True)
+    comment = db.StringField(max_length=200, required=True)
     comment_author = db.ReferenceField(User)
     post = db.ReferenceField(Post)
 

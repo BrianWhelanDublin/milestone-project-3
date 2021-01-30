@@ -12,7 +12,7 @@
                     {{post.title|capitalize}}
                 </h2>
                 <div class="post-card-content">
-                 <p>   {{ post.content[0:100] }}...</p>
+                 <p>   {{ post.content[0:50] }}...</p>
            
                  <a class="more-link" href="{{ url_for('posts.post', post_id=post.id) }}">Find out more <i
                             class="las arrow la-angle-double-right" aria-hidden="true"></i>

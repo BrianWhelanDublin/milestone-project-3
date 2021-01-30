@@ -1,8 +1,10 @@
+{% from "base/macros.html" import display_input %}
 {% extends "base/base.html" %}
-
 {% block content %}
 
 <div class="row post-row center-vertically">
+
+    <!-- Post Section -->
     <div class="col post-col">
         <h1 class="post-title">{{ post.title }}</h1>
         <a class="post-category" href="#">Category: {{ post.category.category_name }}</a>
@@ -24,7 +26,37 @@
         <p class="post-content">{{ post.content }}</p>
     </div>
 
+    <!-- Comments section -->
+    {% if comments %}
+    <div class="col s12 comment-section">
+        <h2>Comments</h2>
+        {% for comment in comments %}
+        <div class="comment col ">
+            <hr>
+            <p>{{ comment.comment }}</p>
+            <small>Comment By:{{ comment.comment_author.username }}</small>
+            <hr>
+            {% if current_user.id == comment.comment_author.id %}
+            <a class="comment-btn btn" href="">Update</a>
+            <a class="comment-btn btn" href="#">Delete</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <!-- add comment -->
+        <form method="POST" action="" class="col comment-form ">
+            {{ comment_form.hidden_tag() }}
+            {{ display_input(comment_form.comment ,for="comment") }}
+            <div class="input-field col ">
+                <div class="row">
+                    {{ comment_form.submit(class="post-btn btn")}}
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
+
 <!-- Modal to double check they want to delete -->
 <div id="deletePostModal" class="modal">
     <div class="modal-content">
@@ -32,7 +64,7 @@
         <p>Are you sure you want to delete your account</p>
     </div>
     <form method="POST" action="{{ url_for('posts.delete_post', post_id=post.id) }}" class="col s12 ">
-          {{ delete_form.hidden_tag() }}
+        {{ delete_form.hidden_tag() }}
         <div class="modal-footer">
             <a href="{{ url_for('posts.post', post_id=post.id) }}"
                 class="modal-close waves-effect waves-green btn submit-modal">Cancel</a>

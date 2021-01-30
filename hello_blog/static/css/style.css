@@ -321,11 +321,7 @@ button:focus {
     justify-content: center;
 }
 
-.submit:hover,
-.profile-link:hover,
-.image-btn:hover,
-.submit-modal:hover,
-.post-btn:hover {
+.btn:hover {
     color: white;
     background: #f02937;
 }
@@ -433,7 +429,7 @@ button:focus {
 }
 
 .more-link {
-    font-weight: 600; 
+    font-weight: 600;
 }
 
 .post-card-action {
@@ -553,12 +549,47 @@ button:focus {
     text-align: center;
 }
 
-.post-btn {
+.post-btn,
+.comment-btn {
     background: white;
     color: black;
     margin: 1rem 2rem;
     transition: all .5s ease;
 }
+
+/* ---------------------Comments Section */
+.comment-section {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.comment {
+    width: 22rem;
+    margin-top: 1rem;
+}
+
+.comment p {
+    margin: 2rem 0;
+    font-size: 1.25rem;
+}
+
+.comment small {
+    font-size: .8rem;
+}
+
+.comment-form {
+    margin-top: 2rem;
+    width: 22rem
+}
+.comment-btn{
+     height: 2rem;
+     width:5rem;
+     font-size:.7rem;
+}
+
 
 @media(min-width: 768px) {
     .title {
