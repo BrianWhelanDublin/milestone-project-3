@@ -22,7 +22,8 @@
 <!-- transition on page change -->
     <div class="transition  is-active"></div>
     <header>
-        <nav>
+        <!-- removes shadow from nav in materialize -->
+        <nav class="z-depth-0">
             <div class="navigation">
                 <a href="{{ url_for('main.home') }}" class="home-logo"> Hello World!</a>
                 <ul class="nav-list">
