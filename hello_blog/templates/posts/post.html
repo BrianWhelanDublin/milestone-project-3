@@ -2,7 +2,6 @@
 {% extends "base/base.html" %}
 {% block content %}
 <div class="row post-row center-vertically">
-
     <!-- Post Section -->
     <div class="col post-col">
         <h1 class="post-title">{{ post.title }}</h1>
@@ -12,7 +11,8 @@
                 <img class="post-image" src="{{ post.author.user_image }}" alt="image of post author">
             </div>
             <div class="col post-author-col s8">
-                <a href="{{ url_for('users.users_posts', username=post.author.username) }}">Posted By: {{ post.author.username }}</a>
+                <a href="{{ url_for('users.users_posts', username=post.author.username) }}">Posted By:
+                    {{ post.author.username }}</a>
                 <p>Posted on: {{ post.date_posted }}</p>
             </div>
         </div>
@@ -23,24 +23,22 @@
         </div>
         {% endif %}
         <p class="post-content">{{ post.content }}</p>
-        
     </div>
-
     <!-- liked section -->
-   
-       <div class="likes-col post-col col">
-            {% if is_liked == true %}
-                <p class="liked-text btn post-btn liked"> 
-                    {% if likes == 1%}
-                    {{ likes }} Like
-                    {% else%}
-                    {{ likes }} likes
-                    {% endif %}
-                    <i class="lar la-heart liked liked-text " aria-hidden="true"></i></p>
-            {% else %}
-                    <a href="{{ url_for('posts.liked_post', post_id=post.id) }}" class=" btn   post-btn liked-text ">Like<i class="las liked-text la-thumbs-up" aria-hidden="true"></i></a> 
+    <div class="likes-col post-col col">
+        {% if is_liked == true %}
+        <p class="liked-text btn post-btn liked">
+            {% if likes == 1%}
+            {{ likes }} Like
+            {% else%}
+            {{ likes }} likes
             {% endif %}
-        </div>
+            <i class="lar la-heart liked liked-text " aria-hidden="true"></i></p>
+        {% else %}
+        <a href="{{ url_for('posts.liked_post', post_id=post.id) }}" class=" btn   post-btn liked-text ">Like<i
+                class="las liked-text la-thumbs-up" aria-hidden="true"></i></a>
+        {% endif %}
+    </div>
 
 
     <!-- Comments section -->
