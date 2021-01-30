@@ -1,8 +1,8 @@
 from flask import (Blueprint, render_template, redirect,
                    url_for, flash, abort, request)
 from flask_login import login_required, current_user
-from hello_blog.models import Categories, Post
-from hello_blog.posts.posts_forms import PostForm, DeletePostForm
+from hello_blog.models import Categories, Post, Comment
+from hello_blog.posts.posts_forms import PostForm, DeletePostForm, CommentForm
 
 
 posts = Blueprint("posts", __name__)
@@ -52,12 +52,26 @@ def add_post():
 @posts.route("/post/<post_id>", methods=["POST", "GET"])
 @login_required
 def post(post_id):
-    form = DeletePostForm()
+    delete_form = DeletePostForm()
+    comment_form = CommentForm()
     post = Post.objects().get_or_404(id=post_id)
+    comments = Comment.objects(post=post)
+    if request.method == "POST":
+        comment = Comment(
+            comment=comment_form.comment.data,
+            comment_author=current_user.id,
+            post=post
+        )
+        comment.save()
+        flash("Comment added", "success")
+        return redirect(url_for("posts.post", post_id=post.id))
+
     return render_template("posts/post.html",
                            title=post.title,
                            post=post,
-                           form=form)
+                           delete_form=delete_form,
+                           comments=comments,
+                           comment_form=comment_form)
 
 
 # create the update post route

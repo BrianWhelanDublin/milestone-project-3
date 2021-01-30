@@ -32,11 +32,11 @@
         <p>Are you sure you want to delete your account</p>
     </div>
     <form method="POST" action="{{ url_for('posts.delete_post', post_id=post.id) }}" class="col s12 ">
-          {{ form.hidden_tag() }}
+          {{ delete_form.hidden_tag() }}
         <div class="modal-footer">
             <a href="{{ url_for('posts.post', post_id=post.id) }}"
                 class="modal-close waves-effect waves-green btn submit-modal">Cancel</a>
-            {{ form.submit(class="modal-close waves-effect waves-green btn submit-modal") }}
+            {{ delete_form.submit(class="modal-close waves-effect waves-green btn submit-modal") }}
         </div>
     </form>
 </div>

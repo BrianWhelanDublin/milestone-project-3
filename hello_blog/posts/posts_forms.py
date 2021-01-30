@@ -14,3 +14,8 @@ class PostForm(FlaskForm):
 
 class DeletePostForm(FlaskForm):
     submit = SubmitField("Delete")
+
+
+class CommentForm(FlaskForm):
+    comment = TextAreaField("Add Comment", validators=[DataRequired()])
+    submit = SubmitField("Comment")
