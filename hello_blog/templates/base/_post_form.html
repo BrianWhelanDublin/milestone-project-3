@@ -1,16 +1,15 @@
    <div class="col center-verticaly content-height s12 xl6">
-
-            <form method="POST" action="" class="col s12 ">
-                <!-- this hidden tag is used by Flask-Wtf for CSRF protection and is needed for each form -->
-                {{ form.hidden_tag() }}
-                <!-- using the macro to display each form input -->
-                {{ display_input(form.title,for="title") }}
-                {{ textarea_input(form.content,for="content") }}
-                <div class=""> {{ form.category.label()}}</div>
-                <div class="input-field col s12">
-                    {{ form.category()}}
-                </div>
-                <!-- incldes the submit.html  -->
-                {% include "base/_submit.html" %}
-            </form>
-        </div>
+       <form method="POST" action="" class="col s12 ">
+           <!-- this hidden tag is used by Flask-Wtf for CSRF protection and is needed for each form -->
+           {{ form.hidden_tag() }}
+           <!-- using the macro to display each form input -->
+           {{ display_input(form.title,for="title") }}
+           {{ textarea_input(form.content,for="content") }}
+           <div class=""> {{ form.category.label()}}</div>
+           <div class="input-field col s12">
+               {{ form.category()}}
+           </div>
+           <!-- incldes the submit.html  -->
+           {% include "base/_submit.html" %}
+       </form>
+   </div>
