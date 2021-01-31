@@ -17,8 +17,7 @@ posts = Blueprint("posts", __name__)
 @login_required
 def all_posts():
     form = SearchForm()
-    categories = [(
-        cat.category_name) for cat in Categories.objects]
+    categories = Categories.objects()
 
     page = request.args.get("page", 1, type=int)
     posts = Post.objects().order_by("-date_posted").paginate(
