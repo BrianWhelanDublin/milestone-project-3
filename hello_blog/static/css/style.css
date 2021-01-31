@@ -478,7 +478,8 @@ button:focus {
     font-size: 1.35rem;
 }
 
-.post-card a:hover {
+.post-card a:hover,
+.search-category:hover{
     text-decoration: underline;
     color: #f02937;
 }
@@ -513,6 +514,10 @@ button:focus {
     width: 80%;
     display: block;
     margin: 2rem auto;
+}
+.search-category{
+    font-size: 1.25rem;
+    color: black;
 }
 
 /* ----------------- Single Post Page */

@@ -1,19 +1,21 @@
      <div class="col search-col s12 l3">
-     <div class="search-col">
-         <h3>Search</h3>
-         <form method="POST" action="{{url_for('posts.search')}}" class="col s12 ">
-             <!-- this hidden tag is used by Flask-Wtf for CSRF protection and is needed for each form -->
-             {{ form.hidden_tag() }}
-             <!-- using the macro to display each form input -->
-             {{ display_input(form.search ,for="search") }}
-             <!-- incldes the submit.html  -->
-             {% include "base/_submit.html" %}
-         </form>
-         <h4>Categories</h4>
-         <ul class="categories">
-             <a href="">{% for category in categories %}</a>
-             <li><a href="{{ url_for('posts.category_posts', category_id=category.id) }}">{{ category.category_name }}</a></li>
-             {% endfor %}
-         </ul>
-     </div>
+         <div class="search-col">
+             <h3>Search</h3>
+             <form method="POST" action="{{url_for('posts.search')}}" class="col s12 ">
+                 <!-- this hidden tag is used by Flask-Wtf for CSRF protection and is needed for each form -->
+                 {{ form.hidden_tag() }}
+                 <!-- using the macro to display each form input -->
+                 {{ display_input(form.search ,for="search") }}
+                 <!-- incldes the submit.html  -->
+                 {% include "base/_submit.html" %}
+             </form>
+             <h4>Categories</h4>
+             <ul class="categories">
+                 {% for category in categories %}
+                 <li>
+                     <a class="search-category" href="{{ url_for('posts.category_posts', category_id=category.id) }}">{{ category.category_name }}</a>
+                 </li>
+                 {% endfor %}
+             </ul>
+         </div>
      </div>
