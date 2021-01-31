@@ -65,8 +65,15 @@ class Post(db.Document):
 
     meta = {
         "collection": "posts",
-        "queryset_class": BaseQuerySet
-    }
+        "queryset_class": BaseQuerySet,
+        'indexes': [
+            {'fields': ['$title', "$content"],
+             'default_language': 'english',
+             'weights': {'title': 10, 'content': 2}
+             }
+             ]}
+
+
 
     def __repr__(self):
         return f"Post({self.title}, {self.author}, {self.date_posted})"
