@@ -1,8 +1,8 @@
 // code from stack overflow to stop safari using the cache
-window.onpageshow = function(event) {
-  if (event.persisted) {
-      window.location.reload(); 
-  }
+window.onload = function (event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
 };
 
 
@@ -66,8 +66,6 @@ link.forEach((item) => {
 M.AutoInit();
 
 // initialize the materialize form counter using jQuery
-$(document).ready(function() {
-$('textarea#bio').characterCounter();
+$(document).ready(function () {
+    $('textarea#bio').characterCounter();
 });
-
-      
