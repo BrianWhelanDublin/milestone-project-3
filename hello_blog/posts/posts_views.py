@@ -211,12 +211,16 @@ def liked_post(post_id):
 @login_required
 def category_posts(category_id):
     form = SearchForm()
+    categories = [(
+        cat.category_name) for cat in Categories.objects]
     page = request.args.get('page', 1, type=int)
     category = Categories.objects(id=category_id).first_or_404()
     posts = Post.objects(category=category).order_by("-date_posted").paginate(
         page=page, per_page=4)
-    return render_template("posts/all_posts.html",
+    return render_template("posts/posts_categories.html",
                            title=f"{category.category_name} Posts",
                            posts=posts,
                            heading=f"{category.category_name} Posts",
-                           form=form)
+                           form=form,
+                           category=category,
+                           categories=categories)
