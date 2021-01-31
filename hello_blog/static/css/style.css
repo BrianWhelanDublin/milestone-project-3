@@ -27,8 +27,12 @@ nav {
     background: rgb(243, 242, 242);
 }
 
-.container {
+.main-container {
     min-height: 40rem;
+    width: 90%;
+    display:block;
+    margin: 0 auto;
+
 }
 
 .center-verticaly {
@@ -407,10 +411,14 @@ button:focus {
     background: rgb(233, 231, 231);
     margin: 1rem;
 }
-
-.post-row {
-    height: fit-content;
+.single-post-row{
+    display:block;
+    margin: 0 auto;
 }
+.post-row {
+    position: relative;
+    height: 100vh;
+} 
 
 .post-card-title {
     font-weight: 600;
@@ -474,9 +482,10 @@ button:focus {
     text-decoration: underline;
     color: #f02937;
 }
-.pag-col{
-display: flex;
-flex-direction: row;
+
+.pag-col {
+    display: flex;
+    flex-direction: row;
 }
 
 .pag-btn {
@@ -500,16 +509,16 @@ flex-direction: row;
     background: #f02937;
 }
 
-/* ----------------- Single Post Page */
-.post-row {
-    position: relative;
-    height: 100vh;
-    max-width: 1200px;
+.search-col {
+    width: 80%;
+    display: block;
+    margin: 2rem auto;
 }
+
+/* ----------------- Single Post Page */
 
 .post-col {
     height: fit-content;
-    width: 100%;
 }
 
 .post-title {
@@ -564,13 +573,15 @@ flex-direction: row;
 }
 
 /* ---------------------Comments Section */
-.likes-col{
-    margin:2rem 0;
+.likes-col {
+    margin: 2rem 0;
 }
+
 .liked {
     pointer-events: none;
 }
-.liked-text{
+
+.liked-text {
     font-size: 1rem;
 }
 
@@ -657,6 +668,9 @@ flex-direction: row;
         font-size: 10vw;
 
     }
+      .single-post-row{
+    max-width: 75%;
+}
 }
 
 @media(min-width: 992px) {
@@ -728,6 +742,9 @@ flex-direction: row;
     .title-height {
         height: 100%;
     }
+    .single-post-row{
+    max-width: 60%;
+}
 }
 
 @media(min-width:1400px) {

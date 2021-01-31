@@ -1,9 +1,9 @@
 {% from "base/macros.html" import display_input %}
 {% extends "base/base.html" %}
 {% block content %}
-<div class="row post-row center-vertically">
+<div class="row single-post-row">
     <!-- Post Section -->
-    <div class="col post-col">
+    <div class="col post-col ">
         <h1 class="post-title">{{ post.title }}</h1>
         <a class="post-category" href="{{ url_for('posts.category_posts', category_id=post.category.id) }}">Category: {{ post.category.category_name }}</a>
         <div class="row post-user-row">
@@ -78,6 +78,7 @@
             </div>
         </form>
     </div>
+
 </div>
 
 <!-- Modal to double check they want to delete post -->

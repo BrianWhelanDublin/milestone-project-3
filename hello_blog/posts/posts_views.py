@@ -16,6 +16,10 @@ posts = Blueprint("posts", __name__)
 @posts.route("/posts")
 @login_required
 def all_posts():
+    form = SearchFrom()
+    categories = [(
+        cat.category_name) for cat in Categories.objects]
+
     page = request.args.get("page", 1, type=int)
     posts = Post.objects().order_by("-date_posted").paginate(
         page=page, per_page=4
@@ -23,7 +27,9 @@ def all_posts():
     return render_template("posts/all_posts.html",
                            title="Latest Posts",
                            posts=posts,
-                           heading="Recent Posts")
+                           heading="Recent Posts",
+                           form=form,
+                           categories=categories)
 
 
 # create the route to add new post
@@ -56,6 +62,7 @@ def add_post():
 @posts.route("/post/<post_id>", methods=["POST", "GET"])
 @login_required
 def post(post_id):
+
     delete_form = DeletePostForm()
     comment_form = CommentForm()
     post = Post.objects().get_or_404(id=post_id)
@@ -206,7 +213,7 @@ def category_posts(category_id):
     page = request.args.get('page', 1, type=int)
     category = Categories.objects(id=category_id).first_or_404()
     posts = Post.objects(category=category).order_by("-date_posted").paginate(
-        page=page, per_page=2)
+        page=page, per_page=4)
     return render_template("posts/all_posts.html",
                            title=f"{category.category_name} Posts",
                            posts=posts,

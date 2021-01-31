@@ -1,3 +1,4 @@
+{% from "base/macros.html" import display_input %}
 {% extends "base/base.html" %}
 
 {% block content %}
@@ -7,8 +8,10 @@
         <h1 class="title">{{ heading }}</h1>
     </div>
 <!-- each post card -->
+<div class="col l9">
 {% for post in posts.items %}
-    <div class="col s12 m6 ">
+
+        <div class="col s12 l6 ">
         <div class="post-card ">
             <div class="post-content">
                 <h2 class="post-card-title">
@@ -41,7 +44,7 @@
         </div>
     </div>
     {% endfor %}
- </div>
+  
 <!-- pagination buttons -->
 {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
     {% if page_num %}
@@ -54,5 +57,7 @@
         ...
     {% endif %}
 {% endfor %}
+</div>
+          {% include "base/_search.html" %}
 
 {% endblock %}
