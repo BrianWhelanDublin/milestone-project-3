@@ -3,7 +3,7 @@
 {% block content %}
 <div class="row single-post-row">
     <!-- Post Section -->
-    <div class="col post-col ">
+    <div class="col post-col s12 ">
         <h1 class="post-title">{{ post.title }}</h1>
         <a class="post-category" href="{{ url_for('posts.category_posts', category_id=post.category.id) }}">Category: {{ post.category.category_name }}</a>
         <div class="row post-user-row">
@@ -25,7 +25,7 @@
         <p class="post-content">{{ post.content }}</p>
     </div>
     <!-- liked section -->
-    <div class="likes-col post-col col">
+    <div class="likes-col s12 post-col col">
         {% if is_liked == true %}
         <p class="liked-text btn post-btn liked">
             {% if likes == 1%}
