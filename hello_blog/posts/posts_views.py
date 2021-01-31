@@ -4,7 +4,8 @@ from flask_login import login_required, current_user
 from hello_blog.models import Categories, Post, Comment
 from hello_blog.posts.posts_forms import (PostForm, DeletePostForm,
                                           CommentForm,
-                                          UpdateCommentForm)
+                                          UpdateCommentForm,
+                                          SearchFrom)
 
 
 posts = Blueprint("posts", __name__)
@@ -184,6 +185,7 @@ def delete_comment(post_id, comment_id):
         return redirect(url_for("posts.post", post_id=post_id))
 
 
+# fuction to like posts
 @posts.route("/liked/<post_id>")
 @login_required
 def liked_post(post_id):

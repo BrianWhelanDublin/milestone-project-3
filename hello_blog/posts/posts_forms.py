@@ -24,3 +24,8 @@ class CommentForm(FlaskForm):
 class UpdateCommentForm(FlaskForm):
     comment = StringField("Update Comment", validators=[DataRequired()])
     submit = SubmitField("Update")
+
+
+class SearchFrom(FlaskForm):
+    search = StringField("Search", validators=[DataRequired(),
+                                               Length(min=3)])
