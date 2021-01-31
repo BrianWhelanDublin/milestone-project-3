@@ -21,7 +21,8 @@ def all_posts():
     )
     return render_template("posts/all_posts.html",
                            title="Latest Posts",
-                           posts=posts)
+                           posts=posts,
+                           heading="Recent Posts")
 
 
 # create the route to add new post

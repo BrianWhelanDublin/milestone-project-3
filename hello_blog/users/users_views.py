@@ -143,4 +143,5 @@ def users_posts(username):
         page=page, per_page=2)
     return render_template("posts/all_posts.html",
                            title=f"{user.username}'s Posts",
-                           posts=posts)
+                           posts=posts,
+                           heading=f"{user.username}'s Posts")
