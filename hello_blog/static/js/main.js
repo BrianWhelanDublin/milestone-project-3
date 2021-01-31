@@ -1,13 +1,13 @@
-// code from stack overflow to stop safari using the cache
-window.onload = function (event) {
-    if (event.persisted) {
-        window.location.reload();
-    }
-};
+// // code from stack overflow to stop safari using the cache
+// window.onload = function (event) {
+//     if (event.persisted) {
+//         window.location.reload();
+//     }
+// };
 
 
 
-window.onload = () => {
+window.onpageshow = () => {
     document.body.classList.remove("preload")
     const transitionEl = document.querySelector(".transition")
     const anchors = document.querySelectorAll("a")
