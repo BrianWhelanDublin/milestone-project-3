@@ -7,7 +7,10 @@
     {% include "base/_posts_title.html" %}
         <!--include each post card from base html -->
         {% include "base/_post_card.html" %}
+  <!-- Include the base search html -->
+    {% include "base/_search.html" %}
         <!-- pagination buttons -->
+     <div class="col s12">
             {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
                 {% if page_num %}
                     {% if posts.page == page_num %}
@@ -20,6 +23,4 @@
                 {% endif %}
             {% endfor %}
 </div>
-    <!-- Include the base search html -->
-    {% include "base/_search.html" %}
 {% endblock %}
