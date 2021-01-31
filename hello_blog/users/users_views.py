@@ -134,7 +134,7 @@ def delete_account(username):
 
 
 # create route to show all a perticulat users posts
-@users.route("/posts/<username>")
+@users.route("/posts/user/<username>")
 @login_required
 def users_posts(username):
     page = request.args.get('page', 1, type=int)

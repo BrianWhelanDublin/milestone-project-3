@@ -5,7 +5,7 @@
     <!-- Post Section -->
     <div class="col post-col">
         <h1 class="post-title">{{ post.title }}</h1>
-        <a class="post-category" href="#">Category: {{ post.category.category_name }}</a>
+        <a class="post-category" href="{{ url_for('posts.category_posts', category_id=post.category.id) }}">Category: {{ post.category.category_name }}</a>
         <div class="row post-user-row">
             <div class="col s4 ">
                 <img class="post-image" src="{{ post.author.user_image }}" alt="image of post author">
