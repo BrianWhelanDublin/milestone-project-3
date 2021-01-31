@@ -224,3 +224,22 @@ def category_posts(category_id):
                            form=form,
                            category=category,
                            categories=categories)
+
+
+@posts.route("/search", methods=["GET", "POST"])
+@login_required
+def search():
+    form = SearchForm()
+    categories = [(
+        cat.category_name) for cat in Categories.objects]
+    if request.method == "POST":
+        query = form.search.data
+    page = request.args.get('page', 1, type=int)
+    posts = Post.objects.search_text(query).order_by(
+        '$text_score').paginate(page=page, per_page=4)
+    return render_template("posts/all_posts.html",
+                           title="Search Results",
+                           posts=posts,
+                           heading="Recent Posts",
+                           form=form,
+                           categories=categories)
