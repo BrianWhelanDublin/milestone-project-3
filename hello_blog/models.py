@@ -73,8 +73,6 @@ class Post(db.Document):
              }
              ]}
 
-
-
     def __repr__(self):
         return f"Post({self.title}, {self.author}, {self.date_posted})"
 
