@@ -232,14 +232,21 @@ def search():
     form = SearchForm()
     categories = [(
         cat.category_name) for cat in Categories.objects]
+    if request.method == "GET":
+        query = request.args.get("query")
     if request.method == "POST":
         query = form.search.data
     page = request.args.get('page', 1, type=int)
     posts = Post.objects.search_text(query).order_by(
         '$text_score').paginate(page=page, per_page=4)
-    return render_template("posts/all_posts.html",
+    print(posts)
+    if not posts.items:
+        flash("No results Found. Please search again")
+        return redirect(request.referrer)
+    return render_template("posts/search_results.html",
                            title="Search Results",
                            posts=posts,
-                           heading="Recent Posts",
+                           heading="Search Results",
                            form=form,
-                           categories=categories)
+                           categories=categories,
+                           query=query)
