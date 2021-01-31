@@ -229,8 +229,7 @@ def category_posts(category_id):
 @login_required
 def search():
     form = SearchForm()
-    categories = [(
-        cat.category_name) for cat in Categories.objects]
+    categories = Categories.objects()
     if request.method == "GET":
         query = request.args.get("query")
     if request.method == "POST":
