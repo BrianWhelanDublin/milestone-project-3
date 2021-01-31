@@ -138,8 +138,7 @@ def delete_account(username):
 @users.route("/posts/user/<username>")
 @login_required
 def users_posts(username):
-    categories = [(
-        cat.category_name) for cat in Categories.objects]
+    categories = Categories.objects()
     form = SearchForm()
     page = request.args.get('page', 1, type=int)
     user = User.objects(username=username).first_or_404()
