@@ -23,8 +23,9 @@
             </div>
             <div class="row post-card-category">
                 <div class="col s12">
-                    <a class="card-category-link" href="#">
+                    <a class="card-category-link" href="{{ url_for('posts.category_posts', category_id=post.category.id) }}">
                         Category: {{ post.category.category_name }}
+                        
                     </a>
                 </div>
             </div>

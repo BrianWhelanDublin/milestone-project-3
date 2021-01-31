@@ -195,3 +195,17 @@ def liked_post(post_id):
         post.save()
     flash("post liked")
     return redirect(url_for("posts.post", post_id=post.id))
+
+
+# cretate posts by category route
+@posts.route("/posts/category/<category_id>")
+@login_required
+def category_posts(category_id):
+    page = request.args.get('page', 1, type=int)
+    category = Categories.objects(id=category_id).first_or_404()
+    posts = Post.objects(category=category).order_by("-date_posted").paginate(
+        page=page, per_page=2)
+    return render_template("posts/all_posts.html",
+                           title=f"{category.category_name} Posts",
+                           posts=posts,
+                           heading=f"{category.category_name} Posts")
