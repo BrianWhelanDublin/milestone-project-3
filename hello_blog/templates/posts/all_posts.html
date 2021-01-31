@@ -2,61 +2,24 @@
 {% extends "base/base.html" %}
 
 {% block content %}
-<!-- title -->
+<!-- include the base title html-->
 <div class="row post-row fade">
-    <div class="col s12 ">
-        <h1 class="title">{{ heading }}</h1>
-    </div>
-<!-- each post card -->
-<div class="col l9">
-{% for post in posts.items %}
-        <div class="col s12 l6 ">
-        <div class="post-card ">
-            <div class="post-content">
-                <h2 class="post-card-title">
-                    {{post.title|capitalize}}
-                </h2>
-                <div class="post-card-content">
-                 <p>{{ post.content[0:50] }}...</p>
-                  <a class="more-link" href="{{ url_for('posts.post', post_id=post.id) }}">Find out more 
-                     <i class="las arrow la-angle-double-right" aria-hidden="true"></i>
-                        <span class="sr-only">Link to post page</span></a>
-                 </div>
-            </div>
-            <div class="row post-card-category">
-                <div class="col s12">
-                    <a class="card-category-link" href="{{ url_for('posts.category_posts', category_id=post.category.id) }}">
-                        Category: {{ post.category.category_name }}
-                        
-                    </a>
-                </div>
-            </div>
-            <div class="post-card-action row">
-                <div class="col s4">
-                    <img class="post-author-img" src="{{ post.author.user_image }}" alt="">
-                </div>
-                <div class="col post-author s8">
-                    <a href="{{ url_for('users.users_posts', username=post.author.username) }}">Posted by: {{post.author.username}}</a>
-                    <p>Posted on: {{post.date_posted.strftime("%d-%m-%Y")}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-  
-<!-- pagination buttons -->
-{% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-    {% if page_num %}
-        {% if posts.page == page_num %}
-            <a class="btn pag-btn-active" href="{{ url_for('posts.all_posts', page=page_num) }}">{{ page_num }}</a>
-        {% else %}
-            <a class=" btn pag-btn" href="{{ url_for('posts.all_posts', page=page_num) }}">{{ page_num }}</a>
-        {% endif%}
-    {% else %}
-        ...
-    {% endif %}
-{% endfor %}
+    {% include "base/_posts_title.html" %}
+        <!--include each post card from base html -->
+        {% include "base/_post_card.html" %}
+        <!-- pagination buttons -->
+            {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                {% if page_num %}
+                    {% if posts.page == page_num %}
+                        <a class="btn pag-btn-active" href="{{ url_for('posts.all_posts', page=page_num) }}">{{ page_num }}</a>
+                    {% else %}
+                        <a class=" btn pag-btn" href="{{ url_for('posts.all_posts', page=page_num) }}">{{ page_num }}</a>
+                    {% endif%}
+                {% else %}
+                    ...
+                {% endif %}
+            {% endfor %}
 </div>
-          {% include "base/_search.html" %}
-
+    <!-- Include the base search html -->
+    {% include "base/_search.html" %}
 {% endblock %}
