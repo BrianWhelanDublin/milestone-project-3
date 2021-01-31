@@ -230,9 +230,10 @@ def category_posts(category_id):
 def search():
     form = SearchForm()
     categories = Categories.objects()
-    if request.method == "GET":
-        query = request.args.get("query")
-    if request.method == "POST":
+    query_param = request.args.get("query")
+    if query_param:
+        query = query_param
+    elif request.method == "POST":
         query = form.search.data
     page = request.args.get('page', 1, type=int)
     posts = Post.objects.search_text(query).order_by(
