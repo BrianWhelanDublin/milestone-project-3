@@ -5,7 +5,7 @@ from hello_blog.models import Categories, Post, Comment
 from hello_blog.posts.posts_forms import (PostForm, DeletePostForm,
                                           CommentForm,
                                           UpdateCommentForm,
-                                          SearchFrom)
+                                          SearchForm)
 
 
 posts = Blueprint("posts", __name__)
@@ -16,7 +16,7 @@ posts = Blueprint("posts", __name__)
 @posts.route("/posts")
 @login_required
 def all_posts():
-    form = SearchFrom()
+    form = SearchForm()
     categories = [(
         cat.category_name) for cat in Categories.objects]
 
@@ -210,6 +210,7 @@ def liked_post(post_id):
 @posts.route("/posts/category/<category_id>")
 @login_required
 def category_posts(category_id):
+    form = SearchForm()
     page = request.args.get('page', 1, type=int)
     category = Categories.objects(id=category_id).first_or_404()
     posts = Post.objects(category=category).order_by("-date_posted").paginate(
@@ -217,4 +218,5 @@ def category_posts(category_id):
     return render_template("posts/all_posts.html",
                            title=f"{category.category_name} Posts",
                            posts=posts,
-                           heading=f"{category.category_name} Posts")
+                           heading=f"{category.category_name} Posts",
+                           form=form)

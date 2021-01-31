@@ -3,6 +3,7 @@ from flask import (Blueprint, render_template, url_for,
 from hello_blog.users.users_forms import (SignupForm, LoginForm,
                                           UpdateAccount,
                                           DeleteAccountForm)
+from hello_blog.posts.posts_forms import SearchForm
 from hello_blog.models import User, Post
 from hello_blog import bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
@@ -137,6 +138,7 @@ def delete_account(username):
 @users.route("/posts/user/<username>")
 @login_required
 def users_posts(username):
+    form = SearchForm()
     page = request.args.get('page', 1, type=int)
     user = User.objects(username=username).first_or_404()
     posts = Post.objects(author=user.id).order_by("-date_posted").paginate(
@@ -144,4 +146,5 @@ def users_posts(username):
     return render_template("posts/all_posts.html",
                            title=f"{user.username}'s Posts",
                            posts=posts,
-                           heading=f"{user.username}'s Posts")
+                           heading=f"{user.username}'s Posts",
+                           form=form)
