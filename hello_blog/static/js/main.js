@@ -1,3 +1,12 @@
+// code from stack overflow to stop safari using the cache
+window.onpageshow = function(event) {
+  if (event.persisted) {
+      window.location.reload(); 
+  }
+};
+
+
+
 window.onload = () => {
     document.body.classList.remove("preload")
     const transitionEl = document.querySelector(".transition")
