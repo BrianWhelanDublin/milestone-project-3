@@ -27,5 +27,6 @@ class UpdateCommentForm(FlaskForm):
 
 
 class SearchFrom(FlaskForm):
-    search = StringField("Search", validators=[DataRequired(),
+    search = StringField("Search Posts", validators=[DataRequired(),
                                                Length(min=3)])
+    submit = SubmitField("Search")
