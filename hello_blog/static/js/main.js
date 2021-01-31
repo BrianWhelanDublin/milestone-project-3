@@ -10,7 +10,7 @@ window.onload = () => {
         fadeElements.forEach((fade) => {
             fade.classList.add("is-active")
         })
-    }, 1000)
+    }, 500)
 
     anchors.forEach(anchor => {
         anchor.addEventListener("click", e => {
