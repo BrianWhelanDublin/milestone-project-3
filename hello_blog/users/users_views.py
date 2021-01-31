@@ -4,7 +4,7 @@ from hello_blog.users.users_forms import (SignupForm, LoginForm,
                                           UpdateAccount,
                                           DeleteAccountForm)
 from hello_blog.posts.posts_forms import SearchForm
-from hello_blog.models import User, Post
+from hello_blog.models import User, Post, Categories
 from hello_blog import bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
 from hello_blog.users.users_utils import save_user_image
@@ -138,13 +138,17 @@ def delete_account(username):
 @users.route("/posts/user/<username>")
 @login_required
 def users_posts(username):
+    categories = [(
+        cat.category_name) for cat in Categories.objects]
     form = SearchForm()
     page = request.args.get('page', 1, type=int)
     user = User.objects(username=username).first_or_404()
     posts = Post.objects(author=user.id).order_by("-date_posted").paginate(
-        page=page, per_page=2)
-    return render_template("posts/all_posts.html",
+        page=page, per_page=4)
+    return render_template("users/users_posts.html",
                            title=f"{user.username}'s Posts",
                            posts=posts,
                            heading=f"{user.username}'s Posts",
-                           form=form)
+                           form=form,
+                           categories=categories,
+                           user=user)
