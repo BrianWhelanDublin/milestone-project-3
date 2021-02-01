@@ -621,6 +621,23 @@ button:focus {
     width: 5rem;
     font-size: .7rem;
 }
+/* -------------- error pages */
+.error-col{
+    width: fit-content;
+    display: block;
+    margin:10% auto;
+    height:90vh;
+    text-align: center;
+}
+.error-col p{
+    font-size: 1.25rem;
+    margin: 1rem 0;
+}
+.error-btn{
+    color:black;
+    background: white;
+    font-size: 1.25rem;
+}
 
 
 @media(min-width: 768px) {
