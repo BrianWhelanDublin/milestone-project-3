@@ -77,6 +77,13 @@ def logout():
     return redirect(url_for("main.home"))
 
 
+# code from stack overflow to stop
+@users.after_request
+def after_request(response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    return response
+
+
 @users.route("/account/<username>")
 @login_required
 def account(username):
