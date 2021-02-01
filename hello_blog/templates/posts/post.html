@@ -17,7 +17,7 @@
                 <p>Posted on: {{ post.date_posted }}</p>
             </div>
         </div>
-        {% if current_user.id == post.author.id %}
+        {% if current_user.id == post.author.id or current_user.username == "admin" %}
         <div class="row post-edit-btns s12">
             <a href="{{ url_for('posts.update_post', post_id=post.id) }}" class="post-btn btn">Update Post</a>
             <a href="#deletePostModal" class="post-btn waves-effect modal-trigger btn">Delete Post</a>
@@ -59,7 +59,7 @@
             <p>{{ comment.comment }}</p>
             <small>Comment By:{{ comment.comment_author.username }}</small>
             <hr>
-            {% if current_user.id == comment.comment_author.id   %}
+            {% if current_user.id == comment.comment_author.id  or current_user.username == "admin"  %}
             <a class="post-btn btn"
                 href="{{ url_for('posts.update_comment', post_id=post.id, comment_id=comment.id) }}">Update</a>
             <a class="post-btn btn"
