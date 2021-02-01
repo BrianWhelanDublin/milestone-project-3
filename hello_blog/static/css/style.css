@@ -30,7 +30,7 @@ nav {
 .main-container {
     min-height: 40rem;
     width: 90%;
-    display:block;
+    display: block;
     margin: 0 auto;
 
 }
@@ -410,14 +410,16 @@ button:focus {
     background: rgb(233, 231, 231);
     margin: 1rem;
 }
-.single-post-row{
-    display:block;
+
+.single-post-row {
+    display: block;
     margin: 0 auto;
 }
+
 .post-row {
     position: relative;
     height: 100vh;
-} 
+}
 
 .post-card-title {
     font-weight: 600;
@@ -478,7 +480,8 @@ button:focus {
 }
 
 .post-card a:hover,
-.search-category:hover{
+.search-category:hover,
+.dash-link:hover {
     text-decoration: underline;
     color: #f02937;
 }
@@ -514,7 +517,8 @@ button:focus {
     display: block;
     margin: 2rem auto;
 }
-.search-category{
+
+.search-category {
     font-size: 1.25rem;
     color: black;
 }
@@ -621,24 +625,70 @@ button:focus {
     width: 5rem;
     font-size: .7rem;
 }
+
 /* -------------- error pages */
-.error-col{
+.error-col {
     width: fit-content;
     display: block;
-    margin:10% auto;
-    height:90vh;
+    margin: 10% auto;
+    height: 90vh;
     text-align: center;
 }
-.error-col p{
+
+.error-col p {
     font-size: 1.25rem;
     margin: 1rem 0;
 }
-.error-btn{
-    color:black;
+
+.error-btn {
+    color: black;
     background: white;
     font-size: 1.25rem;
 }
 
+/* ------------------ Dashboard */
+.dash-col {
+    margin: 5% 0;
+}
+
+.dash-col h2 {
+    font-size: 5rem;
+    margin-top: 2%;
+}
+
+.dash-col p {
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+.dash-link {
+    font-size: 2rem;
+    color: black;
+    transition: all .5s ease;
+}
+
+.dash-col ul {
+    width: 100%;
+}
+
+.dash-col ul li {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dash-btn {
+    color: black;
+    background: white;
+    font-size: .9rem;
+    height: 2.2rem;
+    margin-right: 2rem;
+}
+
+.dash-add {
+    margin: 2.5% 0;
+}
 
 @media(min-width: 768px) {
     .title {
@@ -689,9 +739,10 @@ button:focus {
         font-size: 10vw;
 
     }
-      .single-post-row{
-    max-width: 75%;
-}
+
+    .single-post-row {
+        max-width: 75%;
+    }
 }
 
 @media(min-width: 992px) {
@@ -763,9 +814,10 @@ button:focus {
     .title-height {
         height: 100%;
     }
-    .single-post-row{
-    max-width: 60%;
-}
+
+    .single-post-row {
+        max-width: 60%;
+    }
 }
 
 @media(min-width:1400px) {
