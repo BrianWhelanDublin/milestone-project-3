@@ -17,3 +17,10 @@ def home():
 def about():
     return render_template("main/about.html",
                            title="About Page")
+
+
+# code from stack overflow to stop
+@main.after_request
+def after_request(response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    return response
