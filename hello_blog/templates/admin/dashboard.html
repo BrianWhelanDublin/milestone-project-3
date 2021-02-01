@@ -15,7 +15,7 @@
             {% for category in categories %}
             <li ><a class="dash-link"
                     href="{{ url_for('posts.category_posts', category_id=category.id) }}">{{ category.category_name }}</a>
-                <div><span><a href="" class="btn dash-btn">Edit</a></span>
+                <div><span><a href="{{ url_for('admin.edit_category', category_id=category.id) }}" class="btn dash-btn">Edit</a></span>
                 <span><a href="" class="btn dash-btn">Delete</a></span></div>
             </li>
             {% endfor %}
