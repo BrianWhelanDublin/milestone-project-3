@@ -3,7 +3,9 @@ from flask import (Blueprint, render_template,
                    flash, request)
 from flask_login import login_required, current_user
 from hello_blog.models import User, Post, Categories
-from hello_blog.admin.admin_forms import AddCategoryForm, EditCategoryForm
+from hello_blog.admin.admin_forms import (AddCategoryForm,
+                                          EditCategoryForm,
+                                          DeleteAccountForm)
 
 
 admin = Blueprint("admin", __name__)
@@ -21,7 +23,7 @@ def dashboard():
                            title="Dashboard",
                            users=users,
                            posts=posts,
-                           categories=categories)
+                           categories=categories,)
 
 
 @admin.route("/add/category", methods=["GET", "POST"])
@@ -59,3 +61,21 @@ def edit_category(category_id):
     return render_template("admin/edit_category.html",
                            form=form,
                            title="Edit Category")
+
+
+@admin.route("/delete/category/<category_id>", methods=["GET", "POST"])
+@login_required
+def delete_category(category_id):
+    if current_user.username != "admin":
+        abort(403)
+    form = DeleteAccountForm()
+    if request.method == "POST":
+        category = Categories.objects().get_or_404(id=category_id)
+        posts = Post.objects(category=category)
+        category.delete()
+        posts.delete()
+        flash("Category has been deleted", "success")
+        return redirect(url_for("admin.dashboard"))
+    return render_template("admin/delete_category.html",
+                           title="Delete Category",
+                           form=form)
