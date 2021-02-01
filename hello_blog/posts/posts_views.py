@@ -138,7 +138,7 @@ def delete_post(post_id):
         post.delete()
         flash("Post deleted successfully", "success")
         return redirect(url_for("main.home"))
-    return abort(404)
+    return abort(403)
 
 
 #  create the route to update comment

@@ -138,7 +138,7 @@ def delete_account(username):
     # if the users types this route into the url it will
     # give an error so the account can only be deleted from the modal form
     # on the users account page.
-    return abort(404)
+    return abort(403)
 
 
 # create route to show all a perticulat users posts
