@@ -1,7 +1,11 @@
-from flask import Blueprint, render_template, abort, redirect, url_for, flash
+from flask import (Blueprint, render_template,
+                   abort, redirect, url_for,
+                   flash, request)
 from flask_login import login_required, current_user
 from hello_blog.models import User, Post, Categories
-from hello_blog.admin.admin_forms import AddCategoryForm
+from hello_blog.admin.admin_forms import AddCategoryForm, EditCategoryForm
+
+
 admin = Blueprint("admin", __name__)
 
 
@@ -36,3 +40,22 @@ def add_category():
     return render_template("admin/add_category.html",
                            title="Add Category",
                            form=form)
+
+
+@admin.route("/edit/category/<category_id>", methods=["GET", "POST"])
+@login_required
+def edit_category(category_id):
+    if current_user.username != "admin":
+        abort(403)
+    category = Categories.objects().get_or_404(id=category_id)
+    form = EditCategoryForm()
+    if request.method == "GET":
+        form.category_name.data = category.category_name
+    if form.validate_on_submit():
+        category.category_name = form.category_name.data
+        category.save()
+        flash("Category has been changed", "success")
+        return redirect(url_for('admin.dashboard'))
+    return render_template("admin/edit_category.html",
+                           form=form,
+                           title="Edit Category")
