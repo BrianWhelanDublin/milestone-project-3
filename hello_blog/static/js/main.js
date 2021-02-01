@@ -1,9 +1,9 @@
-// // code from stack overflow to stop safari using the cache
-// window.onload = function (event) {
-//     if (event.persisted) {
-//         window.location.reload();
-//     }
-// };
+// code from stack overflow to stop safari using the cache
+window.onpageshow = function (event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
+};
 
 
 
