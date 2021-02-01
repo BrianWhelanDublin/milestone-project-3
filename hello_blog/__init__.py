@@ -32,14 +32,14 @@ def create_app(config_class=Config):
     from hello_blog.users.users_views import users
     from hello_blog.posts.posts_views import posts
     from hello_blog.errors.handlers import errors
-    from hello_blog.admin.admin_views import admim
+    from hello_blog.admin.admin_views import admin
 
     #  register each blueprint to connect it with the app
     app.register_blueprint(main)
     app.register_blueprint(users)
     app.register_blueprint(posts)
     app.register_blueprint(errors)
-    app.register_blueprint(admim)
+    app.register_blueprint(admin)
 
     # then return the app which will run when the create_app
     # function is called in run.py
