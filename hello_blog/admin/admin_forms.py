@@ -8,3 +8,10 @@ class AddCategoryForm(FlaskForm):
                                 validators=[DataRequired(),
                                             length(min=3, max=20)])
     submit = SubmitField("Add")
+
+
+class EditCategoryForm(FlaskForm):
+    category_name = StringField("Edit Category",
+                                validators=[DataRequired(),
+                                            length(min=3, max=20)])
+    submit = SubmitField("Update")
