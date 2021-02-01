@@ -5,6 +5,7 @@
     margin: 0;
 }
 
+
 /* Code to stop css transitions occuring while page loads */
 .preload * {
     -webkit-transition: none !important;
@@ -647,22 +648,33 @@ button:focus {
 }
 
 /* ------------------ Dashboard */
+.dash-row {
+    display: block;
+    margin: 0 auto;
+}
+
+.dash-row h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
 .dash-col {
-    margin: 5% 0;
+    margin: 7.5% 0;
 }
 
 .dash-col h2 {
-    font-size: 5rem;
+    font-size: 2rem;
     margin-top: 2%;
 }
 
 .dash-col p {
-    font-size: 2rem;
+    font-size: 1rem;
     margin-top: 1rem;
 }
 
 .dash-link {
-    font-size: 2rem;
+    font-size: 1rem;
     color: black;
     transition: all .5s ease;
 }
@@ -672,7 +684,7 @@ button:focus {
 }
 
 .dash-col ul li {
-    margin-top: 2%;
+    margin-top: 5%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -687,7 +699,14 @@ button:focus {
 }
 
 .dash-add {
-    margin: 2.5% 0;
+    margin: 10% auto;
+    display: block;
+    width: fit-content
+}
+
+.delete-cat-msg p {
+    margin: 2rem 0;
+    font-size: 1rem;
 }
 
 @media(min-width: 768px) {
@@ -724,8 +743,6 @@ button:focus {
     .login-link {
         font-size: 1.75rem;
     }
-
-
 
     .page-title {
         font-size: 10vw;
@@ -818,6 +835,25 @@ button:focus {
     .single-post-row {
         max-width: 60%;
     }
+
+    .dash-row h1 {
+        margin-top:5%;
+        font-size: 4.5rem;
+    }
+
+
+    .dash-col h2 {
+        font-size: 3rem;
+    }
+
+    .dash-col p {
+        font-size: 1.5rem;
+    }
+
+    .dash-link {
+        font-size: 1.5rem;
+    }
+
 }
 
 @media(min-width:1400px) {
