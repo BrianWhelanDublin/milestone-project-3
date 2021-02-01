@@ -3,6 +3,6 @@
 <div class="error-col ">
     <h1>Opps something has gone wrong(500 error)</h1>
     <p>We are experiencing some trouble on our end. Please try again ion the near future.</p>
-    <a class="btn error-btn" href="#">Return to home page.</a>
+    <a class="btn error-btn" href="{{ url_for('main.home') }}">Return to home page.</a>
 </div>
 {% endblock content %}
