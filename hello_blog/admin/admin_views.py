@@ -1,7 +1,7 @@
-from flask import Blueprint, render_template, abort, url_for
+from flask import Blueprint, render_template, abort
 from flask_login import login_required, current_user
 from hello_blog.models import User, Post, Categories
-
+from hello_blog.admin.admin_forms import AddCategoryForm
 admin = Blueprint("admin", __name__)
 
 
@@ -25,4 +25,7 @@ def dashboard():
 def add_category():
     if current_user.username != "admin":
         abort(403)
-    return render_template("admin/add_category.html", title="Add Category")
+    form = AddCategoryForm()
+    return render_template("admin/add_category.html",
+                           title="Add Category",
+                           form=form)
