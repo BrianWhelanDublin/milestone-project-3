@@ -17,4 +17,4 @@ class Config:
         api_secret=os.environ.get("API_SECRET")
     )
 
-    SEND_FILE_MAX_AGE_DEFAULT = 0
+    # SEND_FILE_MAX_AGE_DEFAULT = 0

@@ -249,3 +249,10 @@ def search():
                            form=form,
                            categories=categories,
                            query=query)
+
+
+# code from stack overflow to stop
+@posts.after_request
+def after_request(response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    return response
