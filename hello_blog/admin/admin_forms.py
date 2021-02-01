@@ -15,3 +15,7 @@ class EditCategoryForm(FlaskForm):
                                 validators=[DataRequired(),
                                             length(min=3, max=20)])
     submit = SubmitField("Update")
+
+
+class DeleteAccountForm(FlaskForm):
+    submit = SubmitField("Delete")
