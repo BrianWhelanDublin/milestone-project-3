@@ -265,30 +265,31 @@ button:focus {
 /* -----------------------------Page layout */
 
 .page-row {
-    height: 70vh;
-
+    height: 45rem;
 }
 
-.title-height {
-    height: 20%;
+.page-heading {
+    height: 25%;
 }
 
-.content-height {
-    height: 80%;
-}
-
-.about-text {
-    font-size: 2.5vh;
-    padding: 0 2rem 0 2rem;
-    text-align: center;
-}
-
-.page-title {
-    font-size: 5.5vh;
+.page-heading h1 {
+    font-size: 3.5rem;
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
 }
+
+.page-content {
+    height: 75%;
+}
+
+.page-content p {
+    font-size: 1.25rem;
+    padding: 0 2rem 0 2rem;
+    text-align: center;
+}
+
+
 
 
 /* ----------------------Forms */
@@ -743,15 +744,27 @@ button:focus {
     }
 
 
+    /* page*/
+
+    .page-heading {
+        height: 35%;
+    }
+
+    .page-heading h1 {
+        font-size: 4rem;
+
+    }
+
+    .page-content {
+        height: 65%;
+    }
+
+    .page-content p {
+        font-size: 1.5rem;
+
+    }
+
     /* end */
-    .page-title {
-        font-size: 10vw;
-    }
-
-    .about-text {
-        font-size: 3vw;
-    }
-
     .navigation-link {
         font-size: 10vw;
 
@@ -765,6 +778,21 @@ button:focus {
 @media(min-width: 992px) {
     .navigation-item {
         margin: 1vh;
+    }
+
+    .page-heading,
+    .page-content {
+        height: 100%;
+    }
+
+    .page-heading h1 {
+        font-size: 5rem;
+
+    }
+
+    .page-content p {
+        font-size: 1.75rem;
+
     }
 }
 
@@ -810,7 +838,7 @@ button:focus {
     .login-container a {
 
         font-size: 1.75rem;
-       
+
     }
 
 
@@ -819,41 +847,26 @@ button:focus {
         transform: scale(1.25);
     }
 
+    /* pages */
+
+.page-row {
+    height: 50rem;
+}
+    .page-heading h1 {
+        font-size: 6rem;
+
+    }
+
+    .page-content p {
+        font-size: 2rem;
+
+    }
+
     /* end */
-    .page-title {
-        font-size: 10vw;
-    }
-
-    .about-text {
-        font-size: 3vw;
-    }
 
     .navigation-link {
         font-size: 10vw;
 
-    }
-
-    .page-title-col,
-    .page-text-col {
-        height: 100%;
-    }
-
-    .page-title {
-        font-size: 4vw;
-    }
-
-    .about-text {
-        font-size: 1.75vw;
-    }
-
-    .navigation-link {
-        font-size: 7vw;
-
-    }
-
-    .content-height,
-    .title-height {
-        height: 100%;
     }
 
     .single-post-row {
