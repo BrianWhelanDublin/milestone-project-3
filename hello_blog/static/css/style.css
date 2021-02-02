@@ -14,6 +14,7 @@
     -o-transition: none !important;
 }
 
+/* override materialize margin settings  */
 h1,
 h2 {
     margin: 0;
@@ -192,43 +193,54 @@ button:focus {
 
 /*----------------------------- Home page */
 
-.title {
+.title h1 {
     margin: 0;
     font-size: 3.5rem;
     font-weight: 800;
     text-align: center;
 }
 
-.title-text-row {
-    height: 55vh;
+.home-text {
+    height: 15rem;
 }
 
-.home-col {
-    height: 50%;
-}
-
-.title-text {
+.home-text p {
     margin-top: 5%;
     font-size: 1.5rem;
     font-weight: 400;
 }
 
-.link-container {
+.home-links {
     position: relative;
+    height: 15rem;
 }
+
+.signup-container,
+.login-container {
+    border-radius: 50%;
+    position: absolute;
+    transition: all .75s ease-in;
+}
+
 
 .signup-container {
     background: black;
     height: 10rem;
     width: 10rem;
-    border-radius: 50%;
-    position: absolute;
     right: 5%;
     top: 2%;
-    transition: all .75s ease-in;
 }
 
-.signup-link {
+.login-container {
+    background: #f02937;
+    height: 8rem;
+    width: 8rem;
+    bottom: 5%;
+    left: 5%;
+}
+
+.signup-container a,
+.login-container a {
     color: rgb(245, 247, 247);
     font-size: 1.25rem;
     position: absolute;
@@ -237,37 +249,17 @@ button:focus {
     transform: translate3d(-50%, -50%, 0);
 }
 
-.signup-container:hover {
+
+.signup-container a:hover,
+.login-container a:hover {
     transform: scale(1.25);
 }
 
-.login-container {
-    background: #f02937;
-    height: 8rem;
-    width: 8rem;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 5%;
-    left: 5%;
-    transition: all .75s ease-in;
-}
 
-.login-link {
-    color: rgb(245, 247, 247);
-    font-size: 1.5rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-}
-
-.login-container:hover {
-    transform: scale(1.25);
-}
-.landing-posts h2{
-    font-size: 5rem;
+.home-posts h2 {
+    font-size: 2.5rem;
     text-align: center;
-    margin:4rem 0;
+    margin: 3rem 0;
 }
 
 /* -----------------------------Page layout */
@@ -715,40 +707,43 @@ button:focus {
 }
 
 @media(min-width: 768px) {
-    .title {
-        margin-top: 7.5%;
-        font-size: 5rem;
+    /* homepage */
+
+    .title h1 {
+        font-size: 4.5rem;
     }
 
-    .home-col {
-        height: 100%;
+    .home-text,
+    .home-links {
+        height: 20rem;
     }
 
-    .title-text {
+    .home-text p {
         font-size: 1.75rem;
     }
 
+
+    .home-posts h2 {
+        font-size: 3rem;
+        margin: 4rem 0 2rem 0;
+    }
+
     .signup-container {
-        height: 14rem;
-        width: 14rem;
-        top: 10%;
+        height: 13rem;
+        width: 13rem;
+        right: 7.5%;
+        top: 5%;
     }
-
-    .signup-link {
-        font-size: 1.5rem;
-    }
-
 
     .login-container {
         height: 10rem;
         width: 10rem;
-        bottom: 10%;
+        bottom: 7.5%;
+        left: 7.5%;
     }
 
-    .login-link {
-        font-size: 1.75rem;
-    }
 
+    /* end */
     .page-title {
         font-size: 10vw;
     }
@@ -774,33 +769,57 @@ button:focus {
 }
 
 @media(min-width: 1201px) {
-    .title {
-        font-size: 4.5rem;
+    /* home page */
+
+    .title h1 {
+        font-size: 8rem;
     }
 
-    .title-text {
-        font-size: 1.5rem;
+    .home-text,
+    .home-links {
+        height: 25rem;
     }
 
-    .signup-container {
-        height: 14rem;
-        width: 14rem;
-    }
-
-    .signup-link {
-        font-size: 1.75rem;
-    }
-
-
-    .login-container {
-        height: 12rem;
-        width: 12rem;
-    }
-
-    .login-link {
+    .home-text p {
         font-size: 2rem;
     }
 
+
+    .home-posts h2 {
+        font-size: 4rem;
+    }
+
+
+    .signup-container {
+
+        height: 16rem;
+        width: 16rem;
+        right: 10%;
+        top: 10%;
+    }
+
+    .login-container {
+
+        height: 13rem;
+        width: 13rem;
+        bottom: 10%;
+        left: 10%;
+    }
+
+    .signup-container a,
+    .login-container a {
+
+        font-size: 1.75rem;
+       
+    }
+
+
+    .signup-container a:hover,
+    .login-container a:hover {
+        transform: scale(1.25);
+    }
+
+    /* end */
     .page-title {
         font-size: 10vw;
     }
@@ -842,7 +861,7 @@ button:focus {
     }
 
     .dash-row h1 {
-        margin-top:5%;
+        margin-top: 5%;
         font-size: 4.5rem;
     }
 
@@ -862,17 +881,6 @@ button:focus {
 }
 
 @media(min-width:1400px) {
-    .title {
-        font-size: 6.5rem;
-    }
-
-    .page-title {
-        font-size: 5vw;
-    }
-
-    .about-text {
-        font-size: 1.5vw;
-    }
 
     .navigation-link {
         font-size: 5vw;
