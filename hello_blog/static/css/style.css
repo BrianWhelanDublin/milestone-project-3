@@ -264,6 +264,11 @@ button:focus {
 .login-container:hover {
     transform: scale(1.25);
 }
+.landing-posts h2{
+    font-size: 5rem;
+    text-align: center;
+    margin:4rem 0;
+}
 
 /* -----------------------------Page layout */
 

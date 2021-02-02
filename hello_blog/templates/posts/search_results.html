@@ -5,8 +5,12 @@
 <!-- include the base title html-->
 <div class="row post-row fade">
     {% include "base/_posts_title.html" %}
+  <div class="col l9">
+{% for post in posts.items %}
         <!--include each post card from base html -->
         {% include "base/_post_card.html" %}
+{% endfor %}
+</div>
   <!-- Include the base search html -->
     {% include "base/_search.html" %}
         <!-- pagination buttons -->
