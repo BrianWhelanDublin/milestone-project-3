@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for
 from flask_login import current_user
 from hello_blog.models import Post
+from hello_blog.main.main_forms import ContactForm
 
 
 # Creates the main blueprint
@@ -22,3 +23,12 @@ def home():
 def about():
     return render_template("main/about.html",
                            title="About Page")
+
+
+# create the contact us route
+@main.route("/contact")
+def contact():
+    form = ContactForm()
+    return render_template("main/contact.html",
+                           form=form,
+                           title="Contact Us")
