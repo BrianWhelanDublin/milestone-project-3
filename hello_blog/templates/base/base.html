@@ -89,21 +89,25 @@
     <main>
         <!-- Add flashed messages -->
         <div class="main-container container">
-            <div class="row">
-                <div class="col flash-col">
-                    {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                    {% for category, message in messages %}
-                    <div class="flash flash-{{ category }}">
-                        {{ message }}
+           <section>
+                    <div class="row">
+                    <div class="col flash-col">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                        {% for category, message in messages %}
+                        <div class="flash flash-{{ category }}">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
                     </div>
-                    {% endfor %}
-                    {% endif %}
-                    {% endwith %}
-                </div>
             </div>
+           </section>
             <!-- insert the content here -->
-            {% block content %}{% endblock %}
+            <section id="content">
+                {% block content %}{% endblock %}
+            </section>
         </div>
     </main>
     <!-- Jequery script -->
