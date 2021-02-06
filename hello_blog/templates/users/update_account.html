@@ -24,22 +24,17 @@
                 <div class="file-path-wrapper" type="text">
                     <input class="file-path validate" type="text">
                 </div>
-
                 {% if form.user_image.errors %}
                 {% for error in form.user_image.errors %}
                 <span class="error">{{ error }}</span><br>
                 {% endfor %}
                 {% endif %}
             </div>
-
-
             <!-- incldes the submit.html  -->
             {% include "base/_submit.html" %}
         </form>
 
     </div>
 </div>
-
-
 
 {% endblock %}

@@ -11,15 +11,15 @@
             <img class="user-image" src="{{ user.user_image }}" alt="users image">
             <h2 class="profile-name">{{ user.username }}</h2>
             {% if current_user.username == user.username %}
-            <p class="profile-text">Member since: {{ user.date_joined.strftime("%d-%m-%Y") }}</p>
-            <p class="profile-text">Email: {{ user.email }}</p>
+                <p class="profile-text">Member since: {{ user.date_joined.strftime("%d-%m-%Y") }}</p>
+                <p class="profile-text">Email: {{ user.email }}</p>
             {% endif %}
             {% if user.bio %}
-            <p class="profile-text">Bio: {{ user.bio }}</p>
+                 <p class="profile-text">Bio: {{ user.bio }}</p>
             {% endif %}
             {% if current_user.username == user.username %}
-            <a class="profile-link btn" href="{{ url_for('users.update_account') }}">Update Account</a>
-            <a class="profile-link waves-effect modal-trigger btn" href="#deletAccountModal">Delete Account</a>
+                <a class="profile-link btn" href="{{ url_for('users.update_account') }}">Update Account</a>
+                <a class="profile-link waves-effect modal-trigger btn" href="#deletAccountModal">Delete Account</a>
             {% endif %}
         </div>
     </div>
