@@ -19,7 +19,6 @@
     {% endif %}
 </head>
 <!-- Preload class to stop the css transition running on page load -->
-
 <body class="preload">
     <!-- transition on page change -->
     <div class="transition  is-active"></div>
@@ -38,14 +37,15 @@
                 </ul>
                 <div class="nav-background"></div>
                 <ul class="navigation-list">
+                    <!-- checks if user is logged in -->
                     {% if current_user.is_authenticated %}
-                    {% if current_user.username == "admin" %}
-                    <li class="navigation-item">
-                        <a href="{{ url_for('admin.dashboard') }}" class="navigation-link"
-                            data-cy="about-link-lp">Dashboard</a>
-                    </li>
-                    {% endif %}
-
+                    <!-- checks if user is admin and shows dashboard link if so -->
+                        {% if current_user.username == "admin" %}
+                            <li class="navigation-item">
+                                <a href="{{ url_for('admin.dashboard') }}" class="navigation-link"
+                                    data-cy="about-link-lp">Dashboard</a>
+                            </li>
+                        {% endif %}
                     <li class="navigation-item">
                         <a href="{{ url_for('posts.all_posts') }}" class="navigation-link"
                             data-cy="about-link-lp">Home</a>
@@ -63,6 +63,7 @@
                             data-cy="about-link-lp">Logout</a>
                     </li>
                     {% else %}
+                     <!-- links shown to new user or user before login -->
                     <li class="navigation-item">
                         <a href="{{ url_for('main.home') }}" class="navigation-link"> Home</a>
                     </li>
@@ -104,7 +105,7 @@
                     </div>
                 </div>
             </section>
-            <!-- insert the content here -->
+            <!-- inserts the content here -->
             <section id="content">
                 {% block content %}{% endblock %}
             </section>
