@@ -5,26 +5,28 @@
 <!-- include the base title html-->
 <div class="row post-row fade">
     {% include "base/_posts_title.html" %}
- <div class="col l9">
-{% for post in posts.items %}
-        <!--include each post card from base html -->
-        {% include "base/_post_card.html" %}
-{% endfor %}
-</div>
-  <!-- Include the base search html -->
+    <div class="col l9">
+        {% for post in posts.items %}
+            <!--include each post card from base html -->
+            {% include "base/_post_card.html" %}
+        {% endfor %}
+    </div>
+    <!-- Include the base search html -->
     {% include "base/_search.html" %}
-        <!-- pagination buttons -->
-     <div class="col s12">
-            {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-                {% if page_num %}
-                    {% if posts.page == page_num %}
-                        <a class="btn pag-btn-active" href="{{ url_for('posts.category_posts', page=page_num, category_id=category.id) }}">{{ page_num }}</a>
-                    {% else %}
-                        <a class=" btn pag-btn" href="{{ url_for('posts.category_posts', page=page_num, category_id=category.id) }}">{{ page_num }}</a>
-                    {% endif%}
+    <!-- pagination buttons -->
+    <div class="col s12">
+        {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% if page_num %}
+                {% if posts.page == page_num %}
+                <a class="btn pag-btn-active"
+                    href="{{ url_for('posts.category_posts', page=page_num, category_id=category.id) }}">{{ page_num }}</a>
                 {% else %}
-                    ...
-                {% endif %}
-            {% endfor %}
-</div>
-{% endblock %}
+                <a class=" btn pag-btn"
+                    href="{{ url_for('posts.category_posts', page=page_num, category_id=category.id) }}">{{ page_num }}</a>
+                {% endif%}
+            {% else %}
+            ...
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endblock %}

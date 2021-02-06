@@ -3,86 +3,87 @@
 {% block content %}
 <div class="row single-post-row">
     <!-- Post Section -->
-    <div class="col post-col s12 ">
-        <h1 class="post-title">{{ post.title }}</h1>
-        <a class="post-category" href="{{ url_for('posts.category_posts', category_id=post.category.id) }}">Category:
-            {{ post.category.category_name }}</a>
-        <div class="row post-user-row">
-            <div class="col s4 ">
-                <img class="post-image" src="{{ post.author.user_image }}" alt="image of post author">
-            </div>
-            <div class="col post-author-col s8">
-                <a href="{{ url_for('users.users_posts', username=post.author.username) }}">Posted By:
-                    {{ post.author.username }}</a>
-                <p>Posted on: {{ post.date_posted }}</p>
-            </div>
-        </div>
-        {% if current_user.id == post.author.id or current_user.username == "admin" %}
-        <div class="row post-edit-btns s12">
-            <a href="{{ url_for('posts.update_post', post_id=post.id) }}" class="post-btn btn">Update Post</a>
-            <a href="#deletePostModal" class="post-btn waves-effect modal-trigger btn">Delete Post</a>
-        </div>
-        {% endif %}
-        <p class="post-content">{{ post.content }}</p>
-    </div>
-    <!-- liked section -->
-    <div class="likes-col s12 post-col col">
-        {% if is_liked == true %}
-        <p class="liked-text btn post-btn liked">
-            {% if likes == 1%}
-            {{ likes }} Like
-            {% else%}
-            {{ likes }} likes
-            {% endif %}
-            <i class="lar la-heart liked liked-text " aria-hidden="true"></i></p>
-        {% else %}
-        <form type="POST" action="{{ url_for('posts.liked_post', post_id=post.id) }}">
-            <button type="submit" class=" btn post-btn liked-text">
-                Like<i class="las liked-text la-thumbs-up" aria-hidden="true"></i>
-            </button>
-        </form>
-        {% endif %}
-    </div>
-
-
-    <!-- Comments section -->
-    {% if comments %}
-    <div class="col post-col s12 comment-section">
-        {% if title == "Update Comment" %}
-        <h2>Update comment</h2>
-        {% endif %}
-        {% if title != "Update Comment" %}
-        <h2>Comments</h2>
-        {% for comment in comments %}
-        <div class="comment post-col col ">
-
-            <p>{{ comment.comment }}</p>
-            <small>Comment By:{{ comment.comment_author.username }}</small>
-            <hr>
-            {% if current_user.id == comment.comment_author.id  or current_user.username == "admin"  %}
-            <a class="post-btn btn"
-                href="{{ url_for('posts.update_comment', post_id=post.id, comment_id=comment.id) }}">Update</a>
-            <a class="post-btn btn"
-                href="{{ url_for('posts.delete_comment', post_id=post.id, comment_id=comment.id) }}">Delete</a>
-            {% endif %}
-        </div>
-        {% endfor %}
-        {% endif %}
-        {% endif %}
-
-
-        <!-- add comment -->
-        <form method="POST" action="" class="col post-col comment-form ">
-            {{ comment_form.hidden_tag() }}
-            {{ display_input(comment_form.comment ,for="comment") }}
-            <div class="input-field col ">
-                <div class="row">
-                    {{ comment_form.submit(class="post-btn btn")}}
+    <section id="post">
+        <div class="col post-col s12 ">
+            <h1 class="post-title">{{ post.title }}</h1>
+            <a class="post-category"
+                href="{{ url_for('posts.category_posts', category_id=post.category.id) }}">Category:
+                {{ post.category.category_name }}</a>
+            <div class="row post-user-row">
+                <div class="col s4 ">
+                    <img class="post-image" src="{{ post.author.user_image }}" alt="image of post author">
+                </div>
+                <div class="col post-author-col s8">
+                    <a href="{{ url_for('users.users_posts', username=post.author.username) }}">Posted By:
+                        {{ post.author.username }}</a>
+                    <p>Posted on: {{ post.date_posted.strftime("%d-%m-%Y") }}</p>
                 </div>
             </div>
-        </form>
-    </div>
-
+            {% if current_user.id == post.author.id or current_user.username == "admin" %}
+            <div class="row post-edit-btns s12">
+                <a href="{{ url_for('posts.update_post', post_id=post.id) }}" class="post-btn btn">Update Post</a>
+                <a href="#deletePostModal" class="post-btn waves-effect modal-trigger btn">Delete Post</a>
+            </div>
+            {% endif %}
+            <p class="post-content">{{ post.content }}</p>
+        </div>
+    </section>
+    <!-- liked section -->
+    <section id="likes">
+        <div class="likes-col s12 post-col col">
+            {% if is_liked == true %}
+            <p class="liked-text btn post-btn liked">
+                {% if likes == 1%}
+                    {{ likes }} Like
+                {% else%}
+                    {{ likes }} likes
+                {% endif %}
+                <i class="lar la-heart liked liked-text " aria-hidden="true"></i></p>
+            {% else %}
+            <form type="POST" action="{{ url_for('posts.liked_post', post_id=post.id) }}">
+                <button type="submit" class=" btn post-btn liked-text">
+                    Like<i class="las liked-text la-thumbs-up" aria-hidden="true"></i>
+                </button>
+            </form>
+            {% endif %}
+        </div>
+    </section>
+    <!-- Comments section -->
+    <section id="comments">
+        {% if comments %}
+        <div class="col post-col s12 comment-section">
+            {% if title == "Update Comment" %}
+                <h2>Update comment</h2>
+            {% endif %}
+            {% if title != "Update Comment" %}
+                <h2>Comments</h2>
+            {% for comment in comments %}
+            <div class="comment post-col col ">
+                <p>{{ comment.comment }}</p>
+                    <small>Comment By:{{ comment.comment_author.username }}</small>
+                <hr>
+                {% if current_user.id == comment.comment_author.id  or current_user.username == "admin"  %}
+                <a class="post-btn btn"
+                    href="{{ url_for('posts.update_comment', post_id=post.id, comment_id=comment.id) }}">Update</a>
+                <a class="post-btn btn"
+                    href="{{ url_for('posts.delete_comment', post_id=post.id, comment_id=comment.id) }}">Delete</a>
+                {% endif %}
+            </div>
+             {% endfor %}
+            {% endif %}
+            {% endif %}
+            <!-- add comment -->
+            <form method="POST" action="" class="col post-col comment-form ">
+                {{ comment_form.hidden_tag() }}
+                {{ display_input(comment_form.comment ,for="comment") }}
+                <div class="input-field col ">
+                    <div class="row">
+                        {{ comment_form.submit(class="post-btn btn")}}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
 </div>
 
 <!-- Modal to double check they want to delete post -->
