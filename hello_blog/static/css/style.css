@@ -336,7 +336,6 @@ button:focus {
 }
 
 .image-btn span label {
-
     color: black;
 }
 
@@ -381,11 +380,12 @@ button:focus {
 }
 
 .profile-container {
-    height: fit-content;
-    width: 90%;
+    height: 100%;
+    width: 95%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 
 }
 
