@@ -160,7 +160,7 @@ button:focus {
     width: fit-content;
     position: fixed;
     right: 0;
-    top: 10%;
+    top: 15%;
     display: flex;
     flex-direction: column;
     z-index: 400;
@@ -178,7 +178,7 @@ button:focus {
 
 .navigation-link {
     font-weight: 600;
-    font-size: 13vw;
+    font-size: 10vw;
     letter-spacing: 0.4rem;
     text-decoration: none;
     color: #181822;
