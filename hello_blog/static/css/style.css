@@ -209,7 +209,8 @@ button:focus {
     font-size: 1.5rem;
     font-weight: 400;
 }
-.home-text h4{
+
+.home-text h4 {
     font-size: 4rem;
     font-weight: 700;
 }
@@ -250,6 +251,7 @@ button:focus {
 .login-container a {
     color: rgb(245, 247, 247);
     font-size: 1.25rem;
+
 }
 
 
@@ -264,8 +266,9 @@ button:focus {
     text-align: center;
     margin: 3rem 0;
 }
-.home-about-row{
-    height:30rem;
+
+.home-about-row {
+    height: 30rem;
 }
 
 /* -----------------------------Page layout */
@@ -336,6 +339,7 @@ button:focus {
 }
 
 .image-btn span label {
+
     color: black;
 }
 
@@ -380,12 +384,11 @@ button:focus {
 }
 
 .profile-container {
-    height: 100%;
-    width: 95%;
+    height: fit-content;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
 
 }
 
@@ -409,11 +412,23 @@ button:focus {
 }
 
 /* --------------------------Posts */
+.page-title {
+    font-size: 3.5rem;
+    width: 100%;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 2rem;
+
+}
+
 .post-card {
     height: 25rem;
-    position: relative;
     background: rgb(233, 231, 231);
     margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 .single-post-row {
@@ -428,12 +443,10 @@ button:focus {
 
 .post-card-title {
     font-weight: 600;
-    font-size: 3.5rem;
-    height: 8rem;
+    font-size: 2.5rem;
 }
 
 .post-card-content {
-    height: 8rem;
     padding-top: 1rem;
 }
 
@@ -447,10 +460,6 @@ button:focus {
 }
 
 .post-card-action {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 6rem;
     margin-bottom: 0;
 }
 
@@ -796,6 +805,10 @@ button:focus {
 
     }
 
+    .page-title {
+        font-size: 4rem;
+    }
+
     .page-content p {
         font-size: 1.75rem;
 
@@ -818,6 +831,9 @@ button:focus {
         font-size: 2rem;
     }
 
+    .page-title {
+        font-size: 5rem;
+    }
 
     .home-posts h2 {
         font-size: 4rem;
@@ -855,9 +871,10 @@ button:focus {
 
     /* pages */
 
-.page-row {
-    height: 50rem;
-}
+    .page-row {
+        height: 50rem;
+    }
+
     .page-heading h1 {
         font-size: 6rem;
 
