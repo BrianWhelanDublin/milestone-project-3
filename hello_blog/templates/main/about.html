@@ -1,13 +1,9 @@
 <!-- imports the heading macro  -->
 {% from "base/macros.html" import page_heading %}
-
 {% extends "base/base.html" %}
-
 {% block content %}
-
 <div class="row page-row fade">
         {{ page_heading("About Us") }}
         {% include "base/_about.html" %}
 </div>
-
 {% endblock %}
