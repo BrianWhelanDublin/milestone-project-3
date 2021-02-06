@@ -7,12 +7,7 @@
 
 <div class="row page-row fade">
     {{ page_heading("About Us") }}
-    <div class="col center-verticaly page-content s12 l6">
-            <p>Hello World is a place for new developers to share what they have learned with
-                each other. Share notes on code, tips and tricks, software and library recomendations. Hello world is a
-                place to connect and create new connections within the software development world.
-            </p>
-        </div>
-    </div>
+    {% include "base/_about.html" %}
+</div>
 
 {% endblock %}

@@ -1,3 +1,5 @@
+{% from "base/macros.html" import page_heading %}
+
 {% extends "base/base.html" %}
 {% block content %}
 <div class="row">
@@ -11,7 +13,7 @@
 </div>
 <div class="row">
     <div class="col s12 m6 fade home-text">
-        <p >&lth1&gt Hello World! &lt/h1&gt is a social forum for new developers to share ideas
+        <p>&lth1&gt Hello World! &lt/h1&gt is a social forum for new developers to share ideas
             and
             notes. Share code that you have learned or find hints and tips others have posted.
         </p>
@@ -25,6 +27,11 @@
         </div>
     </div>
 </div>
+
+<div class="row home-about-row fade">
+    {{ page_heading("About Us") }}
+    {% include "base/_about.html" %}
+</div>
 <div class="row home-posts fade">
     <h2>What People are posting about.</h2>
     <div class="col">
@@ -34,5 +41,22 @@
         {% endif %}
         {% endfor %}
     </div>
+</div>
+<div class="row fade">
+    <div class="center-verticaly  home-text col s12 m6">
+
+        <h4>Sign up now to get involved!</h4>
+
+    </div>
+    <div class="col s12 m6 home-links ">
+        <div class="signup-container fade">
+            <a href="{{ url_for('users.signup') }}">Sign up.</a>
+        </div>
+        <div class="login-container fade">
+            <a href="{{ url_for('users.login') }}">Login</a>
+        </div>
+    </div>
+
+
 </div>
 {% endblock %}
