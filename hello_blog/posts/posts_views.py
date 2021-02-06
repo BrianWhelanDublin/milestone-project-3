@@ -8,17 +8,18 @@ from hello_blog.posts.posts_forms import (PostForm, DeletePostForm,
                                           SearchForm)
 
 
+# Creates the posts blueprint
 posts = Blueprint("posts", __name__)
 
 
 # create the route for the main post page to show
-#  all recent posts to the user
+# all recent posts to the user
 @posts.route("/posts")
 @login_required
 def all_posts():
     form = SearchForm()
     categories = Categories.objects()
-
+    # Paginates the results setting 4 posts per page
     page = request.args.get("page", 1, type=int)
     posts = Post.objects().order_by("-date_posted").paginate(
         page=page, per_page=4
@@ -36,9 +37,8 @@ def all_posts():
 @login_required
 def add_post():
     form = PostForm()
-    # get categories and loop thorough them
-    categories = [(
-        cat.category_name) for cat in Categories.objects]
+    # get categorie names for select input and loop thorough them
+    categories = [(category.category_name) for category in Categories.objects]
     form.category.choices = categories
 
     # add the post to the database on form submit
@@ -61,15 +61,16 @@ def add_post():
 @posts.route("/post/<post_id>", methods=["POST", "GET"])
 @login_required
 def post(post_id):
-
+    # form for deleting posts and one for adding comments
     delete_form = DeletePostForm()
     comment_form = CommentForm()
     post = Post.objects().get_or_404(id=post_id)
     comments = Comment.objects(post=post)
-
+    # finds the amount of likes for the post
     likes = len(post.user_likes)
     is_liked = False
     comments = Comment.objects(post=post)
+    # if user has liked post is_liked is true
     if current_user.is_authenticated and post in current_user.liked_posts:
         is_liked = True
 
@@ -80,7 +81,7 @@ def post(post_id):
             post=post
         )
         comment.save()
-        flash("Comment added", "success")
+        flash("Comment posted.", "success")
         return redirect(url_for("posts.post",
                                 post_id=post.id,
                                 title=post.title))
@@ -110,6 +111,7 @@ def update_post(post_id):
         cat.category_name) for cat in Categories.objects]
     form.category.choices = categories
 
+    #  saves post to the database on form submition
     if form.validate_on_submit():
         category = Categories.objects(
             category_name=form.category.data).first()
@@ -120,6 +122,7 @@ def update_post(post_id):
         flash("Your post has been updated", "success")
         return redirect(url_for("posts.post", post_id=post.id))
 
+    #  fills the form with the details from the database
     elif request.method == "GET":
         form.title.data = post.title
         form.content.data = post.content
@@ -196,6 +199,8 @@ def delete_comment(post_id, comment_id):
 @login_required
 def liked_post(post_id):
     post = Post.objects().get_or_404(id=post_id)
+    # adds liked post to the users liked post array and the user details to the 
+    #  posts liked array
     if post not in current_user.liked_posts:
         current_user.liked_posts.append(post.id)
         current_user.save()
@@ -206,6 +211,7 @@ def liked_post(post_id):
 
 
 # cretate posts by category route
+# shows post searched by category
 @posts.route("/posts/category/<category_id>")
 @login_required
 def category_posts(category_id):
@@ -224,20 +230,26 @@ def category_posts(category_id):
                            categories=categories)
 
 
+#  create the search route
+# shows post based on a text search
 @posts.route("/search", methods=["GET", "POST"])
 @login_required
 def search():
     form = SearchForm()
     categories = Categories.objects()
     query_param = request.args.get("query")
+    # gets the query paramater for paginatio
     if query_param:
         query = query_param
+    # gets posts and paginates
     elif request.method == "POST":
         query = form.search.data
     page = request.args.get('page', 1, type=int)
     posts = Post.objects.search_text(query).order_by(
         '$text_score').paginate(page=page, per_page=4)
     print(posts)
+    # if no posts are found in search it redirects to current page and
+    # flashes a message
     if not posts.items:
         flash("No results Found. Please search again")
         return redirect(request.referrer)
@@ -250,7 +262,7 @@ def search():
                            query=query)
 
 
-# code from stack overflow to stop
+# code from stack overflow to stop cache on safari
 @posts.after_request
 def after_request(response):
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
