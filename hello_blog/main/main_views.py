@@ -2,10 +2,12 @@ from flask import Blueprint, render_template, redirect, url_for
 from flask_login import current_user
 from hello_blog.models import Post
 
+
+# Creates the main blueprint
 main = Blueprint("main", __name__)
 
 
-# renders the main home page
+# renders the main home page displaying recent posts
 @main.route("/")
 def home():
     if current_user.is_authenticated:
@@ -20,5 +22,3 @@ def home():
 def about():
     return render_template("main/about.html",
                            title="About Page")
-
-
