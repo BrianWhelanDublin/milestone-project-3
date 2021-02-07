@@ -140,12 +140,6 @@
 #### Typography
 
 
-
-#### Imagery
-
-
-#### Icons
-
 ## Features
 
 
@@ -156,6 +150,27 @@
 
 
 ## Technologies used.
+
+### Flask
+
+- The application was built on the Flask framework. 
+- I've used Flask Blueprints to split my application up into modules.
+  - Main
+  - Users
+  - Posts
+  - Admin
+  - Errors
+- This makes it easier to find routes and elements if they need to be updated or changed.
+- The templates folder is also split into a similar structure.
+  - Base 
+  - Admin
+  - Errors
+  - Main
+  - Posts
+  - Users
+- I've also created a ``` config.py ``` file for the apps configuration settings.
+- Then within the applications  ```__init__.py ``` file I've created the app as a Flask application factory. Initialising my extensions and importing and initialising my blueprints.
+- Then in the ``` app.py ``` file the application factury is imported and the function is the invoked ie. ``` app = create_app() ``` which then creates the application.
 
 ### Languages Used.
 
