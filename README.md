@@ -12,6 +12,13 @@
 
 ## Screenshots
 
+### Home page screenshot.
+
+<div align="center"><img src="readme-images/site-images/landing.png"></div>
+
+### Signup page screenshot.
+
+<div align="center"><img src="readme-images/site-images/signup.png"></div>
 
 ## Table of Contents.
 
@@ -102,6 +109,27 @@
 
 
 #### MogoDb
+
+- [MongoDb](https://www.mongodb.com/)
+
+ - MongoDB was used as the project database. 
+  - I followed the following steps to set it up.
+    
+    - I signed up to MongoDB and the selected the create a shared cluster option.
+    - I the selected Aws as my cloud provider and then selected my region.
+    - Then I selected The M0 cluster tier.
+    - I then named my cluster and created it. 
+    - Once the cluster was created I clicked on database access and added in the database user details.
+    - Then I set the database user privileges to read and write to the database.
+    - I then clicked add a user.
+    - Then in the security menu, I clicked on network access.
+    - Then click on the add IP address.
+    - I then allowed access from anywhere.
+    - Now we can start to add collections.
+    - I clicked on add my own data and the named my database and collection.
+    - To connect to the database I clicked on the connect button then the connect your application button.
+    - Then I copied the Url and placed in within an environmental variable in my app.
+    - I then used Flask-Mongoengine to interact with my database from the application.
 
 ## Design
 
