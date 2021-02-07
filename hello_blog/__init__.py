@@ -3,6 +3,7 @@ from hello_blog.config import Config
 from flask_mongoengine import MongoEngine
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
+from flask_mail import Mail
 
 
 # create instances of imported extensions
@@ -13,6 +14,7 @@ login_manager = LoginManager()
 # with login_required and they havent logged in
 login_manager.login_view = "users.login"
 login_manager.login_message_category = "info"
+mail = Mail()
 
 
 # cretes the app using the details from the config class in the config.py file
@@ -24,8 +26,7 @@ def create_app(config_class=Config):
     db.init_app(app)
     bcrypt.init_app(app)
     login_manager.init_app(app)
-
-    # set up cloudinary configuration from the confifg file
+    mail.init_app(app)
 
     # imports the blueprints from each view file
     from hello_blog.main.main_views import main

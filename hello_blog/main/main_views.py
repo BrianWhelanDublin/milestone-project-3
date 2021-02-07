@@ -1,7 +1,9 @@
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, render_template, redirect, url_for, flash
 from flask_login import current_user
 from hello_blog.models import Post
 from hello_blog.main.main_forms import ContactForm
+from hello_blog import mail
+from flask_mail import Message
 
 
 # Creates the main blueprint
@@ -26,9 +28,20 @@ def about():
 
 
 # create the contact us route
-@main.route("/contact")
+@main.route("/contact", methods=["GET", "POST"])
 def contact():
     form = ContactForm()
+    if form.validate_on_submit():
+        msg = Message("Contact",
+                      sender=form.name.data,
+                      recipients=["briandublin1984@gmail.com"])
+        msg.body = f''' {form.name.data} Is contacting you,
+There message is: {form.message.data},
+They can be contacted at {form.email.data}
+'''
+        mail.send(msg)
+        flash("Contact message has been send", "success")
+        return redirect(url_for("main.home"))
     return render_template("main/contact.html",
                            form=form,
                            title="Contact Us")
