@@ -251,7 +251,7 @@ button:focus {
 .login-container a {
     color: rgb(245, 247, 247);
     font-size: 1.25rem;
-
+    transition: all .75s ease-in;
 }
 
 
@@ -841,7 +841,6 @@ button:focus {
 
 
     .signup-container {
-
         height: 16rem;
         width: 16rem;
         right: 10%;
@@ -849,7 +848,6 @@ button:focus {
     }
 
     .login-container {
-
         height: 13rem;
         width: 13rem;
         bottom: 10%;
@@ -858,9 +856,7 @@ button:focus {
 
     .signup-container a,
     .login-container a {
-
         font-size: 1.75rem;
-
     }
 
 
@@ -888,7 +884,7 @@ button:focus {
     /* end */
 
     .navigation-link {
-        font-size: 10vw;
+        font-size: 8vw;
 
     }
 
