@@ -38,9 +38,9 @@
 
 -  All users.
 
-  - As a user, I would like to get feedback when I have completed an action on the site.
-  - As a user, I would like to be able to contact the website owners if there is an issue.
-  - As a user, I would like see the websites social media links.
+   - As a user, I would like to get feedback when I have completed an action on    the site.
+   - As a user, I would like to be able to contact the website owners if there     is an issue.
+   - As a user, I would like see the websites social media links.
 
 - Website owner
 
@@ -145,15 +145,50 @@
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
   - Python was used to build the backend functionality of the web app.
 
-### Flask and Flask Libraries used
+### Flask and Flask extensions used
 
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 
   - Flask micro framework was used to build the web app using python code.
 
+- [Flask-bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/)
+
+  - Flask bcrypt was used to has the users password before storing it in the database.
+
+- [Flask-login](https://flask-login.readthedocs.io/en/latest/)
+
+  - Flask login was used to manage logged in users.
+
+- [Flask-mail](https://flask-login.readthedocs.io/en/latest/)
+
+  - Flask mail was used to send an email for the contact form.
+
+- [Flask-mail](https://pythonhosted.org/Flask-Mail/)
+
+  - Flask mail was used to send an email for the contact form.
+
+- [Flask-mongoengine](http://docs.mongoengine.org/projects/flask-mongoengine/en/latest/)
+
+  - Flask mongoengine was used to interact with the database.
+
+- [Flask-mongoengine](http://docs.mongoengine.org/projects/flask-mongoengine/en/latest/)
+
+  - Flask mongoengine was used to interact with the database.
+
+- [Flask-Wtf](https://flask-wtf.readthedocs.io/en/stable/)
+
+  - Flask-Wtf was used to created the forms and validate them.
+
+- [Gunicorn](https://gunicorn.org/)
+
+  - Gunicorn was used to help deploy the application to heroku.
+
 
 ### Frameworks Libraries and Programs.
 
+- [Cloudinary](https://cloudinary.com/)
+
+  - Cloudinary was used to store the users profile image.
 
 - [Google Fonts](https://fonts.google.com/)
 
@@ -161,7 +196,11 @@
 
 - [Line awesome](https://icons8.com/line-awesome)
 
-  - I used different icons from Line awesome throughout the site for social media links and for some backlinks to improve user experience.
+  - I used different icons from Line awesome for icons in the application.
+
+- [Materialize](https://materializecss.com/)
+
+  - Materialize Css was used for its grid system and it's form inputs.
 
 - [Quick Database Diagrams](https://www.quickdatabasediagrams.com/)
 
@@ -189,7 +228,7 @@
 
 - [jQuery](https://jquery.com/)
 
-  - jQuery was used for the Rest Countries Api call and for the Lightslider.
+  - jQuery was used to initialize materialize functions.
 
 - [Cypress](https://www.cypress.io/)
 
@@ -207,7 +246,7 @@
 
 ## Deployment
 
-### Github, Gitpod, Git and Github pages
+### Github, Gitpod, Git and Heroku
 
 - #### To start the project I used Github and Gitpod.
 
@@ -231,8 +270,7 @@
 
   4. Once the repository was created I could then open it on Gitpod.
 
-  5. I used my terminal to create my files and folders. 
-
+  5. I then used my terminal to create my files and folders and start coding the application.
 
 
 - #### Git
@@ -253,8 +291,81 @@
 
   5. The above steps were used for each stage of development throughout the project.
 
-### Heroku
+- #### Heroku
+  
+  - The project has been deployed on heroku. To achieve this I followed the following steps.
 
+  1. Create a requirements.tx file typing the following command into your terminal. 
+
+        ```
+            pip3 freeze --locak > requirements.Text
+        ```
+  2. Then create the procfile by typing the following comand into the terminal.
+
+        ``` 
+           echo web: python app.py > procfile
+        ```
+  3. Once your procfile has been created make sure there is no blank line at the end of the procfile as it can cause isssues if there is.
+
+  4. Signin to Heroku.com and select new button then the create a new app option.
+
+     - <div float="left">
+          <img src="readme-images/heroku/new_app.png" alt="Image of new app button" width="440px" height="190px" />
+        </div>
+
+  5. Then name your app and select your region. Your name must be unique.
+      
+     - <div float="left">
+          <img src="readme-images/heroku/name_app.png" alt="Image of new app button" width="440px" height="320px" />
+        </div>
+  
+  6. Then click the create app button.
+
+  7. On the next screen click the connect to github buttton.
+
+       - <div float="left">
+          <img src="readme-images/heroku/github_connect.png" alt="Image of new app button" width="540px" height="220px" />
+        </div>
+    
+  8. Then add your projects repository name and search for it.
+
+      - <div float="left">
+          <img src="readme-images/heroku/repository_search.png" alt="Image of new app button" width="640px" height="180px" />
+       </div>
+
+  9. Once the repository has been found click connect button.
+
+  10.  Then click on the setting button
+      
+       - <div float="left">
+          <img src="readme-images/heroku/heroku_settings.png" alt="Image of new app button" width="340px" height="180px" />
+       </div>
+
+  11. Then click on the reveal config variables button.
+
+     - <div float="left">
+          <img src="readme-images/heroku/config_var.png" alt="Image of new app button" width="440px" height="180px" />
+       </div>
+  
+  12. Add your config variable key values to this section.
+
+      - <div float="left">
+          <img src="readme-images/heroku/config_key_value.png" alt="Image of new app button" width="640px" height="180px" />
+       </div>
+    
+  13. Confirm that both your Procfile and your requirements have been commited and pushed to github.
+
+      - <div float="left">
+          <img src="readme-images/heroku/commit_proc.png" alt="Image of new app button" width="640px" height="180px" />
+       </div>
+  
+  14. Then enable automatic deploys and then click the deploy branch button.
+
+      - <div float="left">
+          <img src="readme-images/heroku/deploy_branch.png" alt="Image of new app button" width="640px" height="180px" />
+       </div>
+
+  15. Heroku will now build and deploy your application. It will also automatically udpate it everytime you add a commit to your github repository.
 
 ## Credits
 
