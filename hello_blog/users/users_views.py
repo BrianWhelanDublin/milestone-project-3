@@ -132,7 +132,9 @@ def delete_account(username):
     if request.method == "POST":
         # find user in database and delete their details
         user = User.objects(username=username).first()
+        posts = posts = Post.objects(author=user)
         user.delete()
+        posts.delete()
         flash("Account deleted successfully", "success")
         return redirect(url_for("main.home"))
     # if the users types this route into the url it will
