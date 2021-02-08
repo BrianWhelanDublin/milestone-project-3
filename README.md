@@ -47,7 +47,6 @@
 
    - As a user, I would like to get feedback when I have completed an action on    the site.
    - As a user, I would like to be able to contact the website owners if there     is an issue.
-   - As a user, I would like see the websites social media links.
 
 - Website owner
 
