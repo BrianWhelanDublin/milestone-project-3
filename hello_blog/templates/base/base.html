@@ -43,24 +43,24 @@
                         {% if current_user.username == "admin" %}
                             <li class="navigation-item">
                                 <a href="{{ url_for('admin.dashboard') }}" class="navigation-link"
-                                    data-cy="about-link-lp">Dashboard</a>
+                                    data-cy="dashboard-link">Dashboard</a>
                             </li>
                         {% endif %}
                     <li class="navigation-item">
                         <a href="{{ url_for('posts.all_posts') }}" class="navigation-link"
-                            data-cy="about-link-lp">Home</a>
+                            data-cy="home-link">Home</a>
                     </li>
                     <li class="navigation-item">
-                        <a href="{{ url_for('posts.add_post') }}" class="navigation-link" data-cy="about-link-lp">Add
+                        <a href="{{ url_for('posts.add_post') }}" class="navigation-link" data-cy="add-post-link">Add
                             Post</a>
                     </li>
                     <li class="navigation-item">
                         <a href="{{ url_for('users.account', username=current_user.username) }}"
-                            class="navigation-link">Account</a>
+                            class="navigation-link" data-cy="account-link">Account</a>
                     </li>
                     <li class="navigation-item">
                         <a href="{{ url_for('users.logout') }}" class="navigation-link"
-                            data-cy="about-link-lp">Logout</a>
+                            data-cy="logout-link">Logout</a>
                     </li>
                     {% else %}
                      <!-- links shown to new user or user before login -->
@@ -71,16 +71,16 @@
                         <a href="{{ url_for('users.login') }}" class="navigation-link"> Login</a>
                     </li>
                     <li class="navigation-item">
-                        <a href="{{ url_for('users.signup') }}" class="navigation-link" data-cy="about-link-lp">Sign
+                        <a href="{{ url_for('users.signup') }}" class="navigation-link" >Sign
                             Up</a>
                     </li>
                     {% endif %}
                     <li class="navigation-item">
-                        <a href="{{ url_for('main.about')}}" class="navigation-link" data-cy="destinations-link-lp">
+                        <a href="{{ url_for('main.about')}}" class="navigation-link" data-cy="about-link">
                             About</a>
                     </li>
                     <li class="navigation-item">
-                        <a href="{{ url_for('main.contact')}}" class="navigation-link">
+                        <a href="{{ url_for('main.contact')}}" class="navigation-link" data-cy="contact-link">
                             Contact</a>
                     </li>
                 </ul>
