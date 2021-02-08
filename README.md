@@ -142,6 +142,78 @@
 
 ## Features
 
+### Main
+
+
+  - #### Landing page.
+    - When a user opens the site they are presented with the landing page.
+    - It contains a clear title and information about the application.
+    - There are also links to signup or login.
+    - There is an about us section and there is a section showing the last four posts that have been posted.
+
+    - <div float="left">
+        <img src="readme-images/features/main/landing.png" alt="Image of landing page" width="500px" height="260px" />
+      </div>
+
+  - #### Interactive navigation.
+    - The navigation menu has been made interactive by the use of javascript.
+    - When the user clicks on the hamburger icon the navigation will appear.
+    - The navigation items have been coded to change when a user has signed up and logged in.
+    
+    - <div float="left">
+        <img src="readme-images/features/main/navigation.png" alt="Image of navbar opened" width="500px" height="260px" />
+      </div>
+
+  - #### About Us page.
+    - The about us page gives the user information about the site.
+
+    - <div float="left">
+        <img src="readme-images/features/main/about.png" alt="Image of about us page" width="500px" height="300px" />
+      </div>
+
+  - #### Contact us page.
+    - The contact us page contains a heading and a contact form.
+    - Upon submittal of the form Flask-mail will send the site owner an email containing the message and the user's contact information.
+
+    - <div float="left">
+        <img src="readme-images/features/main/contact.png" alt="Image of contact page" width="500px" height="300px" />
+      </div>
+
+### Users
+
+
+  - #### Sign Up.
+    
+    - <div float="left">
+        <img src="readme-images/features/users/signup.png" alt="Image of signup page" width="500px" height="260px" />
+      </div>
+
+  - #### Login.
+
+
+    - <div float="left">
+        <img src="readme-images/features/users/login.png" alt="Image of login page" width="500px" height="260px" />
+      </div>
+
+  - #### Account
+   
+
+    - <div float="left">
+        <img src="readme-images/features/users/account.png" alt="Image of account page" width="580px" height="300px" />
+      </div>
+
+  - #### Edit account.
+    
+    - <div float="left">
+        <img src="readme-images/features/users/update-account.png" alt="Image of edit account page" width="500px" height="300px" />
+      </div>
+
+  - #### Delete account.
+    
+    - <div float="left">
+        <img src="readme-images/features/users/delete-account.png" alt="Image of delete account" width="450px" height="200px" />
+      </div>
+
 
 ### Custom Error Pages
 
