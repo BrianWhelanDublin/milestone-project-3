@@ -164,7 +164,7 @@
         <img src="readme-images/features/main/navigation.png" alt="Image of navbar opened" width="500px" height="260px" />
       </div>
 
-  - #### About Us page.
+  - #### About Us page.
     - The about us page gives the user information about the site.
 
     - <div float="left">
@@ -185,7 +185,7 @@
   - #### Sign Up.
     - The signup page contains a form for users to sign up.
     - Once the user fills the form and submits their details are stored in the database.
-    - The user is then directed to the login paged ans a message is flashed to say that signup was successful.
+    - The user is then directed to the login paged and a message is flashed to say that signup was successful.
     
     
     - <div float="left">
@@ -210,11 +210,11 @@
       </div>
 
   - #### Update account.
-    - The update account page contains a form to allow the user to update their account information.
+    - The updated account page contains a form to allow the user to update their account information.
     - Upon opening the form details will be prefilled with information from the database.
     - Here they can also add a bio about themselves.
     - They can also add a user image.
-    - The user image is sent to cloudinary and the response url is then stored in the database including sizing paramaters.
+    - The user image is sent to Cloudinary and the response URL is then stored in the database including sizing parameters.
     
     
     - <div float="left">
@@ -224,12 +224,92 @@
   - #### Delete account.
      - If the user decides to delete their account they will be presented with a modal to confirm this.
      - If the chose to cancel they will be directed back to their account page.
-     - If the click delete their user details and any posts and comments they have made will the be deleted.
+     - If the click delete their user details and any posts and comments they have made will be deleted.
 
     - <div float="left">
         <img src="readme-images/features/users/delete-account.png" alt="Image of delete account" width="450px" height="200px" />
       </div>
 
+
+### Posts
+
+
+  - #### Recent Posts.
+    - The user must log in to see this page. 
+    - Once a user has logged in they will be directed to this page.
+    - The posts are shown by most recent and they are paginated showing 4 posts per page.
+    - The user can then click on the find out more option and be directed to the post page to see the full post.
+
+    
+    - <div float="left">
+        <img src="readme-images/features/posts/recent-posts.png" alt="Image of recent post page." width="500px" height="260px" />
+      </div>
+
+ - #### Post page.
+    - This page will display each post and their comments and likes.
+    
+    - <div float="left">
+        <img src="readme-images/features/posts/post-page.png" alt="Image of new post page" width="500px" height="260px" />
+      </div>
+
+
+  - #### Add post.
+    - Each user can add posts to the application.
+    - This page contains a form for the user to add their post.
+    - On form submittal, the post is then saved to the database.
+    
+    - <div float="left">
+        <img src="readme-images/features/posts/new-post.png" alt="Image of new post page" width="500px" height="260px" />
+      </div>
+
+  - #### Update post
+    - If the current user has written this post they will be presented with the update and edit buttons.
+    - They will not show for any other user apart from the admin.
+  
+    - <div float="left">
+        <img src="readme-images/features/posts/edit-post-btns.png" alt="Image of post edit buttons" width="580px" height="300px" />
+      </div>
+    
+    - The user can then change their post details here on the update post page.
+    - Upon opening the form will prefill with data from the database.
+    - Upon form submittal, the data will be saved to the database.
+
+     - <div float="left">
+        <img src="readme-images/features/posts/update-post.png" alt="Image of update post form" width="580px" height="300px" />
+      </div>
+
+
+  - #### Delete Post.
+     - If the user decides to delete the post they will be presented with a modal to confirm this.
+     - If the chose to cancel they will be directed back to the post page.
+     - If they click delete the post will then be deleted.
+   
+    - <div float="left">
+        <img src="readme-images/features/posts/delete-post.png" alt="Image of delete post" width="450px" height="200px" />
+      </div>
+
+  - #### Comments.
+    - Each post has a comments section where a user can leave a comment.
+    - Once the user submits a comment it is saved in the database.
+    - Each comment can then be updated or deleted by their author or the admin user.
+
+
+    - <div float="left">
+        <img src="readme-images/features/posts/comment.png" alt="Image of comment" width="350px" height="200px" />
+      </div>
+
+   - #### Likes.
+    - Each post also has a likes button that a user can click to like the post.
+
+   - #### Search and Categories.
+     - The is also a search function to search through the posts 
+     - On form submittal, the application will search the posts in the database.
+     - If no results are found the user is redirected back to the referral page and a message is flashed to say that there were no results.
+     - There is a categories list also to show posts for each category.
+       
+        - <div float="left">
+        <img src="readme-images/features/posts/search.png" alt="Image of delete account" width="200px" height="200px" />
+      </div>
 
 ### Custom Error Pages
 
