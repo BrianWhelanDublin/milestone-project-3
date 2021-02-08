@@ -183,33 +183,49 @@
 
 
   - #### Sign Up.
+    - The signup page contains a form for users to sign up.
+    - Once the user fills the form and submits their details are stored in the database.
+    - The user is then directed to the login paged ans a message is flashed to say that signup was successful.
+    
     
     - <div float="left">
         <img src="readme-images/features/users/signup.png" alt="Image of signup page" width="500px" height="260px" />
       </div>
 
   - #### Login.
-
+    - The login page contains a form for the user to login.
+    - Once the user enters the correct details they are logged in and redirected to the recent posts page.
+    - A message will flash to tell the user they were logged in successfully.
 
     - <div float="left">
         <img src="readme-images/features/users/login.png" alt="Image of login page" width="500px" height="260px" />
       </div>
 
   - #### Account
-   
+    - Each user has access to an account page containing their details.
+    - The user then has the options, to update or delete their account.
 
     - <div float="left">
         <img src="readme-images/features/users/account.png" alt="Image of account page" width="580px" height="300px" />
       </div>
 
-  - #### Edit account.
+  - #### Update account.
+    - The update account page contains a form to allow the user to update their account information.
+    - Upon opening the form details will be prefilled with information from the database.
+    - Here they can also add a bio about themselves.
+    - They can also add a user image.
+    - The user image is sent to cloudinary and the response url is then stored in the database including sizing paramaters.
+    
     
     - <div float="left">
         <img src="readme-images/features/users/update-account.png" alt="Image of edit account page" width="500px" height="300px" />
       </div>
 
   - #### Delete account.
-    
+     - If the user decides to delete their account they will be presented with a modal to confirm this.
+     - If the chose to cancel they will be directed back to their account page.
+     - If the click delete their user details and any posts and comments they have made will the be deleted.
+
     - <div float="left">
         <img src="readme-images/features/users/delete-account.png" alt="Image of delete account" width="450px" height="200px" />
       </div>
