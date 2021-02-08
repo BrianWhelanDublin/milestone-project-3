@@ -299,7 +299,7 @@
       </div>
 
    - #### Likes.
-    - Each post also has a likes button that a user can click to like the post.
+     - Each post also has a likes button that a user can click to like the post.
 
    - #### Search and Categories.
      - The is also a search function to search through the posts 
