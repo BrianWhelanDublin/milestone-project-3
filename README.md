@@ -607,6 +607,42 @@ In the future, it would be nice to implement some other features.
 ## Credits
 
 
+### Code
+
+- #### Stack Overflow.
+
+- [Flask-login Usermixin](https://stackoverflow.com/questions/54992412/flask-login-usermixin-class-with-a-mongodb)
+
+    - I used the above code to help me understand using the Usermixin class for flask Login.
+
+ - [User pressing backbutton](https://stackoverflow.com/questions/20652784/flask-back-button-returns-to-session-even-after-logout)
+
+    - I used the above code to fix an issue I had that when a user logged out and hit the back button the cache was allowing them to still visit a page they needed to be logged in for.
+
+
+- ####  Tutorials.
+
+  - I used two main tutorials on youtube to learn to have an interactive navbar and also how to fade elements in upon scrolling. I have used some elements of the code but have edited it to fit this website.
+
+    - ##### Mega Flask Tutorial.
+
+      - [Mega Flask Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
+
+        - I used the above tutorial to help me understand flask better. It was here I learned about blueprints and application factories and structuring my application.
+
+    - ##### Julian nash Flask series Youtube.
+
+      - [Julian nash flask tutorials](https://www.youtube.com/watch?v=BUmUV8YOzgM&list=PLF2JzgCW6-YY_TZCmBrbOpgx5pSNBD0_L)
+
+        - I used the above tutorial to again help with my understanding of building a flask application.
+
+- #### Code Institute.
+
+  - [My version of the todo application](https://github.com/BrianWhelanDublin/task_manager_app)
+
+    - I used the Code Institue task management application to help with this project also.
+
+
 ### Content
 
 - All Text for the website was written by myself.
