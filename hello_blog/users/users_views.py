@@ -4,7 +4,7 @@ from hello_blog.users.users_forms import (SignupForm, LoginForm,
                                           UpdateAccount,
                                           DeleteAccountForm)
 from hello_blog.posts.posts_forms import SearchForm
-from hello_blog.models import User, Post, Categories
+from hello_blog.models import User, Post, Categories, Comment
 from hello_blog import bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
 from hello_blog.users.users_utils import save_user_image
@@ -132,9 +132,11 @@ def delete_account(username):
     if request.method == "POST":
         # find user in database and delete their details
         user = User.objects(username=username).first()
-        posts = posts = Post.objects(author=user)
+        posts = Post.objects(author=user)
+        comments = Comment.objects(comment_author=user)
         user.delete()
         posts.delete()
+        comments.delets()
         flash("Account deleted successfully", "success")
         return redirect(url_for("main.home"))
     # if the users types this route into the url it will
