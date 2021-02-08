@@ -310,12 +310,38 @@
         - <div float="left">
         <img src="readme-images/features/posts/search.png" alt="Image of delete account" width="200px" height="200px" />
       </div>
+ ### Admin
+
+
+  - #### Dashboard.
+    - The application has been coded to have an "admin" user.
+    - The admin has access to the dashboard page.
+    - If a user gets to this page who isn't admin they will get a 403 error.
+    - The dashboard contains information on the number of users and posts.
+    - It also gives the function to add, edit or delete, categories.
+    - If they want to delete a category they will get a warning screen to confirm this action.
+    - The admin also has access to delete posts and comments in case they contain content that isn't allowed.
+
+    
+    - <div float="left">
+        <img src="readme-images/features/admin/dashboard.png" alt="Image of recent post page." width="500px" height="260px" />
+      </div>
+
 
 ### Custom Error Pages
-
+  - I have created an errors blueprint to deal with page errors.
+  - I have used the flask app_error handlers to render the error pages.
+  - Each page contains a reason for the error and a navigation link to return to the home page. It also has access to the navigation menu.
+  - 404 - not found  error
+  - 403 - no permission error
+  - 500 - server error.
 
 ### Features left to Implement.
 
+In the future, it would be nice to implement some other features.
+ - A feature to follow other users.
+ - A notification feature when someone comments on or likes your post.
+ - A more detailed account page that users can search each other.
 
 ## Technologies used.
 
