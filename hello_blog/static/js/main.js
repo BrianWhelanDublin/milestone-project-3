@@ -7,7 +7,7 @@ window.onpageshow = function (event) {
 
 
 
-window.onpageshow = () => {
+window.onload = () => {
     document.body.classList.remove("preload")
     const transitionEl = document.querySelector(".transition")
     const anchors = document.querySelectorAll("a")
