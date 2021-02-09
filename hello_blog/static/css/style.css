@@ -536,7 +536,12 @@ button:focus {
     font-size: 1.25rem;
     color: black;
 }
-
+.no-posts{
+    width:100%;
+    text-align:center;
+    font-size: 2rem;
+    color: #f02937;
+}
 /* ----------------- Single Post Page */
 
 .post-col {
