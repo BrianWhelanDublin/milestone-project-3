@@ -248,3 +248,116 @@
 
   - As a site owner, I want the ability to delete any post regardless to who has written them, eg they are offensive etc.
     - the application has been coded that if the current user is admin then it will show all the update delete buttons throughout the site.
+
+## Test and bugs during development.
+
+- During development I used Gitpod to code the site and used the command python3 app.py to run the website on the server to see the changes I had made.
+
+- I then used the browser development tools to check the page across different screen sizes and also to change elements to see what worked and doesn't.
+
+- During the development several issues or bugs appeared that I had to deal with.
+
+- ### Css transitions running upon page opening.
+  
+  - I also had this issue with my milestone 2 projects.
+  - During the development I started to notice that every time I refreshed the page the CSS transitions would run.
+  - I researched the problem and found it was a common enough bug.
+  - One suggestion was to place a script tag containing a space.
+    ie `<script> </script>` but I found if the code was formatted it would get rid of the space creating the problem again.
+  - I then found a solution on stack overflow (details in credits section), of adding a preload class to the body element and then removing it upon page load.
+    - ```HTML
+      <body class="preload"></body>
+      ```
+    - ```css
+      .preload * {
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -ms-transition: none !important;
+        -o-transition: none !important;
+      }
+      ```
+    - ```javascript
+      window.onload = () => document.body.classList.remove("preload");
+
+ - ### Mongoengine
+  - I had a few issues with Mongoengine's interactions with the database.
+  - I followed the Mongoengine documentation to sort these.
+  - To use the first_or_404 method I had to add the queryset_class: BaseQuerySet to my meta tag in each model.
+  - To use the query function I had to add the indexes into this meta tag for the post model.
+  
+- ### Flask-Wtf forms
+  - I had an issue using materialize input counter with flask forms as I needed to place another attribute into the form input.
+  - I used the flask-wtf documentation and found that if I placed 
+  render_kw={"data-length": "150"} into my form class it would add the attribute to it.
+
+- ### Cache
+  - I had two issues with the cache.
+  - Firstly safari would load the website from a cache file if the user pressed the back button. 
+  - This meant that my javascript code to fade in elements wasn't working.
+  - I found the following code on stack overflow 
+    - [Prevent Safari Cache](https://stackoverflow.com/questions/8788802/prevent-safari-loading-from-cache-when-back-button-is-clicked)
+
+    - I placed the code into my javascript
+      ``` javascript
+           window.onpageshow = function (event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+          };
+
+      ```
+  
+   - I also had an issue where if a user logged out and then hit the back button the app would show the previous page as if the user was still logged in. 
+   - I found the following on stack overflow which helped with this issue.
+     - [Flask back button](https://stackoverflow.com/questions/20652784/flask-back-button-returns-to-session-even-after-logout)
+
+      - I placed the code into my view files.
+
+      ``` python
+         @app.after_request
+         def after_request(response):
+            response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+            return response
+      ```
+    
+  
+## Defensive programming and Security.
+
+  - ### Security
+
+  - #### Environmental variables
+    - For security reasons I have followed standard practices and used os to declare the environmental variables in an env.py file.
+    - This file is then referenced in the gitignore file so it won't be saved to gitpod.
+    - In doing this it means that sensitive information such as passwords and secret keys aren't put in a public place.
+    - To deploy on Heroku these environmental variables are also placed into the settings, config variables section.
+    
+   - #### Users passwords.
+     - I have used flask bycrypt to hash the user's passwords before they are stored in the database.
+     - This means that if the database was to ever be hacked the user's password won't be visible. 
+
+- ### Logging in
+  - I have used flask-login @login_required to make sure that a user that isn't logged in cannot gain access to a page they need to be logged in for. 
+  - If they put the url into the browser for a page that they need to be logged in for they will be directed to the logged-in page.
+  - I have tested this by typing the relevant URLs into the browser while being logged out and each time I was directed to the log in page.
+
+- ### Defensive Programming.
+  - I have placed code to check the database for usernames and emails upon the signup process. This will allow emails and usernames to be unique.
+
+  - To test this I have tried to sign up with a username and email already registered and I have received a warning.
+   
+   
+  - I have used code in my project to make sure actions cannot occur by placing URLs into the browser. 
+
+  - I have also placed code that checks if posts and users details are equal to the current user's id and if not update and delete buttons will not be shown to them.
+
+  - If for instance the user types in the url to delete a post the application has been programmed to throw a 403 error. 
+
+  - I have also placed a confirmation modal to check if a user is sure they want to delete a post or their details. This contains a simple form with the action set to a delete function, and this deletion process will only happen once this form is submitted, ie if the request.method == "POST". I then placed the code that when the request.method == "GET" throw a 403 error so if a user tries to place this URL into the browser they will receive an error.
+  
+  - I have typed these URLs into the browser to test this functionality and I have received the 403 errors.
+
+
+  
+
+  
+    
