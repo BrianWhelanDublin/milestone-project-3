@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, flash
+from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import current_user
 from hello_blog.models import Post
 from hello_blog.main.main_forms import ContactForm
@@ -31,6 +31,10 @@ def about():
 @main.route("/contact", methods=["GET", "POST"])
 def contact():
     form = ContactForm()
+    if request.method == "GET":
+        # prefills users email if they are logged in
+        if current_user.is_authenticated:
+            form.email.data = current_user.email
     if form.validate_on_submit():
         msg = Message("Contact",
                       sender=form.name.data,
