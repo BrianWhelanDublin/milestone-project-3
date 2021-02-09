@@ -29,9 +29,9 @@
 - New Visitor
 
   - As a new user, I would like to know what the website is about upon opening the site.
-  - As a new user,I would like to get information about the website.
+  - As a new user, I would like to get information about the website.
   - As a new user, I would like to see some posts on the site.
-  - As a new user, I would like to easily register as a new user.
+  - As a new user, I would like to easily register for the site.
   - As a new user, I would like to add a bio and an image to my user account..
   - As a new user, I would like to add a new post to the blog.
 
@@ -41,20 +41,20 @@
   - As a repeat user, I would like to be able to like posts.
   - As a repeat user, I would like to be able to comment on posts.
   - As a repeat user, I would like to edit and delete my posts.
-  - As a repeat user, I would like to be able edit and delete my account.
+  - As a repeat user, I would like to be able to edit and delete my account.
 
 -  All users.
 
-   - As a user, I would like to get feedback when I have completed an action on    the site.
-   - As a user, I would like to be able to contact the website owners if there     is an issue.
+   - As a user, I would like to get feedback when I have completed an action on the site.
+   - As a user, I would like to be able to contact the website owners if there is an issue.
 
 - Website owner
 
   - As the owner, I want the user to be able to find information easily.
-  - As the owner, I want the user to be able to sign up or login easily.
-  - As the owner, I only want users who have signed up and loged in to see the full post page.
-  - As a site owner, I only want the user to be able to delete their own posts, or comments.
-  - As a site owner, I want to be able to see how many user there are and how many posts.
+  - As the owner, I want the user to be able to sign up or log in easily.
+  - As the owner, I only want users who have signed up and logged in to see the full post page.
+  - As a site owner, I only want the user to be able to delete their own posts or comments.
+  - As a site owner, I want to be able to see how many users there are and how many posts.
   - As a site owner, I want the ability to delete any post regardless to who has written them, eg they are offensive etc.
 
 ### WireFrames
@@ -134,9 +134,21 @@
 
 #### Colour Scheme
 
+#### Colour Scheme
 
+- I've created a light theme for this website using a stone background colour named cultured. My text is in black to contrast against the lighter background. I have used a bold Imperial red colour for the navigation background and button hovers to give the site a pop of colour.
+
+  - <p align="center"><img src="readme-images/design/colors.png" alt="Image of colour scheme" height="200px" width="350px"/></p>
 
 #### Typography
+
+- I've used one font in different weights for headings and text element across the site to create a uniform theme throughout all the text.
+  I've imported the Syne font to my CSS stylesheet from Google Fonts.
+  I used sans-serif as a fall-back font in the case for any reason my fonts were not imported.
+  
+  - <p align="center"><img src="readme-images/design/fonts.png" alt="Image of google font" height="200px" width="300px"/></p>
+
+
 
 
 ## Features
@@ -478,7 +490,7 @@ In the future, it would be nice to implement some other features.
 
 - #### Testing.
   - The testing section for this site is located at the following link.
-    - [Testing file](testing.md)
+    - [Testing file](TESTING.md)
 
 ## Deployment
 
@@ -601,7 +613,7 @@ In the future, it would be nice to implement some other features.
           <img src="readme-images/heroku/deploy_branch.png" alt="Image of new app button" width="640px" height="180px" />
        </div>
 
-  15. Heroku will now build and deploy your application. It will also automatically udpate it everytime you add a commit to your github repository.
+  15. Heroku will now build and deploy your application. It will also automatically update it everytime you add a commit to your github repository.
 
 ## Credits
 
