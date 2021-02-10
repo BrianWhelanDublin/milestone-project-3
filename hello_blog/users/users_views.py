@@ -87,6 +87,8 @@ def after_request(response):
 @users.route("/account/<username>")
 @login_required
 def account(username):
+    if current_user.username != username:
+        abort(403)
     form = DeleteAccountForm()
     user = User.objects(username=username).first_or_404()
     return render_template("users/account.html",
