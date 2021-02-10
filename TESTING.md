@@ -514,7 +514,7 @@
       
       - I then deleted the comment.
 
-        - <div float="left">
+         - <div float="left">
              <img src="readme-images/testing/posts/deleted-comment.png" alt="Image of deleted comment" width="400px" height="280px" />
          </div>
 
@@ -541,6 +541,6 @@
      
      - I also tried to delete another users post through the URL and I received an error
 
-      - <div float="left">
-          <img src="readme-images/testing/posts/delete-url-error.png" alt="Image of another users comment" width="400px" height="280px" />
+        - <div float="left">
+            <img src="readme-images/testing/posts/delete-url-error.png" alt="Image of another users comment" width="400px" height="280px" />
         </div>
