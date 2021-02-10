@@ -515,8 +515,8 @@
       - I then deleted the comment.
 
          - <div float="left">
-             <img src="readme-images/testing/posts/deleted-comment.png" alt="Image of deleted comment" width="400px" height="280px" />
-         </div>
+              <img src="readme-images/testing/posts/deleted-comment.png" alt="Image of deleted comment" width="400px" height="280px" />
+          </div>
 
      - I also checked to see other users comments to confirm the update and delete buttons don't render for me.
 
