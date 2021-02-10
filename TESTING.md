@@ -357,7 +357,84 @@
   - I have typed these URLs into the browser to test this functionality and I have received the 403 errors.
 
 
-  
 
+  ## Manual Testing
+
+  - ### Procedure and results.
+    
+    - To test the functionality of the site I have brought a test user through the complete user journey of the application.
+    - In doing so I have tested the forms and their validation.
+    - All the CRUD fuctionality for each section.
+
+    - #### User functionality
+
+    - ##### Signup and login, Create.
+
+        - I have navigated to the signup page from the main landing page.
+        - I then tried submit an empty form and recieved feedback to say the fields were required.
+
+            - <div float="left">
+                <img src="readme-images/testing/users/signup-blank.png" alt="Image of blank signup error" width="450px" height="280px" />
+            </div>
+
+        - I then tried submit the form with characters I knew would fail such as just a name for the email and unmatching passwords.
+
+            - <div float="left">
+                <img src="readme-images/testing/users/wrong-inputs-signup.png" alt="Image of signup with incorrect details error" width="450px" height="300px" />
+            </div>
+
+        - I then signed up as test-user.
+            
+            - <div float="left">
+                <img src="readme-images/testing/users/signedup-msg.png" alt="Image of successful signup message" width="500px" height="180px" />
+            </div>
+
+        - I then tried to resignup with the same details.
+
+            - <div float="left">
+                <img src="readme-images/testing/users/signup-repeat-user.png" alt="Image of trying to sign up again with the same details" width="450px" height="400px" />
+            </div>
+
+        - I then tried to login with the wrong details.
+
+            - <div float="left">
+                <img src="readme-images/testing/users/unsucsessful-login.png" alt="Image of invalid login" width="500px" height="180px" />
+            </div>
+        
+        - Then I logged in with the correct details
+
+        - <div float="left">
+             <img src="readme-images/testing/users/succesful-login.png" alt="Image of invalid login" width="500px" height="180px" />
+            </div>
+
+    - ##### User Account, Read and Update.
+
+      - I then navigated to the test-users account to test if the users information had been rendered to the page.
+
+      - <div float="left">
+            <img src="readme-images/testing/users/account.png" alt="Image of users account" width="500px" height="400px" />
+        </div>
+      
+      - I then tried to accsess another users account by entering their username into the url and recieved a 403 error.
+
+      - <div float="left">
+             <img src="readme-images/testing/users/otheruser-account.png" alt="Image of invalid login" width="500px" height="180px" />
+         </div>
+     
+       - I then navigated to the update user account form and updated the users details including their bio and picture.
+
+      - <div float="left">
+             <img src="readme-images/testing/users/update-account-form.png" alt="Image of invalid login" width="500px" height="380px" />
+         </div>
+
+      - I then tested changing the email and username also and then checked that everything in the account had been updated.
+
+         - <div float="left">
+             <img src="readme-images/testing/users/updated-account.png" alt="Image of invalid login" width="500px" height="480px" />
+         </div>
+      
+      - I then logged out and tested logging in with the old test-user username which resulted in an error and then the new test-user-updated username which signed in succesfully.
+
+      - I will then test the delete functionality after I have tested all the other user functionality with the test-user.
   
     
