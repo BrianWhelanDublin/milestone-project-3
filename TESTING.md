@@ -512,7 +512,7 @@
              <img src="readme-images/testing/posts/updated-comment.png" alt="Image of updated comment" width="400px" height="280px" />
          </div>
       
-      - I then deleted the comment.
+     - I then deleted the comment.
 
          - <div float="left">
               <img src="readme-images/testing/posts/deleted-comment.png" alt="Image of deleted comment" width="400px" height="280px" />
