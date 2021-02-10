@@ -319,7 +319,10 @@
             response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
             return response
       ```
-    
+
+ - ### Delete comment modal.
+   
+   - I had an issue with adding a confirmation modal for deleting a comment. When the modal was called it was interfering with the deleted post modal. I felt that creating a new route to delete a comment was a bit much. I decided that deleting a comment without confirmation was ok as it was more important to have that functionality for the delete post.
   
 ## Defensive programming and Security.
 
@@ -542,5 +545,5 @@
      - I also tried to delete another users post through the URL and I received an error
 
         - <div float="left">
-            <img src="readme-images/testing/posts/delete-url-error.png" alt="Image of another users comment" width="400px" height="280px" />
+            <img src="readme-images/testing/posts/delete-url-error.png" alt="Image of another users comment" width="500px" height="280px" />
         </div>
