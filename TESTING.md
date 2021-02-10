@@ -437,7 +437,7 @@
 
       - I will then test the delete functionality after I have tested all the other user functionality with the test-user.
 
-    - #### Post, Comments, and Like Functionality Create, Read, Update, Delete.
+   - #### Post, Comments, and Like Functionality Create, Read, Update, Delete.
 
      - ##### Create post 
       
@@ -459,3 +459,88 @@
          - <div float="left">
              <img src="readme-images/testing/posts/new-post.png" alt="Image of new post form" width="520px" height="380px" />
          </div>
+
+    - I also then checked a post by another user to see if the buttons have not been rendered for me.
+    
+       - <div float="left">
+           <img src="readme-images/testing/posts/other-user-post.png" alt="Another users post" width="520px" height="380px" />
+         </div>
+    
+    - Finally, I checked to see if an error occurs when I try to add an update to another users post in the URL.
+        
+        - <div float="left">
+             <img src="readme-images/testing/posts/update-post-url.png" alt="Image of update post error" width="520px" height="180px" />
+         </div>
+
+   - ##### Updating Posts. 
+      
+      - To update the post I clicked on the update post button and then fill out the form.
+
+        - <div float="left">
+             <img src="readme-images/testing/posts/update-post-form.png" alt="Image of update post form" width="520px" height="380px" />
+         </div>
+
+      - I then checked to see if the post had been updated.
+        
+         - <div float="left">
+             <img src="readme-images/testing/posts/updated-post.png" alt="Image of updated post" width="520px" height="380px" />
+         </div>
+
+    - ##### Like function
+     
+      - I then liked the post to test the like functionality.
+        
+         - <div float="left">
+             <img src="readme-images/testing/posts/liked-post.png" alt="Image of liked post" width="520px" height="480px" />
+         </div>
+
+    - ##### Comments function.
+
+      - I then commented on the post to test the posts comment functionality.
+
+      - <div float="left">
+             <img src="readme-images/testing/posts/add-comment.png" alt="Image of new comment" width="400px" height="280px" />
+         </div>
+
+     - I then updated the comment.
+
+         - <div float="left">
+             <img src="readme-images/testing/posts/update-comment.png" alt="Image of update comment" width="400px" height="280px" />
+         </div>
+
+         - <div float="left">
+             <img src="readme-images/testing/posts/updated-comment.png" alt="Image of updated comment" width="400px" height="280px" />
+         </div>
+      
+      - I then deleted the comment.
+
+        - <div float="left">
+             <img src="readme-images/testing/posts/deleted-comment.png" alt="Image of deleted comment" width="400px" height="280px" />
+         </div>
+
+     - I also checked to see other users comments to confirm the update and delete buttons don't render for me.
+
+       - <div float="left">
+             <img src="readme-images/testing/posts/other-user-comment.png" alt="Image of another users comment" width="400px" height="280px" />
+         </div>
+
+    
+    - ##### Delete post
+
+      - Once I had completed all tests on the post I then clicked on the delete post button which shows a confirmation modal.
+
+        - <div float="left">
+             <img src="readme-images/testing/posts/delete-modal.png" alt="Image of delete modal" width="500px" height="180px" />
+         </div>
+
+    - I then deleted the post and checked it had been deleted from the recent posts page.
+
+       - <div float="left">
+             <img src="readme-images/testing/posts/posts-deleted.png" alt="Image of another users comment" width="400px" height="280px" />
+         </div>
+     
+     - I also tried to delete another users post through the URL and I received an error
+
+      - <div float="left">
+          <img src="readme-images/testing/posts/delete-url-error.png" alt="Image of another users comment" width="400px" height="280px" />
+        </div>
