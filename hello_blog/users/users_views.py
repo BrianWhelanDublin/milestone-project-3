@@ -138,7 +138,7 @@ def delete_account(username):
         comments = Comment.objects(comment_author=user)
         user.delete()
         posts.delete()
-        comments.delets()
+        comments.delete()
         flash("Account deleted successfully", "success")
         return redirect(url_for("main.home"))
     # if the users types this route into the url it will
