@@ -34,6 +34,7 @@ def contact():
     if request.method == "GET":
         # prefills users email if they are logged in
         if current_user.is_authenticated:
+            form.name.data = current_user.username
             form.email.data = current_user.email
     if form.validate_on_submit():
         msg = Message("Contact",
