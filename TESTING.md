@@ -597,8 +597,8 @@
             <img src="readme-images/testing/search/no-category-posts.png" alt="Image of no posts in category" width="500px" height="280px" />
         </div>
 
-    - #### Testing admin category function
-        - To test the admin user function I firstly tested that all delete and update buttons are loading for them and they were across all posts and comments. 
+  - #### Testing admin category function
+        - To test the admin user function I first tested that all delete and update buttons are loading for them and they were across all posts and comments. 
 
         - I then added a test category.
         - I then add a post under this new category.
@@ -624,7 +624,28 @@
         - <div float="left">
             <img src="readme-images/testing/admin/category-deleted.png" alt="Image of deleted category" width="500px" height="280px" />
         </div>
+  
+   - Once I had all the tests complete I the deleted the test-user.
+     - Firstly I added two posts by the user and a comment to test that they are deleted too when the user's account is deleted.
 
+     - <div float="left">
+        <img src="readme-images/testing/users/users-test-post.png" alt="Image users test posts" width="500px" height="280px" />
+        </div>
+
+    - I then clicked the delete button in the test-users account
+    - I then clicked the delete button in the modal.
+      - <div float="left">
+        <img src="readme-images/testing/users/delete-acc-modal.png" alt="Image of deleted category" width="500px" height="240px" />
+        </div>
+    
+    - I was then directed to the main landing page.
+    - I signed in as another user and checked for the test users posts and comments and they had been deleted.
+      - <div float="left">
+        <img src="readme-images/testing/users/posts-deleted.png" alt="Image of deleted category" width="500px" height="280px" />
+        </div>
+
+
+   - I complete these steps for several other users too. This helped me test the page but also populate it with data for submission. I haven't deleted these users as I wanted to present an application that contained data.
 
 
 

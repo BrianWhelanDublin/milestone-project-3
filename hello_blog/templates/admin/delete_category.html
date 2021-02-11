@@ -13,11 +13,12 @@
       </div>
     
 
-        <form method="POST" action="" class="col s12 ">
+        <form method="POST" class="col s12 ">
             <!-- this hidden tag is used by Flask-Wtf for CSRF protection and is needed for each form -->
             {{ form.hidden_tag() }}
             <a href="{{ url_for('admin.dashboard') }}" class="submit btn">Cancel</a>
             {% include "base/_submit.html" %}
         </form>
+    </div>
     </div>
     {% endblock %}

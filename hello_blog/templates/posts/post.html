@@ -40,7 +40,7 @@
                 {% endif %}
                 <i class="lar la-heart liked liked-text " aria-hidden="true"></i></p>
             {% else %}
-            <form type="POST" action="{{ url_for('posts.liked_post', post_id=post.id) }}">
+            <form method="POST" action="{{ url_for('posts.liked_post', post_id=post.id) }}">
                 <button type="submit" class=" btn post-btn liked-text">
                     Like<i class="las liked-text la-thumbs-up" aria-hidden="true"></i>
                 </button>
@@ -73,7 +73,7 @@
             {% endif %}
             {% endif %}
             <!-- add comment -->
-            <form method="POST" action="" class="col post-col comment-form ">
+            <form method="POST"  class="col post-col comment-form ">
                 {{ comment_form.hidden_tag() }}
                 {{ display_input(comment_form.comment ,for="comment") }}
                 <div class="input-field col ">
