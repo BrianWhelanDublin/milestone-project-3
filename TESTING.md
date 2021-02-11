@@ -583,20 +583,50 @@
             <img src="readme-images/testing/search/search-result.png" alt="Image of another users comment" width="500px" height="220px" />
         </div>
     
-    - I then searched for somthing I knew would'nt return any results.
+    - I then searched for something I knew wouldn't return any results.
        - <div float="left">
             <img src="readme-images/testing/search/no-results.png" alt="Image no search results" width="500px" height="200px" />
         </div>
 
-    - I then did the sam for the category sections, and the users post section.
+    - I then did the same for the category sections, and the users post section.
        - <div float="left">
             <img src="readme-images/testing/search/category-posts.png" alt="Image of posts by category" width="500px" height="280px" />
         </div>
 
        - <div float="left">
-            <img src="readme-images/testing/search/no-category-posts.png" alt="Image of another users comment" width="500px" height="280px" />
+            <img src="readme-images/testing/search/no-category-posts.png" alt="Image of no posts in category" width="500px" height="280px" />
         </div>
-    
+
+    - #### Testing admin category function
+        - To test the admin user function I firstly tested that all delete and update buttons are loading for them and they were across all posts and comments. 
+
+        - I then added a test category.
+        - I then add a post under this new category.
+
+         - <div float="left">
+            <img src="readme-images/testing/admin/test-category-posts.png" alt="Image of post in test category" width="500px" height="280px" />
+        </div>
+
+        - I then updated the category.
+
+           - <div float="left">
+            <img src="readme-images/testing/admin/update_category.png" alt="Image of post in updated test category" width="500px" height="280px" />
+         </div>
+
+         - I then deleted the post.
+
+         - <div float="left">
+            <img src="readme-images/testing/admin/delete-category-warning.png" alt="Image of delete category warning" width="500px" height="280px" />
+         </div>
+
+        - Category and post had been deleted.
+
+        - <div float="left">
+            <img src="readme-images/testing/admin/category-deleted.png" alt="Image of deleted category" width="500px" height="280px" />
+        </div>
+
+
+
 
 
 
