@@ -251,7 +251,7 @@ def search():
     # if no posts are found in search it redirects to current page and
     # flashes a message
     if not posts.items:
-        flash("No results Found. Please search again")
+        flash("No results Found. Please search again", "errors")
         return redirect(request.referrer)
     return render_template("posts/search_results.html",
                            title="Search Results",

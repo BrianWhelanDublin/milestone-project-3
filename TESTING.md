@@ -573,7 +573,31 @@
      - Then I signed in as the test user to test if the form was prefilled.
      - Once I navigated to the contact form I was greeted with the form prefilled with my username and my email.
        - <div float="left">
-            <img src="readme-images/testing/contact/prefilled-form.png" alt="Image of another users comment" width="500px" height="280px" />
+            <img src="readme-images/testing/contact/prefilled-form.png" alt="Image prefilled contact form" width="500px" height="280px" />
+        </div>
+
+  - #### Testing the search function.
+
+    - To test the search I searched for content I knew I would find results for.
+         - <div float="left">
+            <img src="readme-images/testing/search/search-result.png" alt="Image of another users comment" width="500px" height="220px" />
         </div>
     
+    - I then searched for somthing I knew would'nt return any results.
+       - <div float="left">
+            <img src="readme-images/testing/search/no-results.png" alt="Image no search results" width="500px" height="200px" />
+        </div>
+
+    - I then did the sam for the category sections, and the users post section.
+       - <div float="left">
+            <img src="readme-images/testing/search/category-posts.png" alt="Image of posts by category" width="500px" height="280px" />
+        </div>
+
+       - <div float="left">
+            <img src="readme-images/testing/search/no-category-posts.png" alt="Image of another users comment" width="500px" height="280px" />
+        </div>
+    
+
+
+
         
