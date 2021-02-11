@@ -547,3 +547,33 @@
         - <div float="left">
             <img src="readme-images/testing/posts/delete-url-error.png" alt="Image of another users comment" width="500px" height="280px" />
         </div>
+    
+    - #### Contact Form.
+      - I've tested the contact form as both a logged out user and a logged-in user.
+
+      - Logged out user.
+      - I firstly navigated to the form and was shown an empty form to fill in.
+
+        - <div float="left">
+            <img src="readme-images/testing/contact/empty-contact.png" alt="Image of empty contact form" width="500px" height="280px" />
+        </div>
+       
+      - I then filled out the form.
+
+        - <div float="left">
+            <img src="readme-images/testing/contact/filled-form-logged-out.png" alt="Image of filled in form " width="500px" height="280px" />
+        </div>
+      
+      - Once the form was submitted I was redirected to the home page and received a flashed successful image.
+      - I then checked my email and had received the message.
+        - <div float="left">
+            <img src="readme-images/testing/contact/contact-sucess.png" alt="Image of successful contact message" width="500px" height="180px" />
+        </div>
+
+     - Then I signed in as the test user to test if the form was prefilled.
+     - Once I navigated to the contact form I was greeted with the form prefilled with my username and my email.
+       - <div float="left">
+            <img src="readme-images/testing/contact/prefilled-form.png" alt="Image of another users comment" width="500px" height="280px" />
+        </div>
+    
+        
