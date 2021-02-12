@@ -677,6 +677,10 @@ In the future, it would be nice to implement some other features.
 
 - All Text for the website was written by myself.
 
+- Text for the posts has been taken from wikipedia.
+
+- User images have been taken from unsplash.
+
 ### Media
 
 ### Acknowledgements

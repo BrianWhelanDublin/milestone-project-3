@@ -43,6 +43,7 @@
             <form method="POST" action="{{ url_for('posts.liked_post', post_id=post.id) }}">
                 <button type="submit" class=" btn post-btn liked-text">
                     Like<i class="las liked-text la-thumbs-up" aria-hidden="true"></i>
+                    <span class="sr-only">Liked button</span>
                 </button>
             </form>
             {% endif %}
