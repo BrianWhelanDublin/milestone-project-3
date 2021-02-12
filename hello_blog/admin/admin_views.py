@@ -5,12 +5,14 @@ from flask_login import login_required, current_user
 from hello_blog.models import User, Post, Categories
 from hello_blog.admin.admin_forms import (AddCategoryForm,
                                           EditCategoryForm,
-                                          DeleteAccountForm)
+                                          DeleteCategoryForm)
 
 
 admin = Blueprint("admin", __name__)
 
 
+# Displays the admin dashboard and the
+#  amount of users and posts. Also desplays the current categories.
 @admin.route("/dashboard")
 @login_required
 def dashboard():
@@ -26,6 +28,8 @@ def dashboard():
                            categories=categories,)
 
 
+# Display the add category route and adds a category
+# on a valid form submition.
 @admin.route("/add/category", methods=["GET", "POST"])
 @login_required
 def add_category():
@@ -44,6 +48,8 @@ def add_category():
                            form=form)
 
 
+# Displays the edit category route and also prefils the form with current data
+# and updates the data on valid form submit.
 @admin.route("/edit/category/<category_id>", methods=["GET", "POST"])
 @login_required
 def edit_category(category_id):
@@ -63,12 +69,13 @@ def edit_category(category_id):
                            title="Edit Category")
 
 
+#  Deletes the current category and all posts within this category.
 @admin.route("/delete/category/<category_id>", methods=["GET", "POST"])
 @login_required
 def delete_category(category_id):
     if current_user.username != "admin":
         abort(403)
-    form = DeleteAccountForm()
+    form = DeleteCategoryForm()
     if request.method == "POST":
         category = Categories.objects().get_or_404(id=category_id)
         posts = Post.objects(category=category)

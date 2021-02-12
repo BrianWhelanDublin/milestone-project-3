@@ -3,6 +3,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, length
 
 
+# Form to add a category.
 class AddCategoryForm(FlaskForm):
     category_name = StringField("Add Category",
                                 validators=[DataRequired(),
@@ -10,6 +11,7 @@ class AddCategoryForm(FlaskForm):
     submit = SubmitField("Add")
 
 
+# Form to delete the category
 class EditCategoryForm(FlaskForm):
     category_name = StringField("Edit Category",
                                 validators=[DataRequired(),
@@ -17,5 +19,6 @@ class EditCategoryForm(FlaskForm):
     submit = SubmitField("Update")
 
 
-class DeleteAccountForm(FlaskForm):
+# Form to delete category
+class DeleteCategoryForm(FlaskForm):
     submit = SubmitField("Delete")
