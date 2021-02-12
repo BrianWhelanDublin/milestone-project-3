@@ -630,6 +630,8 @@ In the future, it would be nice to implement some other features.
 
     - I used the above code to fix an issue I had that when a user logged out and hit the back button the cache was allowing them to still visit a page they needed to be logged in for.
 
+- #### Code Inspiration
+
 - [Sante](https://github.com/AudreyLL88/MS3__Sante)
 
    - Sante is a project by another code institute student I noticed on the slack, code peer review channel.
@@ -664,6 +666,12 @@ In the future, it would be nice to implement some other features.
 
     - I used the Code Institue task management application to help with this project also.
 
+- #### Webaim
+
+      - [Webaim](https://webaim.org/techniques/css/invisiblecontent/)
+
+    - I used this code from webaim to create a sr-only class as I wasnt using bootstrap.
+    
 
 ### Content
 
