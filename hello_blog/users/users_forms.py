@@ -74,5 +74,6 @@ class UpdateAccount(FlaskForm):
                     Please try another")
 
 
+# form to delete the account
 class DeleteAccountForm(FlaskForm):
     submit = SubmitField("Delete")
