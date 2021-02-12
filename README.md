@@ -630,6 +630,11 @@ In the future, it would be nice to implement some other features.
 
     - I used the above code to fix an issue I had that when a user logged out and hit the back button the cache was allowing them to still visit a page they needed to be logged in for.
 
+- [Sante](https://github.com/AudreyLL88/MS3__Sante)
+
+   - Sante is a project by another code institute student I noticed on the slack, code peer review channel.
+   - I noticed she had a like function which was something I wanted to implement also.
+   - I used her code for the like function as inspiration, and her code helped me understand how to implement this function within my own project.
 
 - ####  Tutorials.
 
@@ -646,6 +651,12 @@ In the future, it would be nice to implement some other features.
       - [Julian nash flask tutorials](https://www.youtube.com/watch?v=BUmUV8YOzgM&list=PLF2JzgCW6-YY_TZCmBrbOpgx5pSNBD0_L)
 
         - I used the above tutorial to again help with my understanding of building a flask application.
+
+     - ##### Tyler pots youtube.
+
+      - [Page transitions]()
+
+        - I used the above tutorial to help place a smooth transition between page changes. I have adapted the code to fit this project.
 
 - #### Code Institute.
 
