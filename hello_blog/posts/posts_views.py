@@ -61,15 +61,18 @@ def add_post():
 @posts.route("/post/<post_id>", methods=["POST", "GET"])
 @login_required
 def post(post_id):
+
     # form for deleting posts and one for adding comments
     delete_form = DeletePostForm()
     comment_form = CommentForm()
     post = Post.objects().get_or_404(id=post_id)
     comments = Comment.objects(post=post)
+
     # finds the amount of likes for the post
     likes = len(post.user_likes)
     is_liked = False
     comments = Comment.objects(post=post)
+
     # if user has liked post is_liked is true
     if current_user.is_authenticated and post in current_user.liked_posts:
         is_liked = True
@@ -182,6 +185,7 @@ def update_comment(post_id, comment_id):
                            is_liked=is_liked)
 
 
+# deletes the comment from the database
 @posts.route("/post/<post_id>/<comment_id>/delete", methods=["GET", "POST"])
 @login_required
 def delete_comment(post_id, comment_id):
@@ -199,14 +203,16 @@ def delete_comment(post_id, comment_id):
 @login_required
 def liked_post(post_id):
     post = Post.objects().get_or_404(id=post_id)
-    # adds liked post to the users liked post array and the user details to the 
+
+    # adds liked post to the users liked post array and the user details to the
     #  posts liked array
+
     if post not in current_user.liked_posts:
         current_user.liked_posts.append(post.id)
         current_user.save()
         post.user_likes.append(current_user.id)
         post.save()
-    flash("post liked")
+    flash("Post liked")
     return redirect(url_for("posts.post", post_id=post.id))
 
 
