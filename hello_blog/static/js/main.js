@@ -6,7 +6,7 @@ window.onpageshow = function (event) {
 };
 
 
-
+// code inspired by tyler potts on youtube details in readme file.
 window.onload = () => {
     document.body.classList.remove("preload")
     const transitionEl = document.querySelector(".transition")

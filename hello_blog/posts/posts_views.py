@@ -199,7 +199,8 @@ def delete_comment(post_id, comment_id):
 
 
 # fuction to like posts
-@posts.route("/liked/<post_id>", methods=["POST"])
+# code inspired by sante project details in readme.
+@posts.route("/liked/<post_id>", methods=["GET", "POST"])
 @login_required
 def liked_post(post_id):
     post = Post.objects().get_or_404(id=post_id)
