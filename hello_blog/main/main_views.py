@@ -32,10 +32,13 @@ def about():
 def contact():
     form = ContactForm()
     if request.method == "GET":
+
         # prefills users email if they are logged in
         if current_user.is_authenticated:
             form.name.data = current_user.username
-            form.email.data = current_user.email
+            form.email.data = current_user.emai
+
+    # Sends an email upon valid form submit
     if form.validate_on_submit():
         msg = Message("Contact",
                       sender=form.name.data,

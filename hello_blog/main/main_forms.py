@@ -4,6 +4,7 @@ from wtforms import (StringField,
 from wtforms.validators import DataRequired, Length, Email
 
 
+# Contact us form
 class ContactForm(FlaskForm):
     name = StringField("Name",
                        validators=[DataRequired(),
