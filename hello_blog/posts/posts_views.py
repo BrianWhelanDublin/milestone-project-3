@@ -74,7 +74,7 @@ def post(post_id):
     comments = Comment.objects(post=post)
 
     # if user has liked post is_liked is true
-    if current_user.is_authenticated and post in current_user.liked_posts:
+    if post in current_user.liked_posts:
         is_liked = True
 
     if comment_form.validate_on_submit():
@@ -161,7 +161,7 @@ def update_comment(post_id, comment_id):
     likes = len(post.user_likes)
     is_liked = False
 
-    if current_user.is_authenticated and post in current_user.liked_posts:
+    if post in current_user.liked_posts:
         is_liked = True
 
     if request.method == "GET":
@@ -199,7 +199,7 @@ def delete_comment(post_id, comment_id):
 
 
 # fuction to like posts
-@posts.route("/liked/<post_id>")
+@posts.route("/liked/<post_id>", methods=["POST"])
 @login_required
 def liked_post(post_id):
     post = Post.objects().get_or_404(id=post_id)
