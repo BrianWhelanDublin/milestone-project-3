@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired, Length
 
 # Post form to add new post
 class PostForm(FlaskForm):
-    category = SelectField("Category", validators=[DataRequired()])
+    category = SelectField("Category")
     title = StringField("Title", validators=[DataRequired(),
                                              Length(min=2, max=50)])
     content = TextAreaField("Post Content", validators=[DataRequired()])
