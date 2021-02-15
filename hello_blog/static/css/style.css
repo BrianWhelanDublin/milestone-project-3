@@ -275,6 +275,7 @@ button:focus {
 
 .page-row {
     height: 45rem;
+    min-height: 30rem;
 }
 
 .page-heading {
@@ -827,7 +828,11 @@ button:focus {
     /* home page */
 
     .title h1 {
-        font-size: 8rem;
+        font-size: 6rem;
+    }
+
+    .page-row {
+        height: calc(100vh - 3rem);
     }
 
     .home-text,
@@ -879,25 +884,22 @@ button:focus {
 
     /* pages */
 
-    .page-row {
-        height: 50rem;
-    }
+
 
     .page-heading h1 {
         font-size: 6rem;
-
     }
 
     .page-content p {
         font-size: 2rem;
-
     }
 
-    /* end */
-
     .navigation-link {
-        font-size: 8vw;
+        font-size: 6vw;
+    }
 
+    .navigation-list {
+        line-height: 3.75rem;
     }
 
     .single-post-row {
@@ -925,10 +927,12 @@ button:focus {
 }
 
 @media(min-width:1400px) {
+    .title h1 {
+        font-size: 7rem;
+    }
 
     .navigation-link {
         font-size: 5vw;
-
     }
 
 }
