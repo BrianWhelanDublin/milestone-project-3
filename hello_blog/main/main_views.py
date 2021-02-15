@@ -36,7 +36,7 @@ def contact():
         # prefills users email if they are logged in
         if current_user.is_authenticated:
             form.name.data = current_user.username
-            form.email.data = current_user.emai
+            form.email.data = current_user.email
 
     # Sends an email upon valid form submit
     if form.validate_on_submit():
