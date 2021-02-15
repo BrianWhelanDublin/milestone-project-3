@@ -1,4 +1,5 @@
 // code from stack overflow to stop safari using the cache
+// code from stack overflow to stop safari using the cache
 window.onpageshow = function (event) {
     if (event.persisted) {
         window.location.reload();
@@ -8,32 +9,33 @@ window.onpageshow = function (event) {
 
 // code inspired by tyler potts on youtube details in readme file.
 window.onload = () => {
-    document.body.classList.remove("preload")
-    const transitionEl = document.querySelector(".transition")
-    const anchors = document.querySelectorAll("a")
-    const fadeElements = document.querySelectorAll(".fade")
+    document.body.classList.remove("preload");
+    const transitionEl = document.querySelector(".transition");
+    const anchors = document.querySelectorAll("a");
+    const fadeElements = document.querySelectorAll(".fade");
     setTimeout(() => {
-        transitionEl.classList.remove("is-active")
-    }, 500)
+        transitionEl.classList.remove("is-active");
+    }, 500);
     setTimeout(() => {
         fadeElements.forEach((fade) => {
-            fade.classList.add("is-active")
-        })
-    }, 500)
+            fade.classList.add("is-active");
+        });
+    }, 500);
 
     anchors.forEach(anchor => {
         anchor.addEventListener("click", e => {
             e.preventDefault();
             let target = e.target.href;
             // console.log(target)
-            transitionEl.classList.add("is-active")
+            transitionEl.classList.add("is-active");
             setTimeout(() => {
                 window.location.href = target;
-            }, 500)
-        })
+            }, 500);
+        });
     });
-}
+};
 
+// code from my milestone 2 project for the navigation menu.
 let menu = document.querySelector(".hamburger");
 let navigation = document.querySelector(".navigation");
 let link = document.querySelectorAll(".navigation-item");
