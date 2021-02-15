@@ -211,7 +211,7 @@ button:focus {
 }
 
 .home-text h4 {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
 }
 
@@ -465,6 +465,7 @@ button:focus {
 
 .card-category-link {
     font-size: 1.25rem;
+    margin-left: 1rem;
 }
 
 .arrow {
@@ -536,12 +537,14 @@ button:focus {
     font-size: 1.25rem;
     color: black;
 }
-.no-posts{
-    width:100%;
-    text-align:center;
+
+.no-posts {
+    width: 100%;
+    text-align: center;
     font-size: 2rem;
     color: #f02937;
 }
+
 /* ----------------- Single Post Page */
 
 .post-col {
@@ -834,6 +837,10 @@ button:focus {
 
     .home-text p {
         font-size: 2rem;
+    }
+
+    .home-text h4 {
+        font-size: 4rem;
     }
 
     .page-title {
