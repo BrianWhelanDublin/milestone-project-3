@@ -2,8 +2,9 @@
 
 ## Milestone Project 3
 
-- This project aims to build a full stack web application using the  python micro framework Flask, Mongdb database, HTML, Css3 and javascript.
+- This project aims to build a full-stack web application using the python micro-framework Flask, MongoDB database, HTML, Css3 and javascript.
 - I have decided to build a social media blogging platform aimed at new developers to share notes on code they have learned with other each other.
+- My application features a posting forum with full CRUD capabilities, a comment feature, a like feature, user signup and loggin, customizable user account, and an admin section.
 
 
 ## Live project
