@@ -702,6 +702,13 @@ In the future, it would be nice to implement some other features.
 
     - I used the above code to fix an issue I had that when a user logged out and hit the back button the cache was allowing them to still visit a page they needed to be logged in for.
 
+-#### Reddit
+
+  - [Reddit code](https://www.reddit.com/r/flask/comments/gtjwbt/two_forms_csrf_token_nonunique_id_chrome_warning/)
+    - I used the above code to help with an issue with the csrf tokens id's.
+
+
+
 - #### Code Inspiration
 
 - [Sante](https://github.com/AudreyLL88/MS3__Sante)

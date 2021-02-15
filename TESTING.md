@@ -597,7 +597,7 @@
             <img src="readme-images/testing/search/no-category-posts.png" alt="Image of no posts in category" width="500px" height="280px" />
         </div>
 
-  - #### Testing admin category function
+   - #### Testing admin category function
         - To test the admin user function I first tested that all delete and update buttons are loading for them and they were across all posts and comments. 
 
         - I then added a test category.
@@ -626,7 +626,7 @@
         </div>
   
    - Once I had all the tests complete I the deleted the test-user.
-     - Firstly I added two posts by the user and a comment to test that they are deleted too when the user's account is deleted.
+     - Firstly I added two posts by the user and comment to test that they are deleted too when the user's account is deleted.
 
      - <div float="left">
         <img src="readme-images/testing/users/users-test-post.png" alt="Image users test posts" width="500px" height="280px" />
@@ -648,7 +648,69 @@
    - I complete these steps for several other users too. This helped me test the page but also populate it with data for submission. I haven't deleted these users as I wanted to present an application that contained data.
 
 
+## Validators
+
+  - #### HTML
+    - I passed my HTML through the validator by right-clicking on the page in the deployed app and selecting the view page source.
+
+     - <div float="left">
+        <img src="readme-images/validators/html/no-error.png" alt="Image of passed validator" width="500px" height="280px" />
+        </div>
+
+    - I received one warning for a heading element in the likes section.
+
+     - <div float="left">
+        <img src="readme-images/validators/html/warning.png" alt="Image of html warning" width="500px" height="280px" />
+        </div>
+  
+  - #### CSS
+
+    - I passed my CSS through the CSS code validator and it has passesd also.
+
+      - <div float="left">
+        <img src="readme-images/validators/css/css-pass.png" alt="Image of css report" width="500px" height="280px" />
+        </div>
+
+  - #### Javascript
+
+     - My javascript was passed thorough jshint. There were two undivined variables in the code but this is code from the materialize documentation to activate the for submit and counter elements.
+
+     - <div float="left">
+        <img src="readme-images/validators/js/jshint.png" alt="Image of jshint" width="500px" height="280px" />
+        </div>
+
+## Responsiveness and Browsers
+
+  - I have tested the site Responsivenessacross Google chrome dev tools. 
+  - I have also used the application across different screen sizes.
+
+  - The app has also been used on different browsers to check its compatibility
+     - Google chrome.
+     - Safari
+     - Opera
+     - Microsoft edge
+     - Firefox.
+
+ ## Accessibility
+
+   - I have used Google lighthouse reporting across the web page to check for accessibility.
+   - It has achieved high percentage across the app.
+   - There is an issue with the text colour of the forms not contrasting enough. This is materialize CSS and the text is dark against a light background. 
+   - Also the select input is showing up on lighthouse that it doesn't have a label. I have followed materialize documentation to place the label after the input otherwise it doesn't appear. There is a label there I just think that lighthouse isn't picking it up.
+     
+     - <div float="left">
+        <img src="readme-images/lighthouse/lighthouse.png" alt="Image of lighthouse report" width="500px" height="180px" />
+        </div>
 
 
+## Known bugs
 
-        
+ - While testing the search function on a rare occasion I have received a 500 error. I was in touch with the student tutor and they informed me this can happen from time to time. I think I was searching too much too quickly and this had then caused a random server error.
+
+  - Select Input responsiveness. As mentioned above I had an issue with the select input and its label. There is a label there but I think that lighthouse isn't noticing it. I have followed all the materialize documentation in placing the input in.
+
+  - Html warnings for headings. I received a warning about headings in my HTML for the likes section. As the like button is fairly self-explanatory I feel it doesn't really need a heading.
+
+  - Delete comment. I had tried to place a modal to double-check the user wants to delete a comment but for some reason, it was interfering with the deleted post modal. I tried to find a solution to no avail. I could have brought the user to another route but I felt that deleting a comment wasn't so big an issue that it needed a new page to double-check. I would rather leave the modal function with the delete post functionality as deleting a post by accident was a much bigger issue
+
+

@@ -15,12 +15,12 @@ window.onload = () => {
     const fadeElements = document.querySelectorAll(".fade");
     setTimeout(() => {
         transitionEl.classList.remove("is-active");
-    }, 500);
+    }, 400);
     setTimeout(() => {
         fadeElements.forEach((fade) => {
             fade.classList.add("is-active");
         });
-    }, 500);
+    }, 400);
 
     anchors.forEach(anchor => {
         anchor.addEventListener("click", e => {
@@ -30,7 +30,7 @@ window.onload = () => {
             transitionEl.classList.add("is-active");
             setTimeout(() => {
                 window.location.href = target;
-            }, 500);
+            }, 400);
         });
     });
 };
