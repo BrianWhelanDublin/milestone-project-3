@@ -92,7 +92,6 @@
     <main>
         <!-- Add flashed messages -->
         <div class="main-container container">
-            <section>
                 <div class="row">
                     <div class="col flash-col">
                         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -106,7 +105,6 @@
                         {% endwith %}
                     </div>
                 </div>
-            </section>
             <!-- inserts the content here -->
             <section id="content">
                 {% block content %}{% endblock %}
