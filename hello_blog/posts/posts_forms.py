@@ -15,7 +15,7 @@ class PostForm(FlaskForm):
 
 # Form to delete a post
 class DeletePostForm(FlaskForm):
-    submit = SubmitField("Delete")
+    delete = SubmitField("Delete")
 
 
 # Form to add a comment

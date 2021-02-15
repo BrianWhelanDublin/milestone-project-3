@@ -29,7 +29,7 @@
         </div>
     </section>
     <!-- liked section -->
-    <section id="likes">
+    <section class="likes">
         <div class="likes-col s12 post-col col">
             {% if is_liked == true %}
             <p class="liked-text btn post-btn liked">
@@ -50,7 +50,7 @@
         </div>
     </section>
     <!-- Comments section -->
-    <section id="comments">
+    
         {% if comments %}
         <div class="col post-col s12 comment-section">
             {% if title == "Update Comment" %}
@@ -75,7 +75,7 @@
             {% endif %}
             <!-- add comment -->
             <form method="POST"  class="col post-col comment-form ">
-                {{ comment_form.hidden_tag() }}
+               {{ comment_form.csrf_token(id="comment-csrf")}}
                 {{ display_input(comment_form.comment ,for="comment") }}
                 <div class="input-field col ">
                     <div class="row">
@@ -84,9 +84,8 @@
                 </div>
             </form>
         </div>
-    </section>
-</div>
 
+ 
 <!-- Modal to double check they want to delete post -->
 <div id="deletePostModal" class="modal">
     <div class="modal-content">
@@ -94,12 +93,15 @@
         <p>Are you sure you want to delete your post.</p>
     </div>
     <form method="POST" action="{{ url_for('posts.delete_post', post_id=post.id) }}" class="col s12 ">
-        {{ delete_form.hidden_tag() }}
+       {{ delete_form.csrf_token(id="delete-csrf")}}
         <div class="modal-footer">
             <a href="{{ url_for('posts.post', post_id=post.id) }}"
                 class="modal-close waves-effect waves-green btn submit-modal">Cancel</a>
-            {{ delete_form.submit(class="modal-close waves-effect waves-green btn submit-modal") }}
+            {{ delete_form.delete(class="modal-close waves-effect waves-green btn submit-modal") }}
         </div>
     </form>
 </div>
+
+
+
 {% endblock %}
