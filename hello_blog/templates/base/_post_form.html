@@ -5,9 +5,11 @@
            <!-- using the macro to display each form input -->
            {{ display_input(form.title,for="title") }}
            {{ textarea_input(form.content,for="content") }}
-           <div class=""> {{ form.category.label()}}</div>
+
+        
            <div class="input-field col s12">
                {{ form.category()}}
+               {{ form.category.label()}}
            </div>
            <!-- incldes the submit.html  -->
            {% include "base/_submit.html" %}
