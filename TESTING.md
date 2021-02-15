@@ -1,5 +1,42 @@
 # Testing
 
+- [Testing](#testing)
+    + [User Stories](#user-stories)
+  * [Test and bugs during development.](#test-and-bugs-during-development)
+    + [Css transitions running upon page opening.](#css-transitions-running-upon-page-opening)
+    + [Mongoengine](#mongoengine)
+    + [Flask-Wtf forms](#flask-wtf-forms)
+    + [Cache](#cache)
+    + [Delete comment modal.](#delete-comment-modal)
+      - [csrf tokens](#csrf-tokens)
+  * [Defensive programming and Security.](#defensive-programming-and-security)
+    + [Security](#security)
+      - [Environmental variables](#environmental-variables)
+      - [Users passwords.](#users-passwords)
+    + [Logging in](#logging-in)
+    + [Defensive Programming.](#defensive-programming)
+  * [Manual Testing](#manual-testing)
+    + [Procedure and results.](#procedure-and-results)
+      - [User functionality](#user-functionality)
+        * [Signup and login, Create.](#signup-and-login--create)
+        * [User Account, Read and Update.](#user-account--read-and-update)
+      - [Post, Comments, and Like Functionality Create, Read, Update, Delete.](#post--comments--and-like-functionality-create--read--update--delete)
+        * [Create post](#create-post)
+        * [Updating Posts.](#updating-posts)
+        * [Like function](#like-function)
+        * [Comments function.](#comments-function)
+      - [Testing the search function.](#testing-the-search-function)
+      - [Testing admin category function](#testing-admin-category-function)
+  * [Validators](#validators)
+      - [HTML](#html)
+      - [CSS](#css)
+      - [Javascript](#javascript)
+  * [Responsiveness and Browsers](#responsiveness-and-browsers)
+  * [Accessibility](#accessibility)
+  * [Known bugs](#known-bugs)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 ### User Stories
 
 - New Visitor
@@ -323,6 +360,16 @@
  - ### Delete comment modal.
    
    - I had an issue with adding a confirmation modal for deleting a comment. When the modal was called it was interfering with the deleted post modal. I felt that creating a new route to delete a comment was a bit much. I decided that deleting a comment without confirmation was ok as it was more important to have that functionality for the delete post.
+
+- #### csrf tokens
+  -  When I tried to validate my post page the csrf tokens for the forms were causing an error because they all had the same id. 
+  - I found code on reddit to help with this.
+  - I placed the following code at the top of each form with a unique id.
+    
+     - ``` html
+          {{ form.csrf_token(id = "unique_id") }}
+       ```
+  -[Reddit code](https://www.reddit.com/r/flask/comments/gtjwbt/two_forms_csrf_token_nonunique_id_chrome_warning/)
   
 ## Defensive programming and Security.
 
