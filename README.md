@@ -600,15 +600,21 @@ In the future, it would be nice to implement some other features.
 
   2. Once I completed a section I used git add command to add the changes I had made to the staging area.
 
-     - ![Image of add readme file](readme-images/git/add-readme.png)
+     - ```
+         git add <filename>
+       ```
 
   3. Once the file was staged I the used the git commit command to commit the changes.
 
-     - ![Image of commit readme file](readme-images/git/git-readme-commit.png).
+     - ```
+            git commit -m "commit message"
+       ```
 
   4. Then the changes were pushed to Github using git push command.
 
-     - ![Image of push readme](readme-images/git/git-readme-push.png)
+     - ```
+          git push
+       ```
 
   5. The above steps were used for each stage of development throughout the project.
 
@@ -619,7 +625,7 @@ In the future, it would be nice to implement some other features.
   1. Create a requirements.tx file typing the following command into your terminal. 
 
         ```
-            pip3 freeze --locak > requirements.Text
+            pip3 freeze --local > requirements.txt
         ```
   2. Then create the procfile by typing the following comand into the terminal.
 
