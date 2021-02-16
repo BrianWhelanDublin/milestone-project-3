@@ -649,24 +649,24 @@
 
         - I then added a test category.
         - I then add a post under this new category.
-
-          - <div float="left">
-            <img src="readme-images/testing/admin/test-category-posts.png" alt="Image of post in test category" width="500px" height="280px" />
+        
+        - <div float="left">
+             <img src="readme-images/testing/admin/test-category-posts.png" alt="Image of post in test category" width="500px" height="280px" />
           </div>
 
         - I then updated the category.
-
-           - <div float="left">
+        
+        - <div float="left">
                <img src="readme-images/testing/admin/update_category.png" alt="Image of post in updated test category" width="500px" height="280px" />
-              </div>
+           </div>
 
-        - I then deleted the post.
+        - I then deleted the category.
 
-          - <div float="left">
+        - <div float="left">
               <img src="readme-images/testing/admin/delete-category-warning.png" alt="Image of delete category warning" width="500px" height="280px" />
            </div>
 
-        - Category and post had been deleted.
+    - Category and post had been deleted.
 
         - <div float="left">
             <img src="readme-images/testing/admin/category-deleted.png" alt="Image of deleted category" width="500px" height="280px" />
@@ -706,7 +706,7 @@
 
     - I received one warning for a heading element in the likes section.
 
-     - <div float="left">
+      - <div float="left">
         <img src="readme-images/validators/html/warning.png" alt="Image of html warning" width="500px" height="280px" />
         </div>
   
