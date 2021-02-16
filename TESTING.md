@@ -652,7 +652,7 @@
 
          - <div float="left">
             <img src="readme-images/testing/admin/test-category-posts.png" alt="Image of post in test category" width="500px" height="280px" />
-        </div>
+           </div>
 
         - I then updated the category.
 
