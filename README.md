@@ -754,7 +754,7 @@ In the future, it would be nice to implement some other features.
 
 - #### Webaim
 
-      - [Webaim](https://webaim.org/techniques/css/invisiblecontent/)
+  - [Webaim](https://webaim.org/techniques/css/invisiblecontent/)
 
     - I used this code from webaim to create a sr-only class as I wasnt using bootstrap.
     
