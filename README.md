@@ -630,7 +630,7 @@ In the future, it would be nice to implement some other features.
   2. Then create the procfile by typing the following comand into the terminal.
 
         ``` 
-           echo web: python app.py > procfile
+           echo web: python app.py > Procfile
         ```
   3. Once your procfile has been created make sure there is no blank line at the end of the procfile as it can cause isssues if there is.
 
@@ -682,9 +682,6 @@ In the future, it would be nice to implement some other features.
     
   13. Confirm that both your Procfile and your requirements have been commited and pushed to github.
 
-      - <div float="left">
-          <img src="readme-images/heroku/commit_proc.png" alt="Image of new app button" width="640px" height="180px" />
-       </div>
   
   14. Then enable automatic deploys and then click the deploy branch button.
 
