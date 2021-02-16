@@ -696,6 +696,10 @@ In the future, it would be nice to implement some other features.
 
 ### Code
 
+- #### Milestone 2
+    
+  - I have used code from my milestone 2 project for the interactive navigation menu and for the elements to fade in on load.
+
 - #### Stack Overflow.
 
 - [Flask-login Usermixin](https://stackoverflow.com/questions/54992412/flask-login-usermixin-class-with-a-mongodb)
@@ -723,7 +727,7 @@ In the future, it would be nice to implement some other features.
 
 - ####  Tutorials.
 
-  - I used two main tutorials on youtube to learn to have an interactive navbar and also how to fade elements in upon scrolling. I have used some elements of the code but have edited it to fit this website.
+  - I used a number of tutorials and youtube tutorials to increase my learning of flask better.
 
     - ##### Mega Flask Tutorial.
 
