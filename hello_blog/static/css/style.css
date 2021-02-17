@@ -34,7 +34,6 @@ nav {
     width: 90%;
     display: block;
     margin: 0 auto;
-
 }
 
 .center-verticaly {
@@ -340,7 +339,6 @@ button:focus {
 }
 
 .image-btn span label {
-
     color: black;
 }
 
@@ -390,7 +388,6 @@ button:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .profile-name {
@@ -414,12 +411,11 @@ button:focus {
 
 /* --------------------------Posts */
 .page-title {
-    font-size: 3.5rem;
+    font-size: 3.25rem;
     width: 100%;
     font-weight: 800;
     text-align: center;
     margin-bottom: 2rem;
-
 }
 
 .post-card {
@@ -621,7 +617,6 @@ button:focus {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
 }
 
 .comment {
@@ -776,7 +771,6 @@ button:focus {
 
     .page-heading h1 {
         font-size: 4rem;
-
     }
 
     .page-content {
@@ -785,13 +779,11 @@ button:focus {
 
     .page-content p {
         font-size: 1.5rem;
-
     }
 
     /* end */
     .navigation-link {
         font-size: 10vw;
-
     }
 
     .single-post-row {
@@ -811,7 +803,6 @@ button:focus {
 
     .page-heading h1 {
         font-size: 5rem;
-
     }
 
     .page-title {
@@ -820,7 +811,6 @@ button:focus {
 
     .page-content p {
         font-size: 1.75rem;
-
     }
 }
 
@@ -881,11 +871,7 @@ button:focus {
     .login-container a:hover {
         transform: scale(1.25);
     }
-
     /* pages */
-
-
-
     .page-heading h1 {
         font-size: 6rem;
     }
@@ -934,5 +920,4 @@ button:focus {
     .navigation-link {
         font-size: 5vw;
     }
-
 }
