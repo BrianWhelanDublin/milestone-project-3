@@ -741,6 +741,12 @@ In the future, it would be nice to implement some other features.
 
         - I used the above tutorial to again help with my understanding of building a flask application.
 
+    - ##### Corey Schafer Flask series Youtube.
+
+      - [Corey Schafer flask web series](https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g)
+
+        - I used the above you tube series to help me understand how to implement the blog functionality within my app.
+
      - ##### Tyler pots youtube.
 
       - [Page transitions]()
