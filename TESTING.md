@@ -317,17 +317,20 @@
       window.onload = () => document.body.classList.remove("preload");
 
  - ### Mongoengine
+ 
   - I had a few issues with Mongoengine's interactions with the database.
   - I followed the Mongoengine documentation to sort these.
   - To use the first_or_404 method I had to add the queryset_class: BaseQuerySet to my meta tag in each model.
   - To use the query function I had to add the indexes into this meta tag for the post model.
   
 - ### Flask-Wtf forms
+
   - I had an issue using materialize input counter with flask forms as I needed to place another attribute into the form input.
   - I used the flask-wtf documentation and found that if I placed 
   render_kw={"data-length": "150"} into my form class it would add the attribute to it.
 
 - ### Cache
+
   - I had two issues with the cache.
   - Firstly safari would load the website from a cache file if the user pressed the back button. 
   - This meant that my javascript code to fade in elements wasn't working.
@@ -362,6 +365,7 @@
    - I had an issue with adding a confirmation modal for deleting a comment. When the modal was called it was interfering with the deleted post modal. I felt that creating a new route to delete a comment was a bit much. I decided that deleting a comment without confirmation was ok as it was more important to have that functionality for the delete post.
 
 - #### csrf tokens
+
   -  When I tried to validate my post page the csrf tokens for the forms were causing an error because they all had the same id. 
   - I found code on reddit to help with this.
   - I placed the following code at the top of each form with a unique id.
@@ -370,6 +374,17 @@
           {{ form.csrf_token(id = "unique_id") }}
        ```
   -[Reddit code](https://www.reddit.com/r/flask/comments/gtjwbt/two_forms_csrf_token_nonunique_id_chrome_warning/)
+
+
+- #### Trailing closing div.
+
+   - After my last call with my mentor I decided to run the validation again before I submitted my project.
+   - When I did this I received a warning on the post page that it contained a random closing div which I couldn't understand as this hadn't shown up before.
+   - I then checked my code and all my tags were opened and closed properly.
+   - Through using dev tools I finally realised I had placed a jinja if statement for the comments section before the opening div and the end if inside the div. 
+   - This meant that if a post had no comments it wasn't rendering the opening div but it was rendering the closing div.
+   - This explains why it hadn't appeared the last time as I must have checked a post that contained a comment.
+   - I have moved the if statement inside the div and validated both a post with comments and one without and this has fixed the issue
   
 ## Defensive programming and Security.
 
