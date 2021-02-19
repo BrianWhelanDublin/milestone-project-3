@@ -4,7 +4,7 @@
 
 - This project aims to build a full-stack web application using the python micro-framework Flask, MongoDB database, HTML, Css3 and javascript.
 - I have decided to build a social media blogging platform aimed at new developers to share notes on code they have learned with other each other.
-- My application features a posting forum with full CRUD capabilities, a comment feature, a like feature, user signup and loggin, customizable user account, and an admin section.
+- My application features a posting forum with full CRUD capabilities, a comment feature, a like feature, user signup and log-in, a customizable user account, and an admin section.
 
 
 ## Live project
@@ -145,7 +145,7 @@
 
   #### Database Models
   
-  - My database consists of four collections.
+   - My database consists of four collections.
     - Users
     - Posts
     - Categories
@@ -153,23 +153,23 @@
 
   - Users
     - The Users collection contains information about the user.
-    - It also contains a one to many relationship with the Posts models for the users liked posts.
+    - It also contains a, one to many relationships with the Posts models for the users who liked posts.
 
   - Posts 
     - The Posts model contains the information for each post.
-    - It also contains a relationship with usermodel for the Post author field.
+    - It also contains a relationship with the usermodel for the Post author field.
     - It then contains 2 list fields.
        1. One for the users who have liked the post.
        2. A list of the id for each comment on the post.
     - It also contains a relationship with the category model for each post.
 
   - Categories
-    - The category model contains a category name which and id whivh is then referenced in the posts model.
+    - The category model contains a category name which and id which is then referenced in the posts model.
 
   - Comments.
-    - The comments Model contains each comments content and date.
+    - The comments Model contains each comment's content and date.
     - It then contains a reference to the users id who wrote the post.
-    - It then also contains a reference to the id for the post it belongs too.
+    - It then also contains a reference to the id for the post, it belongs too.
 
 
 
@@ -182,13 +182,13 @@
 
 #### MogoDb
 
-- [MongoDb](https://www.mongodb.com/)
+- [Mongodb](https://www.mongodb.com/)
 
- - MongoDB was used as the project database. 
+ - mongodb was used as the project database. 
   - I followed the following steps to set it up.
     
-    - I signed up to MongoDB and the selected the create a shared cluster option.
-    - I the selected Aws as my cloud provider and then selected my region.
+    - I signed up to Mongodb and selected the create a shared cluster option.
+    - I selected Aws as my cloud provider and then selected my region.
     - Then I selected The M0 cluster tier.
     - I then named my cluster and created it. 
     - Once the cluster was created I clicked on database access and added in the database user details.
@@ -198,7 +198,7 @@
     - Then click on the add IP address.
     - I then allowed access from anywhere.
     - Now we can start to add collections.
-    - I clicked on add my own data and the named my database and collection.
+    - I clicked on add my own data and then named my database and collection.
     - To connect to the database I clicked on the connect button then the connect your application button.
     - Then I copied the Url and placed in within an environmental variable in my app.
     - I then used Flask-Mongoengine to interact with my database from the application.
@@ -229,7 +229,7 @@
 ### Main
 
 
-  - #### Landing page.
+ - #### Landing page.
     - When a user opens the site they are presented with the landing page.
     - It contains a clear title and information about the application.
     - There are also links to signup or login.
@@ -330,7 +330,7 @@
       </div>
 
  - #### Post page.
-    - This page will display each post and their comments and likes.
+    - This page will display each post and its comments and likes.
     
     - <div float="left">
         <img src="readme-images/features/posts/post-page.png" alt="Image of new post page" width="500px" height="260px" />
@@ -366,7 +366,7 @@
   - #### Delete Post.
      - If the user decides to delete the post they will be presented with a modal to confirm this.
      - If the chose to cancel they will be directed back to the post page.
-     - If they click delete the post will then be deleted.
+     - If they click to delete the post will then be deleted.
    
     - <div float="left">
         <img src="readme-images/features/posts/delete-post.png" alt="Image of delete post" width="450px" height="200px" />
@@ -416,7 +416,7 @@
   - I have created an errors blueprint to deal with page errors.
   - I have used the flask app_error handlers to render the error pages.
   - Each page contains a reason for the error and a navigation link to return to the home page. It also has access to the navigation menu.
-  - 404 - not found  error
+  - 404 - not found an error
   - 403 - no permission error
   - 500 - server error.
 
