@@ -1,7 +1,7 @@
 {% from "base/macros.html" import display_input %}
 {% extends "base/base.html" %}
 {% block content %}
-
+<div class="row single-post-row">
     <!-- Post Section -->
     <div id="post">
         <div class="col post-col s12 ">
@@ -27,16 +27,30 @@
             {% endif %}
             <p class="post-content">{{ post.content }}</p>
         </div>
-</div>
+        <div id="deletePostModal" class="modal">
+            <div class="modal-content">
+                <h4>Delete Post</h4>
+                <p>Are you sure you want to delete your post.</p>
+            </div>
+            <form method="POST" action="{{ url_for('posts.delete_post', post_id=post.id) }}" class="col s12 ">
+                {{ delete_form.csrf_token(id="delete-csrf")}}
+                <div class="modal-footer">
+                    <a href="{{ url_for('posts.post', post_id=post.id) }}"
+                        class="modal-close waves-effect waves-green btn submit-modal">Cancel</a>
+                    {{ delete_form.delete(class="modal-close waves-effect waves-green btn submit-modal") }}
+                </div>
+            </form>
+        </div>
+    </div>
     <!-- liked section -->
     <div class="likes">
         <div class="likes-col s12 post-col col">
             {% if is_liked == true %}
             <p class="liked-text btn post-btn liked">
                 {% if likes == 1 %}
-                    {{ likes }} Like
+                {{ likes }} Like
                 {% else%}
-                    {{ likes }} likes
+                {{ likes }} likes
                 {% endif %}
                 <i class="lar la-heart liked liked-text " aria-hidden="true"></i></p>
             {% else %}
@@ -50,56 +64,41 @@
         </div>
     </div>
     <!-- Comments section -->
-    
-       
-        <div class="col post-col s12 comment-section">
-             {% if comments %}
-            {% if title == "Update Comment" %}
-                <h2>Update comment</h2>
+    <div class="col post-col s12 comment-section">
+        {% if comments %}
+        {% if title == "Update Comment" %}
+        <h2>Update comment</h2>
+        {% endif %}
+        {% if title != "Update Comment" %}
+        <h2>Comments</h2>
+        {% for comment in comments %}
+        <div class="comment post-col col ">
+            <p>{{ comment.comment }}</p>
+            <small>Comment By:{{ comment.comment_author.username }}</small>
+            <hr>
+            {% if current_user.id == comment.comment_author.id  or current_user.username == "admin"  %}
+            <a class="post-btn btn"
+                href="{{ url_for('posts.update_comment', post_id=post.id, comment_id=comment.id) }}">Update</a>
+            <a class="post-btn btn"
+                href="{{ url_for('posts.delete_comment', post_id=post.id, comment_id=comment.id) }}">Delete</a>
             {% endif %}
-            {% if title != "Update Comment" %}
-                <h2>Comments</h2>
-            {% for comment in comments %}
-            <div class="comment post-col col ">
-                <p>{{ comment.comment }}</p>
-                    <small>Comment By:{{ comment.comment_author.username }}</small>
-                <hr>
-                {% if current_user.id == comment.comment_author.id  or current_user.username == "admin"  %}
-                <a class="post-btn btn"
-                    href="{{ url_for('posts.update_comment', post_id=post.id, comment_id=comment.id) }}">Update</a>
-                <a class="post-btn btn"
-                    href="{{ url_for('posts.delete_comment', post_id=post.id, comment_id=comment.id) }}">Delete</a>
-                {% endif %}
-            </div>
-             {% endfor %}
-            {% endif %}
-            {% endif %}
-            <!-- add comment -->
-            <form method="POST"  class="col post-col comment-form ">
-               {{ comment_form.csrf_token(id="comment-csrf")}}
-                {{ display_input(comment_form.comment ,for="comment") }}
-                <div class="input-field col ">
-                    <div class="row">
-                        {{ comment_form.submit(class="post-btn btn")}}
-                    </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endif %}
+        <!-- add comment -->
+        <form method="POST" class="col post-col comment-form ">
+            {{ comment_form.csrf_token(id="comment-csrf")}}
+            {{ display_input(comment_form.comment ,for="comment") }}
+            <div class="input-field col ">
+                <div class="row">
+                    {{ comment_form.submit(class="post-btn btn")}}
                 </div>
-            </form>
-        </div>
-        <!-- Modal to double check they want to delete post -->
-
-       <div id="deletePostModal" class="modal">
-    <div class="modal-content">
-        <h4>Delete Post</h4>
-        <p>Are you sure you want to delete your post.</p>
+            </div>
+        </form>
     </div>
-    <form method="POST" action="{{ url_for('posts.delete_post', post_id=post.id) }}" class="col s12 ">
-       {{ delete_form.csrf_token(id="delete-csrf")}}
-        <div class="modal-footer">
-            <a href="{{ url_for('posts.post', post_id=post.id) }}"
-                class="modal-close waves-effect waves-green btn submit-modal">Cancel</a>
-            {{ delete_form.delete(class="modal-close waves-effect waves-green btn submit-modal") }}
-        </div>
-    </form>
+    <!-- Modal to double check they want to delete post -->
+
 </div>
 
 {% endblock %}
