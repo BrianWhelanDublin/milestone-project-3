@@ -94,7 +94,8 @@ def account(username):
     user = User.objects(username=username).first_or_404()
     return render_template("users/account.html",
                            user=user,
-                           form=form)
+                           form=form,
+                           title="Account")
 
 
 # create the route for updating the users account
@@ -124,7 +125,7 @@ def update_account():
         if current_user.bio:
             form.bio.data = current_user.bio
     return render_template("users/update_account.html",
-                           title="account",
+                           title="Update Account",
                            form=form)
 
 
