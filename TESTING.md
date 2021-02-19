@@ -317,7 +317,7 @@
       window.onload = () => document.body.classList.remove("preload");
 
  - ### Mongoengine
- 
+
   - I had a few issues with Mongoengine's interactions with the database.
   - I followed the Mongoengine documentation to sort these.
   - To use the first_or_404 method I had to add the queryset_class: BaseQuerySet to my meta tag in each model.
@@ -720,6 +720,7 @@
         </div>
 
     - I received one warning for a heading element in the likes section.
+    - I've changed this section into a div and it has removed the warning.
 
       - <div float="left">
         <img src="readme-images/validators/html/warning.png" alt="Image of html warning" width="500px" height="280px" />
