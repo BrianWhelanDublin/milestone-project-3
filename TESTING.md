@@ -742,6 +742,14 @@
         <img src="readme-images/validators/js/jshint.png" alt="Image of jshint" width="500px" height="280px" />
         </div>
 
+  - #### Python
+
+     - My python was passed through a pep8 validating tool to validate it and it all passed.
+
+     - <div float="left">
+        <img src="readme-images/validators/python/pep8.png" alt="Image of pep8 results" width="500px" height="380px" />
+        </div>
+
 ## Responsiveness and Browsers
 
   - I have tested the site Responsivenessacross Google chrome dev tools. 

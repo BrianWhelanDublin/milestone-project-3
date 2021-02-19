@@ -113,7 +113,7 @@ def update_post(post_id):
     categories = [(
         cat.category_name) for cat in Categories.objects]
     form.category.choices = categories
-   
+
     #  saves post to the database on form submition
     if form.validate_on_submit():
         category = Categories.objects(
@@ -130,7 +130,7 @@ def update_post(post_id):
         form.title.data = post.title
         form.content.data = post.content
         form.category.data = post.category.category_name
-        
+
     return render_template("posts/update_post.html",
                            title="Update Post",
                            form=form)
