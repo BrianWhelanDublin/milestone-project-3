@@ -53,7 +53,7 @@ def add_post():
         flash("post has been posted successfully", "success")
         return redirect(url_for("posts.all_posts"))
     return render_template("posts/new_post.html",
-                           titile="New Post",
+                           title="New Post",
                            form=form)
 
 
