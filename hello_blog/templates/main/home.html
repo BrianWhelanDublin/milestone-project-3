@@ -40,10 +40,8 @@
     <div class="row home-posts fade">
         <h2>What People are posting about.</h2>
         <div class="col">
-            {% for post in posts %}
-                {% if loop.index < 5 %}
+            {% for post in posts[0:4] %}
                     {% include "base/_post_card.html" %}
-                {% endif %}
             {% endfor %}
         </div>
     </div>
