@@ -1,9 +1,9 @@
 {% from "base/macros.html" import display_input %}
 {% extends "base/base.html" %}
 {% block content %}
-<div class="row single-post-row">
+
     <!-- Post Section -->
-    <section id="post">
+    <div id="post">
         <div class="col post-col s12 ">
             <h1 class="post-title">{{ post.title }}</h1>
             <a class="post-category"
@@ -27,9 +27,9 @@
             {% endif %}
             <p class="post-content">{{ post.content }}</p>
         </div>
-    </section>
+</div>
     <!-- liked section -->
-    <section class="likes">
+    <div class="likes">
         <div class="likes-col s12 post-col col">
             {% if is_liked == true %}
             <p class="liked-text btn post-btn liked">
@@ -48,7 +48,7 @@
             </form>
             {% endif %}
         </div>
-    </section>
+    </div>
     <!-- Comments section -->
     
         {% if comments %}
@@ -84,10 +84,9 @@
                 </div>
             </form>
         </div>
+        <!-- Modal to double check they want to delete post -->
 
- 
-<!-- Modal to double check they want to delete post -->
-<div id="deletePostModal" class="modal">
+       <div id="deletePostModal" class="modal">
     <div class="modal-content">
         <h4>Delete Post</h4>
         <p>Are you sure you want to delete your post.</p>
@@ -101,7 +100,5 @@
         </div>
     </form>
 </div>
-
-
 
 {% endblock %}
