@@ -6,6 +6,8 @@
 - I have decided to build a social media blogging platform aimed at new developers to share notes on code they have learned with other each other.
 - My application features a posting forum with full CRUD capabilities, a comment feature, a like feature, user signup and log-in, a customizable user account, and an admin section.
 
+- For assessor I have included the admin login details in the comments section when submitting the project.
+
 
 ## Live project
 
